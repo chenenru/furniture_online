@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.mapper.TbAdminMapper" >
+  <resultMap id="BaseResultMap" type="com.web.pojo.TbAdmin" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="a_email" property="aEmail" jdbcType="VARCHAR" />
+    <result column="a_pwd" property="aPwd" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, a_email, a_pwd
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_admin
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_admin
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.web.pojo.TbAdmin" >
+    insert into tb_admin (id, a_email, a_pwd
+      )
+    values (#{id,jdbcType=INTEGER}, #{aEmail,jdbcType=VARCHAR}, #{aPwd,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.web.pojo.TbAdmin" >
+    insert into tb_admin
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="aEmail != null" >
+        a_email,
+      </if>
+      <if test="aPwd != null" >
+        a_pwd,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="aEmail != null" >
+        #{aEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="aPwd != null" >
+        #{aPwd,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.web.pojo.TbAdmin" >
+    update tb_admin
+    <set >
+      <if test="aEmail != null" >
+        a_email = #{aEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="aPwd != null" >
+        a_pwd = #{aPwd,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.web.pojo.TbAdmin" >
+    update tb_admin
+    set a_email = #{aEmail,jdbcType=VARCHAR},
+      a_pwd = #{aPwd,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
