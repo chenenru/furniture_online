@@ -38,7 +38,7 @@ public class TestController {
 	public String ToLogin() {
 		System.out.println("----------------------测试html----------------------");
 		service.test();
-		return "login";
+		return "Login";
 	}
 	@RequestMapping("/register")
 	public String ToRegister() {

@@ -1,15 +1,15 @@
 <%@ page language="java" pageEncoding="utf-8" contentType="text/html; charset=utf-8"%>
-<%@taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>会员登录</title>
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/content/css/bootstrap.css">
-        <script type="text/javascript" src="${pageContext.request.contextPath}/content/js/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/content/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/content/css/login.css">
+		<link href="<c:url value='/css'/>/login.css" rel='stylesheet' type='text/css' media="all"/>
+		<link href="<c:url value='/css'/>/bootstrap.css" rel='stylesheet' type='text/css' media="all"/>
+		<script src="<c:url value='/js'/>/jquery-3.3.1.min.js"></script>
+		<script src="<c:url value='/js'/>/bootstrap.min.js"></script>
 		<style>
         </style>
 	</head>
