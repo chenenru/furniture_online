@@ -16,7 +16,6 @@ public class TestController {
 	@Autowired
 	TestService service;
 
-
 	@RequestMapping("/index")
 	public String ToIndex() {
 		System.out.println("----------------------测试----------------------");
@@ -39,7 +38,7 @@ public class TestController {
 	public String ToLogin() {
 		System.out.println("----------------------测试html----------------------");
 		service.test();
-		return "login";
+		return "Login";
 	}
 	@RequestMapping("/register")
 	public String ToRegister() {
