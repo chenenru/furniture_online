@@ -5,7 +5,7 @@ import com.web.pojo.TbClient;
 public interface TbClientMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(TbClient record);
+    boolean insert(TbClient record);
 
     int insertSelective(TbClient record);
 
