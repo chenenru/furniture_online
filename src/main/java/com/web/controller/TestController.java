@@ -16,7 +16,6 @@ public class TestController {
 	@Autowired
 	TestService service;
 
-
 	@RequestMapping("/index")
 	public String ToIndex() {
 		System.out.println("----------------------测试----------------------");
