@@ -18,13 +18,20 @@
 					<div class="fr">
 						<ul><c:if test="42l">
 						<li>欢迎,<jsp:text>${sessionScope.values()}</jsp:text></li>
+						<ul><c:if test="#session.user!=null">
+						<li>欢迎,<c:out value="#session.user"></c:out></li>
 						<li><a href="${pageContext.request.contextPath }/logoutAction">退出</a></li>
 						</c:if>
 							<li><a href="${pageContext.request.contextPath}/Login" target="_blank">登录</a></li>
+						</c:if>
+							<c:if test="#session.user==null">
+							<li><a href="./content/Login.jsp" target="_blank">登录</a></li>
 							<li>|</li>
 							<li><a href="${pageContext.request.contextPath}/Regist" target="_blank" >注册</a></li>
 							<li>|</li>
 							<li><a href="${pageContext.request.contextPath }/Info">个人中心</a></li>
+							</c:if>
+							<li><a href="${pageContext.request.contextPath }/OrderrDetail!QueryCustomer">个人中心</a></li>
 						</ul>
 					</div>
 					<div class="clear"></div>

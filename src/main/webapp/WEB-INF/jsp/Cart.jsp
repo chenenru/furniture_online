@@ -18,12 +18,12 @@
 		</style>
 	</head>
 	<body >
-	<c:if test="${sessionScope.values()} ==null">
-		<jsp:forward page="${pageContext.request.contextPath}/login"></jsp:forward>
+	<c:if test="#session.user==null">
+	<jsp:forward page="/WEB-INF/jsp/Login.jsp"></jsp:forward>
 	</c:if>
 		<div class="container-fluid">
 		<!-- 顶部复用代码块 -->
-	<%@include file="Header.jsp" %>	
+	<%@include file="Header.jsp" %>
 
 
 <!-- start banner_x -->
@@ -45,41 +45,42 @@
 					<div class="sub_top fr">操作</div>
 					<div class="clear"></div>
 				</div>
-				<c:forEach items="products" var="" >
-				<%--<s:iterator value="products" var="p" id="pr">--%>
-
+				<c:forEach items="products" >
 				<div class="content2 center">
 					<div class="sub_content fl ">
 						<input type="checkbox" value="quanxuan" class="quanxuan" />
 					</div>
 					<div class="sub_content fl"></div>
-					<div class="sub_content fl">{{小米6全网通6GB内存+64GB}}<c:param name="productName"/>${ps.productName }</div>
-					<div class="sub_content fl "><s:text name="productSellPrice"></s:text></div>
+					<%--<c:param name="productName"/>${ps.productName }--%>
+					<div class="sub_content fl"><img src="" style="width: 50px; height: 50px;" >{{小米6全网通6GB内存+64GB}}</div>
+					<div class="sub_content fl "><c:out value="productSellPrice"></c:out></div>
 					<div class="sub_content fl">
-						<%--<s:textfield name="productCount" class="shuliang" type="number" value="1" step="1" min="1" style="width: 100px; height:70px;" />--%>
+						<%--<c:out  ="productCount" class="shuliang" type="number" value="1" step="1" min="1" style="width: 100px; height:70px;" />--%>
 					</div>
-					<div class="sub_content fl">10000元<c:param name="productCount"/></div>
-					<div class="sub_content fl"><a href="${pageContext.request.contextPath}/#?id=${pr.id}">x</a></div>
+					<%--<c:param name="productCount"/>--%>
+					<div class="sub_content fl">10000元</div>
+					<div class="sub_content fl"><a href="${pageContext.request.contextPath}/OrderrDetail!QueryCart?id=${pr.id}">x</a></div>
 					<div class="clear"></div>
 				</div>
-				<%--</s:iterator>--%>
 				</c:forEach>
-				<s:if test="products==null">
+				<c:if test="products==null">
 				<div class="content2 center">
 					<div class="sub_content fl ">
 						<input type="checkbox" value="quanxuan" class="quanxuan" />
 					</div>
 					<div class="sub_content fl"></div>
-					<div class="sub_content fl">{{小米6全网通6GB内存+64GB}}<s:property value="productName"/>${ps.productName }</div>
+					<%--<c:param name="productName"/>--%>
+					<div class="sub_content fl">{{小米6全网通6GB内存+64GB}}${ps.productName }</div>
 					<div class="sub_content fl ">{danjia}</div>
 					<div class="sub_content fl">
-						<s:textfield name="productCount" class="shuliang" type="number" value="1" step="1" min="1" style="width: 100px; height:70px;" />
+						<%--<c:textfield name="productCount" class="shuliang" type="number" value="1" step="1" min="1" style="width: 100px; height:70px;" />--%>
 					</div>
-					<div class="sub_content fl">10000元<s:property value="productCount"/></div>
+					<%--<c:param name="productCount"/>--%>
+					<div class="sub_content fl">10000元</div>
 					<div class="sub_content fl"><a href="${pageContext.request.contextPath}/OrderrDetail!QueryCart?id=-1">x</a></div>
 					<div class="clear"></div>
 				</div>
-				</s:if>
+				</c:if>
 			</div>
 			<div class="jiesuandan mt20 center">
 				<div class="tishi fl ml20">

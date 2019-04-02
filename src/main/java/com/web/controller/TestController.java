@@ -52,10 +52,10 @@ public class TestController {
 		service.test();
 		return "single";
 	}
-	/*@RequestMapping("/info")
+	@RequestMapping("/typo")
 	public String ToTypo() {
 		System.out.println("----------------------测试html----------------------");
 		service.test();
-		return "Info";
-	}*/
+		return "typo";
+	}
 }
