@@ -3,9 +3,10 @@ package com.web.mapper;
 import com.web.pojo.TbClient;
 import com.web.pojo.TbClientExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbClientMapper {
     int countByExample(TbClientExample example);
 

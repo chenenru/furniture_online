@@ -3,9 +3,10 @@ package com.web.mapper;
 import com.web.pojo.TbAdmin;
 import com.web.pojo.TbAdminExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbAdminMapper {
     int countByExample(TbAdminExample example);
 

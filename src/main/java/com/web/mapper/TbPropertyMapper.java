@@ -3,9 +3,10 @@ package com.web.mapper;
 import com.web.pojo.TbProperty;
 import com.web.pojo.TbPropertyExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbPropertyMapper {
     int countByExample(TbPropertyExample example);
 

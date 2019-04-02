@@ -19,6 +19,7 @@
 		<druid.version>1.0.9</druid.version>
 		<httpclient.version>4.3.5</httpclient.version>
 		<jstl.version>1.2</jstl.version>
+		<standard.version>1.1.2</standard.version>
 		<servlet-api.version>2.5</servlet-api.version>
 		<jsp-api.version>2.0</jsp-api.version>
 		<joda-time.version>2.5</joda-time.version>
@@ -163,6 +164,12 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/taglibs/standard -->
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>${standard.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -204,6 +211,22 @@
 			<artifactId>quartz</artifactId>
 			<version>${quartz.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -241,6 +264,15 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 
 </project>

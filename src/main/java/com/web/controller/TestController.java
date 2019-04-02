@@ -40,11 +40,11 @@ public class TestController {
 		service.test();
 		return "Login";
 	}
-	@RequestMapping("/register")
+	@RequestMapping("/regist")
 	public String ToRegister() {
 		System.out.println("----------------------测试html----------------------");
 		service.test();
-		return "register";
+		return "Regist";
 	}
 	@RequestMapping("/single")
 	public String ToSingle() {
@@ -52,10 +52,10 @@ public class TestController {
 		service.test();
 		return "single";
 	}
-	@RequestMapping("/typo")
+	/*@RequestMapping("/info")
 	public String ToTypo() {
 		System.out.println("----------------------测试html----------------------");
 		service.test();
-		return "typo";
-	}
+		return "Info";
+	}*/
 }

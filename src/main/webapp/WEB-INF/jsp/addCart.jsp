@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-	<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
-	<script src="../../js/fly.js"></script>
-	<script src="requestAnimationFrame.js"></script>
+	<script type="text/javascript" src="<c:url value='/js'/>/jquery-3.3.1.min.js"></script>
+	<script src="<c:url value='/js'/>/fly.js"></script>
+	<script src="<c:url value='/js'/>requestAnimationFrame.js"></script>
 	
 </head>
 <style type="text/css">
@@ -20,7 +21,7 @@
 .m-sidebar{position: fixed;top: 0;right: 0;background: #000;z-index: 2000;width: 35px;height: 100%;font-size: 12px;color: #fff;} 
 .cart{color: #fff;text-align:center;line-height: 20px;padding: 200px 0 0 0px;} 
 .cart span{display:block;width:20px;margin:0 auto;} 
-.cart i{width:35px;height:35px;display:block; background:url(car.png) no-repeat;} 
+.cart i{width:35px;height:35px;display:block; background:url(<c:url value="/image"/>/car.png) no-repeat;}
 
 
 

@@ -3,9 +3,10 @@ package com.web.mapper;
 import com.web.pojo.TbComment;
 import com.web.pojo.TbCommentExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbCommentMapper {
     int countByExample(TbCommentExample example);
 
