@@ -58,4 +58,27 @@ public class TestController {
 		service.test();
 		return "typo";
 	}
+	@RequestMapping("/contact")
+	public String ToContact() {
+		System.out.println("----------------------测试html----------------------");
+		service.test();
+		return "contact";
+	}
+	@RequestMapping("/OrderDetail")
+	public String ToOrderDetail() {
+		System.out.println("----------------------测试html----------------------");
+		service.test();
+		return "OrderDetail";
+	}
+	@RequestMapping("/Cart")
+	public String ToCart() {
+		System.out.println("----------------------测试html----------------------");
+		service.test();
+		return "Cart";
+	}
+	@RequestMapping("ProductDetail")
+	public String ToProductDetail(){
+		service.test();
+		return "ProductDetail";
+	}
 }

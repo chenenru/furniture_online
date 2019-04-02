@@ -1,16 +1,15 @@
 <%@ page language="java" pageEncoding="utf-8" contentType="text/html; charset=utf-8"%>
-<%@taglib prefix="s" uri="/struts-tags"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>面对疾风商城</title>
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/content/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/content/css/style.css">
-		<script type="text/javascript" src="${pageContext.request.contextPath}/content/js/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/content/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/content/js/index.js"></script>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/index.js"></script>
 		<style type="text/css">
 		.banner_y .nav ul li{
 			width: 300px;
@@ -18,12 +17,12 @@
 		</style>
 	</head>
 	<body >
-	<s:if test="#session.user==null">
-	<jsp:forward page="/content/Login.jsp"></jsp:forward>
-	</s:if>
+	<c:if test="#session.user==null">
+	<jsp:forward page="/WEB-INF/jsp/Login.jsp"></jsp:forward>
+	</c:if>
 		<div class="container-fluid">
 		<!-- 顶部复用代码块 -->
-	<%@include file="Header.jsp" %>	
+	<%@include file="Header.jsp" %>
 
 
 <!-- start banner_x -->
@@ -45,38 +44,42 @@
 					<div class="sub_top fr">操作</div>
 					<div class="clear"></div>
 				</div>
-				<s:iterator value="products" var="p" id="pr">
+				<c:forEach items="products" >
 				<div class="content2 center">
 					<div class="sub_content fl ">
 						<input type="checkbox" value="quanxuan" class="quanxuan" />
 					</div>
 					<div class="sub_content fl"></div>
-					<div class="sub_content fl">{{小米6全网通6GB内存+64GB}}<s:property value="productName"/>${ps.productName }</div>
-					<div class="sub_content fl "><s:text name="productSellPrice"></s:text></div>
+					<%--<c:param name="productName"/>${ps.productName }--%>
+					<div class="sub_content fl"><img src="" style="width: 50px; height: 50px;" >{{小米6全网通6GB内存+64GB}}</div>
+					<div class="sub_content fl "><c:out value="productSellPrice"></c:out></div>
 					<div class="sub_content fl">
-						<s:textfield name="productCount" class="shuliang" type="number" value="1" step="1" min="1" style="width: 100px; height:70px;" />
+						<%--<c:out  ="productCount" class="shuliang" type="number" value="1" step="1" min="1" style="width: 100px; height:70px;" />--%>
 					</div>
-					<div class="sub_content fl">10000元<s:property value="productCount"/></div>
+					<%--<c:param name="productCount"/>--%>
+					<div class="sub_content fl">10000元</div>
 					<div class="sub_content fl"><a href="${pageContext.request.contextPath}/OrderrDetail!QueryCart?id=${pr.id}">x</a></div>
 					<div class="clear"></div>
 				</div>
-				</s:iterator>
-				<s:if test="products==null">
+				</c:forEach>
+				<c:if test="products==null">
 				<div class="content2 center">
 					<div class="sub_content fl ">
 						<input type="checkbox" value="quanxuan" class="quanxuan" />
 					</div>
 					<div class="sub_content fl"></div>
-					<div class="sub_content fl">{{小米6全网通6GB内存+64GB}}<s:property value="productName"/>${ps.productName }</div>
+					<%--<c:param name="productName"/>--%>
+					<div class="sub_content fl">{{小米6全网通6GB内存+64GB}}${ps.productName }</div>
 					<div class="sub_content fl ">{danjia}</div>
 					<div class="sub_content fl">
-						<s:textfield name="productCount" class="shuliang" type="number" value="1" step="1" min="1" style="width: 100px; height:70px;" />
+						<%--<c:textfield name="productCount" class="shuliang" type="number" value="1" step="1" min="1" style="width: 100px; height:70px;" />--%>
 					</div>
-					<div class="sub_content fl">10000元<s:property value="productCount"/></div>
+					<%--<c:param name="productCount"/>--%>
+					<div class="sub_content fl">10000元</div>
 					<div class="sub_content fl"><a href="${pageContext.request.contextPath}/OrderrDetail!QueryCart?id=-1">x</a></div>
 					<div class="clear"></div>
 				</div>
-				</s:if>
+				</c:if>
 			</div>
 			<div class="jiesuandan mt20 center">
 				<div class="tishi fl ml20">

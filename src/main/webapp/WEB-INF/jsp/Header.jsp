@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    <%@taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,16 +16,16 @@
 				<div class="right fr">
 					<div class="gouwuche fr"><a href="${pageContext.request.contextPath }/OrderrDetail!QueryOrderrs">我的订单</a></div>
 					<div class="fr">
-						<ul><s:if test="#session.user!=null">
-						<li>欢迎,<s:text name="#session.user"></s:text></li>
+						<ul><c:if test="#session.user!=null">
+						<li>欢迎,<c:out value="#session.user"></c:out></li>
 						<li><a href="${pageContext.request.contextPath }/logoutAction">退出</a></li>
-						</s:if>
-						<s:else>
+						</c:if>
+							<c:if test="#session.user==null">
 							<li><a href="./content/Login.jsp" target="_blank">登录</a></li>
 							<li>|</li>
 							<li><a href="./content/Regist.jsp" target="_blank" >注册</a></li>
 							<li>|</li>
-							</s:else>
+							</c:if>
 							<li><a href="${pageContext.request.contextPath }/OrderrDetail!QueryCustomer">个人中心</a></li>
 						</ul>
 					</div>
