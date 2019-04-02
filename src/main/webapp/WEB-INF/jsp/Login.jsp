@@ -17,7 +17,7 @@
 		<!-- login -->
 		<div class="top center">
 			<div class="logo center">
-				<a href="../../index.jsp" target="_blank"><img src="../../image/finallogo.jpg" alt=""></a>
+				<a href="../../index.jsp" target="_blank"><img src="<c:url value='/js'/>/finallogo.jpg" alt=""></a>
 			</div>
 		</div>
 		<form  method="post" action="processLogin" class="form center" id="myform">
@@ -62,10 +62,10 @@
 		</form>
 		<footer>
 			<div class="copyright">简体 | 繁体 | English | 常见问题</div>
-			<div class="copyright">小米公司版权所有-京ICP备10046444-<img src="../../image/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号</div>
+			<div class="copyright">小米公司版权所有-京ICP备10046444-<img src="<c:url value='/image'/>/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号</div>
 
 		</footer>
 	</body>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/content/js/drag.js"></script>
+	<script type="text/javascript" src="<c:url value='/js'/>/drag.js"></script>
 	
 </html>

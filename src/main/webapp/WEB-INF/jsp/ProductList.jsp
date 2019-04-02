@@ -27,6 +27,7 @@
 		<div class="danpin center">
 			<div class="biaoti center"><s:text name="productType"/></div>
 			<div class="main center">
+
 			<s:iterator value="products" var="p">
 				<div class="mingxing  mb20" style="border:2px solid #fff;width:230px;cursor:pointer;" onmouseout="this.style.border='2px solid #fff'" onmousemove="this.style.border='2px solid red'">
 					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=${p.id}" target="_blank"><img src='${pageContext.request.contextPath }/${ p.productImage }' alt=""></a></div>
@@ -35,6 +36,7 @@
 					<div class="jiage"><s:property value="productSellPrice"/>.00元</div>
 				</div>
 			</s:iterator>
+
 			</div>
 			<%-- <div class="biaoti center">{鞋子类型}</div>
 			<div class="main center">

@@ -44,7 +44,7 @@ public class TestController {
 	public String ToRegister() {
 		System.out.println("----------------------测试html----------------------");
 		service.test();
-		return "register";
+		return "Regist";
 	}
 	@RequestMapping("/single")
 	public String ToSingle() {
