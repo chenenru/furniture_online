@@ -3,173 +3,123 @@ package com.web.pojo;
 import java.util.Date;
 
 public class TbOrder {
-    private String orderId;
+    private Integer id;
 
-    private String payment;
+    private Integer prId;
 
-    private Integer paymentType;
+    private Integer oNum;
 
-    private String postFee;
+    private Integer oTotal;
 
-    private Integer status;
+    private Integer cId;
 
-    private Date createTime;
+    private Integer oStatus;
 
-    private Date updateTime;
+    private Date oCreate;
 
-    private Date paymentTime;
+    private Date oPay;
 
-    private Date consignTime;
+    private Date oDeliver;
 
-    private Date endTime;
+    private Date oConfirm;
 
-    private Date closeTime;
+    private String oAddress;
 
-    private String shippingName;
+    private String oPhone;
 
-    private String shippingCode;
-
-    private Long userId;
-
-    private String buyerMessage;
-
-    private String buyerNick;
-
-    private Integer buyerRate;
-
-    public String getOrderId() {
-        return orderId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId == null ? null : orderId.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getPayment() {
-        return payment;
+    public Integer getPrId() {
+        return prId;
     }
 
-    public void setPayment(String payment) {
-        this.payment = payment == null ? null : payment.trim();
+    public void setPrId(Integer prId) {
+        this.prId = prId;
     }
 
-    public Integer getPaymentType() {
-        return paymentType;
+    public Integer getoNum() {
+        return oNum;
     }
 
-    public void setPaymentType(Integer paymentType) {
-        this.paymentType = paymentType;
+    public void setoNum(Integer oNum) {
+        this.oNum = oNum;
     }
 
-    public String getPostFee() {
-        return postFee;
+    public Integer getoTotal() {
+        return oTotal;
     }
 
-    public void setPostFee(String postFee) {
-        this.postFee = postFee == null ? null : postFee.trim();
+    public void setoTotal(Integer oTotal) {
+        this.oTotal = oTotal;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getcId() {
+        return cId;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setcId(Integer cId) {
+        this.cId = cId;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Integer getoStatus() {
+        return oStatus;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setoStatus(Integer oStatus) {
+        this.oStatus = oStatus;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getoCreate() {
+        return oCreate;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setoCreate(Date oCreate) {
+        this.oCreate = oCreate;
     }
 
-    public Date getPaymentTime() {
-        return paymentTime;
+    public Date getoPay() {
+        return oPay;
     }
 
-    public void setPaymentTime(Date paymentTime) {
-        this.paymentTime = paymentTime;
+    public void setoPay(Date oPay) {
+        this.oPay = oPay;
     }
 
-    public Date getConsignTime() {
-        return consignTime;
+    public Date getoDeliver() {
+        return oDeliver;
     }
 
-    public void setConsignTime(Date consignTime) {
-        this.consignTime = consignTime;
+    public void setoDeliver(Date oDeliver) {
+        this.oDeliver = oDeliver;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public Date getoConfirm() {
+        return oConfirm;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setoConfirm(Date oConfirm) {
+        this.oConfirm = oConfirm;
     }
 
-    public Date getCloseTime() {
-        return closeTime;
+    public String getoAddress() {
+        return oAddress;
     }
 
-    public void setCloseTime(Date closeTime) {
-        this.closeTime = closeTime;
+    public void setoAddress(String oAddress) {
+        this.oAddress = oAddress == null ? null : oAddress.trim();
     }
 
-    public String getShippingName() {
-        return shippingName;
+    public String getoPhone() {
+        return oPhone;
     }
 
-    public void setShippingName(String shippingName) {
-        this.shippingName = shippingName == null ? null : shippingName.trim();
-    }
-
-    public String getShippingCode() {
-        return shippingCode;
-    }
-
-    public void setShippingCode(String shippingCode) {
-        this.shippingCode = shippingCode == null ? null : shippingCode.trim();
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getBuyerMessage() {
-        return buyerMessage;
-    }
-
-    public void setBuyerMessage(String buyerMessage) {
-        this.buyerMessage = buyerMessage == null ? null : buyerMessage.trim();
-    }
-
-    public String getBuyerNick() {
-        return buyerNick;
-    }
-
-    public void setBuyerNick(String buyerNick) {
-        this.buyerNick = buyerNick == null ? null : buyerNick.trim();
-    }
-
-    public Integer getBuyerRate() {
-        return buyerRate;
-    }
-
-    public void setBuyerRate(Integer buyerRate) {
-        this.buyerRate = buyerRate;
+    public void setoPhone(String oPhone) {
+        this.oPhone = oPhone == null ? null : oPhone.trim();
     }
 }

@@ -40,7 +40,7 @@ public class TestController {
 		service.test();
 		return "Login";
 	}
-	@RequestMapping("/register")
+	@RequestMapping("/regist")
 	public String ToRegister() {
 		System.out.println("----------------------测试html----------------------");
 		service.test();

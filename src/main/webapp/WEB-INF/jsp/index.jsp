@@ -63,10 +63,10 @@
 			</div>
 
 			<div class="rightNav">
-				<div class="rightNavDiv"><a href="#" id="cartHref"><img src="./image/gouwuche.jpg" style="height: 80px;width: 100px;" id="cart"></a></div>
-<!-- 				<div class="rightNavDiv"><a href="#" id="serviceHref"><img src="./image/kefu.jpg" style="height: 80px;width: 100px;" id="service"></a></div> -->
-				<div class="rightNavDiv"><a href="#" id="personHref"><img src="./image/gerenzhongxin.jpg" style="height: 80px;width: 100px;" id="person"></a></div>
-				<div class="rightNavDiv"><a href="#" id="toTopHref"><img src="./image/toTop.jpg" style="height: 80px;width: 100px;" id="toTop"></a></div>
+				<div class="rightNavDiv"><a href="#" id="cartHref"><img src="<c:url value='/image'/>/gouwuche.jpg" style="height: 80px;width: 100px;" id="cart"></a></div>
+<!-- 				<div class="rightNavDiv"><a href="#" id="serviceHref"><img src="<c:url value='/image'/>/kefu.jpg" style="height: 80px;width: 100px;" id="service"></a></div> -->
+				<div class="rightNavDiv"><a href="#" id="personHref"><img src="<c:url value='/image'/>/gerenzhongxin.jpg" style="height: 80px;width: 100px;" id="person"></a></div>
+				<div class="rightNavDiv"><a href="#" id="toTopHref"><img src="<c:url value='/image'/>/toTop.jpg" style="height: 80px;width: 100px;" id="toTop"></a></div>
 			</div>
 <!-- ProductDetail!QueryProductByProductName?productName= -->
 			<div class="searchProduct" style="display: inline-block;">
@@ -380,31 +380,31 @@
 			<div class="biaoti center">疾风明星单品</div>
 			<div class="main center">
 				<div class="mingxing fl">
-					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1"><img src="./image/KT4.jpg" alt=""></a></div>
+					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1"><img src="<c:url value='/image'/>/KT4.jpg" alt=""></a></div>
 					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">KT4</a></div>
 					<div class="youhui">享满减优惠卷</div>
 					<div class="jiage">699元</div>
 				</div>
 				<div class="mingxing fl">
-					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2"><img src="./image/KT轻骑兵.jpg" alt=""></a></div>
+					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2"><img src="<c:url value='/image'/>/KT轻骑兵.jpg" alt=""></a></div>
 					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2">KT轻骑兵</a></div>
 					<div class="youhui">满300-30</div>
 					<div class="jiage">399元</div>
 				</div>
 				<div class="mingxing fl">
-					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3"><img src="./image/安踏篮球鞋.jpg" alt=""></a></div>
+					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3"><img src="<c:url value='/image'/>/安踏篮球鞋.jpg" alt=""></a></div>
 					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3">安踏篮球鞋</a></div>
 					<div class="youhui">享满减优惠卷</div>
 					<div class="jiage">599元</div>
 				</div>
 				<div class="mingxing fl"> 	
-					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4"><img src="./image/KT鸳鸯鞋.jpg" alt=""></a></div>
+					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4"><img src="<c:url value='/image'/>/KT鸳鸯鞋.jpg" alt=""></a></div>
 					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4">KT鸳鸯鞋</a></div>
 					<div class="youhui">享满减优惠卷</div>
 					<div class="jiage">699元</div>
 				</div>
 				<div class="mingxing fl">
-					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5"><img src="./image/kT4破坏.jpg" alt=""></a></div>
+					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5"><img src="<c:url value='/image'/>/kT4破坏.jpg" alt=""></a></div>
 					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5">KT4破坏</a></div>
 					<div class="youhui">享满减优惠卷</div>
 					<div class="jiage">899元</div>
