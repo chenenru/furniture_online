@@ -41,7 +41,8 @@
 					  <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon2"></span>
 					  <s:textfield name="pass" class="form-control" placeholder="请输入你的密码" aria-describedby="basic-addon2" cssStyle="margin: 2px 0 0 0;height: 40px; width: 230px;color:black;font-size:14px;font-family:微软雅黑 ;"></s:textfield>
 					  <!-- <input type="text" class="form-control" placeholder="请输入你的密码" aria-describedby="basic-addon2" style="margin: 2px 0 0 0;height: 40px; width: 230px;"> -->
-					</div>
+
+                    </div>
 
 					<div class="username" style="margin: 0 13% 5%;">
 						<div class="drag" style="width: 269px;height: 40px;">
