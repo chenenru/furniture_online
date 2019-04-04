@@ -32,4 +32,13 @@ public class TbFeedback {
     public void setfDate(Date fDate) {
         this.fDate = fDate;
     }
+
+    @Override
+    public String toString() {
+        return "TbFeedback{" +
+                "id=" + id +
+                ", fInfo='" + fInfo + '\'' +
+                ", fDate=" + fDate +
+                '}';
+    }
 }

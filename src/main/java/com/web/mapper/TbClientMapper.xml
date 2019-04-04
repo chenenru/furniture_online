@@ -8,6 +8,8 @@
     <result column="c_name" property="cName" jdbcType="VARCHAR" />
     <result column="c_address" property="cAddress" jdbcType="VARCHAR" />
     <result column="c_phone" property="cPhone" jdbcType="VARCHAR" />
+    <result column="c_code" property="cCode" jdbcType="VARCHAR" />
+    <result column="c_status" property="cStatus" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, c_email, c_pwd, c_name, c_address, c_phone
+    id, c_email, c_pwd, c_name, c_address, c_phone, c_code, c_status
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.web.pojo.TbClientExample" >
     select
@@ -102,11 +104,11 @@
   </delete>
   <insert id="insert" parameterType="com.web.pojo.TbClient" >
     insert into tb_client (id, c_email, c_pwd, 
-      c_name, c_address, c_phone
-      )
+      c_name, c_address, c_phone, 
+      c_code, c_status)
     values (#{id,jdbcType=INTEGER}, #{cEmail,jdbcType=VARCHAR}, #{cPwd,jdbcType=VARCHAR}, 
-      #{cName,jdbcType=VARCHAR}, #{cAddress,jdbcType=VARCHAR}, #{cPhone,jdbcType=VARCHAR}
-      )
+      #{cName,jdbcType=VARCHAR}, #{cAddress,jdbcType=VARCHAR}, #{cPhone,jdbcType=VARCHAR}, 
+      #{cCode,jdbcType=VARCHAR}, #{cStatus,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.web.pojo.TbClient" >
     insert into tb_client
@@ -129,6 +131,12 @@
       <if test="cPhone != null" >
         c_phone,
       </if>
+      <if test="cCode != null" >
+        c_code,
+      </if>
+      <if test="cStatus != null" >
+        c_status,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -148,6 +156,12 @@
       </if>
       <if test="cPhone != null" >
         #{cPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="cCode != null" >
+        #{cCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cStatus != null" >
+        #{cStatus,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -178,6 +192,12 @@
       <if test="record.cPhone != null" >
         c_phone = #{record.cPhone,jdbcType=VARCHAR},
       </if>
+      <if test="record.cCode != null" >
+        c_code = #{record.cCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cStatus != null" >
+        c_status = #{record.cStatus,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -190,7 +210,9 @@
       c_pwd = #{record.cPwd,jdbcType=VARCHAR},
       c_name = #{record.cName,jdbcType=VARCHAR},
       c_address = #{record.cAddress,jdbcType=VARCHAR},
-      c_phone = #{record.cPhone,jdbcType=VARCHAR}
+      c_phone = #{record.cPhone,jdbcType=VARCHAR},
+      c_code = #{record.cCode,jdbcType=VARCHAR},
+      c_status = #{record.cStatus,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -213,6 +235,12 @@
       <if test="cPhone != null" >
         c_phone = #{cPhone,jdbcType=VARCHAR},
       </if>
+      <if test="cCode != null" >
+        c_code = #{cCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cStatus != null" >
+        c_status = #{cStatus,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -222,7 +250,12 @@
       c_pwd = #{cPwd,jdbcType=VARCHAR},
       c_name = #{cName,jdbcType=VARCHAR},
       c_address = #{cAddress,jdbcType=VARCHAR},
-      c_phone = #{cPhone,jdbcType=VARCHAR}
+      c_phone = #{cPhone,jdbcType=VARCHAR},
+      c_code = #{cCode,jdbcType=VARCHAR},
+      c_status = #{cStatus,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByCode"  resultType="com.web.pojo.TbClient" parameterType="java.lang.String">
+    select * from tb_client where code=?
+  </select>
 </mapper>

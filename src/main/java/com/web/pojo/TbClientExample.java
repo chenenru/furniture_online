@@ -513,6 +513,136 @@ public class TbClientExample {
             addCriterion("c_phone not between", value1, value2, "cPhone");
             return (Criteria) this;
         }
+
+        public Criteria andCCodeIsNull() {
+            addCriterion("c_code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeIsNotNull() {
+            addCriterion("c_code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeEqualTo(String value) {
+            addCriterion("c_code =", value, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeNotEqualTo(String value) {
+            addCriterion("c_code <>", value, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeGreaterThan(String value) {
+            addCriterion("c_code >", value, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("c_code >=", value, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeLessThan(String value) {
+            addCriterion("c_code <", value, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeLessThanOrEqualTo(String value) {
+            addCriterion("c_code <=", value, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeLike(String value) {
+            addCriterion("c_code like", value, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeNotLike(String value) {
+            addCriterion("c_code not like", value, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeIn(List<String> values) {
+            addCriterion("c_code in", values, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeNotIn(List<String> values) {
+            addCriterion("c_code not in", values, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeBetween(String value1, String value2) {
+            addCriterion("c_code between", value1, value2, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCCodeNotBetween(String value1, String value2) {
+            addCriterion("c_code not between", value1, value2, "cCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusIsNull() {
+            addCriterion("c_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusIsNotNull() {
+            addCriterion("c_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusEqualTo(Integer value) {
+            addCriterion("c_status =", value, "cStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusNotEqualTo(Integer value) {
+            addCriterion("c_status <>", value, "cStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusGreaterThan(Integer value) {
+            addCriterion("c_status >", value, "cStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("c_status >=", value, "cStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusLessThan(Integer value) {
+            addCriterion("c_status <", value, "cStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("c_status <=", value, "cStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusIn(List<Integer> values) {
+            addCriterion("c_status in", values, "cStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusNotIn(List<Integer> values) {
+            addCriterion("c_status not in", values, "cStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusBetween(Integer value1, Integer value2) {
+            addCriterion("c_status between", value1, value2, "cStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("c_status not between", value1, value2, "cStatus");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
@@ -605,6 +735,20 @@ public class TbClientExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
+        }
+
+        @Override
+        public String toString() {
+            return "Criterion{" +
+                    "condition='" + condition + '\'' +
+                    ", value=" + value +
+                    ", secondValue=" + secondValue +
+                    ", noValue=" + noValue +
+                    ", singleValue=" + singleValue +
+                    ", betweenValue=" + betweenValue +
+                    ", listValue=" + listValue +
+                    ", typeHandler='" + typeHandler + '\'' +
+                    '}';
         }
     }
 }

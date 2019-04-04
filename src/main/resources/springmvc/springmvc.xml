@@ -10,7 +10,16 @@
     <!-- 配置包扫描器 -->
     <context:component-scan base-package="com.web.controller*" />
     <!-- 配置注解驱动 -->
-    <mvc:annotation-driven />
+    <!--<mvc:annotation-driven />-->
+
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes" value="text/plain;charset=UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
     <!-- 视图解析器 -->
 	<!-- 资源映射器 , 解决静态资源无法被访问的问题-->
 	<mvc:resources location="/js/" mapping="/js/**"/>
@@ -23,12 +32,12 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 		
-	<!-- 多媒体解析器  -->
+	<!--&lt;!&ndash; 多媒体解析器  &ndash;&gt;-->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- 设定默认编码 -->
+		<!--&lt;!&ndash; 设定默认编码 &ndash;&gt;-->
 		<property name="defaultEncoding" value="UTF-8" />
-		<!-- 设定文件上传的最大值5MB，5*1024*1024 -->
+		<!--&lt;!&ndash; 设定文件上传的最大值5MB，5*1024*1024 &ndash;&gt;-->
 		<property name="maxUploadSize" value="5242880" />
 	</bean>
-	
+
 </beans>

@@ -22,40 +22,10 @@ public class TestController {
 		service.test();
 		return "index";
 	}
-	@RequestMapping("/about")
-	public String ToAbout() {
-		System.out.println("----------------------测试html----------------------");
-		service.test();
-		return "about";
-	}
-	@RequestMapping("/checkout")
-	public String ToCheckout() {
-		System.out.println("----------------------测试html----------------------");
-		service.test();
-		return "checkout";
-	}
-	@RequestMapping("/login")
-	public String ToLogin() {
-		System.out.println("----------------------测试html----------------------");
-		service.test();
-		return "Login";
-	}
 	@RequestMapping("/regist")
-	public String ToRegister() {
-		System.out.println("----------------------测试html----------------------");
-		service.test();
-		return "Regist";
+	public String ToRegist() {
+		System.out.println("----------------------测试----------------------");
+		return "Regist";//WEB-INF/jsp/Regist.jsp
 	}
-	@RequestMapping("/single")
-	public String ToSingle() {
-		System.out.println("----------------------测试html----------------------");
-		service.test();
-		return "single";
-	}
-	@RequestMapping("/typo")
-	public String ToTypo() {
-		System.out.println("----------------------测试html----------------------");
-		service.test();
-		return "typo";
-	}
+
 }
