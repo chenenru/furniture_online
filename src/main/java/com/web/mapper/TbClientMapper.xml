@@ -256,6 +256,6 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByCode"  resultType="com.web.pojo.TbClient" parameterType="java.lang.String">
-    select * from tb_client where code=?
+    select * from tb_client where c_code=#{code}
   </select>
 </mapper>

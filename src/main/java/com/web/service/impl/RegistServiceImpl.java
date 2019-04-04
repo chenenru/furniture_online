@@ -28,6 +28,7 @@ public class RegistServiceImpl implements RegistService {
     @Override
     public TbClient findByCode(String code) throws Exception {
         TbClient tbClient = tbClientMapper.selectByCode(code);
+        System.out.println("这是impl"+code+"=====================================");
         return tbClient;
     }
 
