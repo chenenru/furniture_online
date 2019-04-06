@@ -25,19 +25,20 @@
 				<div class="left fl">
 				</div>
 				<div class="right fr">
-					<div class="gouwuche fr"><a href="${pageContext.request.contextPath }/OrderrDetail!QueryOrderrs">我的订单</a></div>
+					<div class="gouwuche fr"><a href="${pageContext.request.contextPath }/Order">我的订单</a></div>
 					<div class="fr">
-						<ul><s:if test="#session.user!=null">
-						<li>欢迎,<s:text name="#session.user"></s:text></li>
-						<li><a href="${pageContext.request.contextPath }/logoutAction">退出</a></li>
-						</s:if>
-						<s:else>
-							<li><a href="./Login.jsp" target="_blank">登录</a></li>
+						<ul><c:if test="${sessionScope.size()>0}">
+						<li>欢迎,<c:out value="${sessionScope.values()}"></c:out></li>
+						<li><a href="${pageContext.request.contextPath }/logout">退出</a></li>
+						</c:if>
+						<c:if test="${sessionScope.size()<=0}">
+							<li><a href="/login" target="_blank">登录</a></li>
 							<li>|</li>
-							<li><a href="./Regist.jsp" target="_blank" >注册</a></li>
+							<li><a href="/regist" target="_blank" >注册</a></li>
 							<li>|</li>
-							</s:else>
-							<li><a href="${pageContext.request.contextPath }/OrderrDetail!QueryCustomer">个人中心</a></li>
+							</c:if>
+							<li><a href="${pageContext.request.contextPath }/client/info">个人中心</a></li>
+							<li><a href="${pageContext.request.contextPath }/feedback">我要反馈</a></li>
 						</ul>
 					</div>
 					<div class="clear"></div>
@@ -45,6 +46,7 @@
 				<div class="clear"></div>
 			</div>
 		</header>
+
 	<!-- 中间类型导航条 -->
 		<div class="banner_x center">
 			<a href="${pageContext.request.contextPath}/content/index.jsp"><div class="logo fl"></div></a>

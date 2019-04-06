@@ -30,4 +30,13 @@ public class TbAdmin {
     public void setaPwd(String aPwd) {
         this.aPwd = aPwd == null ? null : aPwd.trim();
     }
+
+    @Override
+    public String toString() {
+        return "TbAdmin{" +
+                "id=" + id +
+                ", aEmail='" + aEmail + '\'' +
+                ", aPwd='" + aPwd + '\'' +
+                '}';
+    }
 }

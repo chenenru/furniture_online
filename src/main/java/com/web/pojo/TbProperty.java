@@ -100,4 +100,20 @@ public class TbProperty {
     public void setPrOutprice(Integer prOutprice) {
         this.prOutprice = prOutprice;
     }
+
+    @Override
+    public String toString() {
+        return "TbProperty{" +
+                "id=" + id +
+                ", pId=" + pId +
+                ", prImage='" + prImage + '\'' +
+                ", prColor='" + prColor + '\'' +
+                ", prSize='" + prSize + '\'' +
+                ", prMaterial='" + prMaterial + '\'' +
+                ", prStore=" + prStore +
+                ", prInnum=" + prInnum +
+                ", prInprice=" + prInprice +
+                ", prOutprice=" + prOutprice +
+                '}';
+    }
 }

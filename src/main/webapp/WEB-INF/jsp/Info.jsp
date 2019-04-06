@@ -94,6 +94,11 @@
 						<li><a href="#" style="color:#ff6700;font-weight:bold;">我的个人中心</a></li>
 					</ul>
 				</div>
+				<%--<div class="subddzx">
+					<ul>
+						<li><a href="${pageContext.request.contextPath}/client/feedback" style="color:#ff6700;font-weight:bold;">我要反馈</a></li>
+					</ul>
+				</div>--%>
 			</div>
 			<div class="rtcont fr">
 				<div class="grzlbt ml40"><span class="mr40">我的资料</span><a href="" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer(${user.id})">编辑</a></div>
@@ -103,12 +108,10 @@
 				<div class="subgrzl ml40"><span>手机号</span><span style="width:600px;">${user.cPhone}</span></div>
 				<div class="subgrzl ml40"><span>密码</span><span style="width:600px;">${user.cPwd}</span></div>
 				<div class="subgrzl ml40"><span>收货地址</span><span style="width:600px;">${user.cAddress}</span></div>
-
 			</div>
 			<div class="clear"></div>
 			</div>
 		</div>
-			</div>
 	<!-- 客户编辑信息框 -->
 	<div class="modal fade" id="customerEditDialog" tabindex="-1" role="dialog"
 		 aria-labelledby="myModalLabel">
@@ -196,8 +199,22 @@
                 window.location.reload();
             });
         }
-
 	</script>
+		<script>
+            $(function(){
+                var click=1;
+                if (click==0) {
+                    $(".divBox2").toggle("slow");
+                }else{
+                    $(".divBox").toggle("slow");
+                }
+                $(".spanBox").click(function(){
+                    $(".divBox").toggle("slow");
+                    $(".divBox2").toggle("slow");
+                });
+                alert(click);
+            });
+		</script>
 		<footer class="mt20 center">			
 			<div>©由莫宽元、赖周浩、陈恩如、陈婉琳学习小组进行编写</div>
 			<div>本网站所列数据，所列信息都是虚拟信息，除特殊说明，仅供学习参考用途</div>

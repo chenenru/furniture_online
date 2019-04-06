@@ -397,4 +397,13 @@ public class TbAdminExample {
             this(condition, value, secondValue, null);
         }
     }
+
+    @Override
+    public String toString() {
+        return "TbAdminExample{" +
+                "orderByClause='" + orderByClause + '\'' +
+                ", distinct=" + distinct +
+                ", oredCriteria=" + oredCriteria +
+                '}';
+    }
 }

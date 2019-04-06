@@ -122,4 +122,22 @@ public class TbOrder {
     public void setoPhone(String oPhone) {
         this.oPhone = oPhone == null ? null : oPhone.trim();
     }
+
+    @Override
+    public String toString() {
+        return "TbOrder{" +
+                "id=" + id +
+                ", prId=" + prId +
+                ", oNum=" + oNum +
+                ", oTotal=" + oTotal +
+                ", cId=" + cId +
+                ", oStatus=" + oStatus +
+                ", oCreate=" + oCreate +
+                ", oPay=" + oPay +
+                ", oDeliver=" + oDeliver +
+                ", oConfirm=" + oConfirm +
+                ", oAddress='" + oAddress + '\'' +
+                ", oPhone='" + oPhone + '\'' +
+                '}';
+    }
 }
