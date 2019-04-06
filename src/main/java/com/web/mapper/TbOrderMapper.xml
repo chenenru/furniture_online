@@ -15,6 +15,83 @@
     <result column="o_address" property="oAddress" jdbcType="VARCHAR" />
     <result column="o_phone" property="oPhone" jdbcType="VARCHAR" />
   </resultMap>
+
+  <resultMap id="OrderPropertyResult" type="com.web.pojo.TbOrderProperty">
+    <id property="id" column="id"/>
+    <result property="oNum" column="o_num"/>
+    <result property="oTotal" column="o_total"/>
+    <result property="oStatus" column="o_status"/>
+    <result property="oCreate" column="o_create"/>
+    <result property="oPay" column="o_pay"/>
+    <result property="oDeliver" column="o_deliver"/>
+    <result property="oConfirm" column="o_confirm"/>
+    <result property="oAddress" column="o_address"/>
+    <result property="oPhone" column="o_phone"/>
+    <association property="tbProperty" javaType="com.web.pojo.TbProperty">
+      <result property="prImage" column="pr_image" />
+      <result property="prColor" column="pr_color" />
+      <result property="prSize" column="pr_size" />
+      <result property="prMaterial" column="pr_material"/>
+      <result property="prStore" column="pr_store"/>
+      <result property="prInnum" column="pr_innum"/>
+      <result property="prInprice" column="pr_inprice"/>
+      <result property="prOutprice" column="pr_outprice"/>
+    </association>
+    <association property="tbProduct" javaType="com.web.pojo.TbProduct">
+      <result property="pName" column="p_name"/>
+      <result property="pType" column="p_type" />
+      <result property="pIntro" column="p_intro"/>
+    </association>
+
+  </resultMap>
+
+  <resultMap id="OrderListResult" type="com.web.pojo.TbOrderProperty">
+    <id property="id" column="id"/>
+    <result property="oNum" column="o_num"/>
+    <result property="oTotal" column="o_total"/>
+    <result property="oStatus" column="o_status"/>
+    <association property="tbProperty" javaType="com.web.pojo.TbProperty">
+      <result property="prImage" column="pr_image" />
+    </association>
+  </resultMap>
+
+  <!--自定义sql查询-->
+  <!--查询订单详情-->
+  <select id="getOrderProperty" parameterType="java.lang.Integer" resultMap="OrderPropertyResult">
+    select
+	tb_order.id, pr_id, o_num, o_total, c_id, o_status, o_create, o_pay, o_deliver, o_confirm,
+    o_address, o_phone,p_id, pr_image, pr_color, pr_size, pr_material, pr_store, pr_innum, pr_inprice,
+    pr_outprice, p_name, p_type, p_intro
+    from
+	tb_order left join tb_property on tb_order.pr_id = tb_property.id
+		left join tb_product on tb_property.p_id = tb_product.id
+    where tb_order.id= #{id,jdbcType=INTEGER} ;
+  </select>
+
+  <!--查询订单列表，根据用户名查询-->
+  <select id="getOrderListbyUser" parameterType="java.lang.Integer" resultMap="OrderListResult">
+    select
+	tb_order.id, pr_id, o_num, o_total, c_id, o_status, o_create, o_pay, o_deliver, o_confirm,
+    o_address, o_phone,p_id, pr_image, pr_color, pr_size, pr_material, pr_store, pr_innum, pr_inprice,
+    pr_outprice, p_name, p_type, p_intro
+    from
+	tb_order left join tb_property on tb_order.pr_id = tb_property.id
+		left join tb_product on tb_property.p_id = tb_product.id
+    where tb_order.c_id = #{c_id,jdbcType=INTEGER};
+  </select>
+
+  <select id="getOrderListbyStatus" resultMap="OrderListResult">
+    select
+	tb_order.id, pr_id, o_num, o_total, c_id, o_status, o_create, o_pay, o_deliver, o_confirm,
+    o_address, o_phone,p_id, pr_image, pr_color, pr_size, pr_material, pr_store, pr_innum, pr_inprice,
+    pr_outprice, p_name, p_type, p_intro
+    from
+	tb_order left join tb_property on tb_order.pr_id = tb_property.id
+		left join tb_product on tb_property.p_id = tb_product.id
+    where tb_order.c_id = #{userId,jdbcType=INTEGER} and o_status = #{status,jdbcType=INTEGER} ;
+  </select>
+
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

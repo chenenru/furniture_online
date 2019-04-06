@@ -17,8 +17,10 @@ public class RegistServiceImpl implements RegistService {
     /**
      *
      */
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     public TbClientMapper tbClientMapper;
+
     @Override
     public void save(TbClient tbClient) throws Exception {
         tbClientMapper.insertSelective(tbClient);

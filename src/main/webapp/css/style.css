@@ -216,12 +216,18 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 /*个人中心*/
 .grzxbj{width: 100%;height:auto;background: rgb(245,245,245);padding-bottom: 20px;padding-top: 20px;}
 .grzxbj .selfinfo{width: 1226px;}
-.grzxbj .selfinfo .lfnav{width: 234px;height: 500px;background: #fff;}
+.grzxbj .selfinfo .lfnav{width: 234px;height: 600px;background: #fff;}
 .grzxbj .selfinfo .lfnav .ddzx{width: 234px;height: 40px;line-height: 40px;font-size: 19px; margin:30px 20px 10px 40px;color:rgb(51,51,51);}
 .grzxbj .selfinfo .lfnav .subddzx ul li{display: block;width: 194px;height: 40px;line-height: 40px;padding-left: 40px;}
 .grzxbj .selfinfo .lfnav .subddzx ul li a{color:rgb(117,117,117);}
 .grzxbj .selfinfo .lfnav .subddzx ul li a:hover{color:rgb(51,51,51);}
-.grzxbj .selfinfo .rtcont{width: 978px;height: 500px;background: #fff;}
+.grzxbj .selfinfo .rtcont{width: 978px;height: 600px;background: #fff; padding: 25px; }
+
+/*订单详情*/
+/*.grzxbj .selfinfo .rtcont { font-family : Roman }*/
+.grzxbj .selfinfo .rtcont .order_info p span:nth-of-type(1){ font-weight: bold   }
+.grzxbj .selfinfo .rtcont .order_info p span:nth-of-type(2){ color : steelblue }
+.grzxbj .selfinfo .rtcont .order_info { line-height : 25px }
 .grzxbj .selfinfo .rtcont .ddzxbt{width: 938px;height: 60px;line-height: 60px;font-size: 22px;font-weight:bold;color:rgb(117,117,117);padding-left: 40px;border-bottom: 1px solid #ccc;}
 .grzxbj .selfinfo .rtcont .grzlbt{width:938px;height: 60px;line-height: 60px;font-size: 20px;color:rgb(117,117,117);}
 .grzxbj .selfinfo .rtcont .subgrzl{height: 45px;line-height: 45px;width: 920px;background: rgb(253,253,253);border:1px solid #aaa;margin-top: 10px;margin-bottom: 10px;border-radius: 3px;}
@@ -244,10 +250,13 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 /*订单中心*/
 .grzxbj .selfinfo .rtcont .ddxq{width: 938px;height: 120px;line-height: 120px;font-size: 17px;color:rgb(117,117,117); 
 	border-bottom: 1px solid #ccc;padding-left: 40px;}
-.grzxbj .selfinfo .rtcont .ddxq .ddspt{width: 80px;height: 80px;margin: 19px 25px 0 0;border:1px solid #aaa;}
+.grzxbj .selfinfo .rtcont .ddxq .ddspt{width: 82px;height: 82px;margin: 19px 25px 0 0;border:1px solid #aaa;}
+/*.grzxbj .selfinfo .rtcont .ddxq .ddspt image{ margin-bottom: 50px }*/
 .grzxbj .selfinfo .rtcont .ddxq .ztxx ul li{display: inline-block;width: 130px;height: 60px;line-height:60px;float: left;border-left:1px solid #aaa; margin-top: 30px;text-align: center;}
 .grzxbj .selfinfo .rtcont .ddxq .ztxx ul li a{color:rgb(117,117,117);}
 .grzxbj .selfinfo .rtcont .ddxq .ztxx ul li a:hover{color:#ff6700;}
+
+
 /*footer*/
 footer{width: 100%;height: 120px;line-height: 30px;text-align: center;font-size: 12px;background: rgb(250,250,250);padding:30px 0;}
 

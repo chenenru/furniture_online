@@ -12,14 +12,19 @@ import org.springframework.transaction.annotation.Transactional;
  * @author shkstart
  * @create 2019-04-02 11:45
  */
-
+@SuppressWarnings("ALL")
 @Service
 public class InfoServiceImpl implements InfoService {
 
-
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     public TbClientMapper tbClientMapper;
 
+    @Override
+    public void Service_UpdateClient(TbClient tbClient) {
+        tbClientMapper.updateByPrimaryKeySelective(tbClient);
+
+    }
 
     @Override
     public TbClient Service_findTbclientById(Integer id) {

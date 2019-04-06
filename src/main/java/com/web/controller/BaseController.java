@@ -27,11 +27,11 @@ public class BaseController {
 		System.out.println("----------------------测试----------------------");
 		return "Regist";//WEB-INF/jsp/Regist.jsp
 	}
-	@RequestMapping("/login")
-	public String ToLogin() {
-		System.out.println("----------------------测试----------------------");
-		return "Login";//WEB-INF/jsp/Regist.jsp
-	}
+//	@RequestMapping("/login")
+//	public String ToLogin() {
+//		System.out.println("----------------------测试----------------------");
+//		return "Login";//WEB-INF/jsp/Regist.jsp
+//	}
 	@RequestMapping("/feedback")
 	public String ToFeedback() {
 		System.out.println("----------------------测试----------------------");

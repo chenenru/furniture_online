@@ -76,29 +76,55 @@
 		<c:redirect url="/client/login"/>
 	</c:if>--%>
 	<div class="container-fluid">
-	<!-- 顶部复用代码块 -->
+	<%--<!-- 顶部复用代码块 -->--%>
 	<%@include file="Header.jsp" %>
 	<!-- self_info -->
 		<div class="grzxbj">
 			<div class="selfinfo center">
 			<div class="lfnav fl">
-				<div class="ddzx">订单中心</div>
-				<div class="subddzx">
-					<ul>
-						<li><a href="#" >我的订单</a></li>
-					</ul>
-				</div>
+
+                <div class="ddzx">订单中心</div>
+                <div class="subddzx">
+                    <ul>
+                        <li>
+                            <%--${order_page}--%>
+                            <a href="${pageContext.request.contextPath}/order/all_list"
+                               <c:if test="${order_page == 0}">style="color:#ff6700;font-weight:bold;font-size: 16px;"</c:if>>所有订单</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/order/status_list?order_status=1"
+                               <c:if test="${order_page == 1}">style="color:#ff6700;font-weight:bold;font-size: 16px;"</c:if>>未支付订单</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/order/status_list?order_status=2"
+                               <c:if test="${order_page == 2}">style="color:#ff6700;font-weight:bold;font-size: 16px;"</c:if>>待发货订单</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/order/status_list?order_status=3"
+                               <c:if test="${order_page == 3}">style="color:#ff6700;font-weight:bold;font-size: 16px;"</c:if>>已发货订单</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/order/status_list?order_status=4"
+                               <c:if test="${order_page == 4}">style="color:#ff6700;font-weight:bold;font-size: 16px;"</c:if>>已收货订单</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/order/status_list?order_status=5"
+                               <c:if test="${order_page == 5}">style="color:#ff6700;font-weight:bold;font-size: 16px;"</c:if>>已评论订单</a>
+                        </li>
+
+                    </ul>
+                </div>
 				<div class="ddzx">个人中心</div>
 				<div class="subddzx">
 					<ul>
-						<li><a href="#" style="color:#ff6700;font-weight:bold;">我的个人中心</a></li>
+						<li><a href="${pageContext.request.contextPath}/client/info" style="color:#ff6700;font-weight:bold;">我的个人中心</a></li>
 					</ul>
 				</div>
-				<%--<div class="subddzx">
-					<ul>
-						<li><a href="${pageContext.request.contextPath}/client/feedback" style="color:#ff6700;font-weight:bold;">我要反馈</a></li>
-					</ul>
-				</div>--%>
+				<%--<div class="subddzx">--%>
+					<%--<ul>--%>
+						<%--<li><a href="${pageContext.request.contextPath}/client/feedback" style="color:#ff6700;font-weight:bold;">我要反馈</a></li>--%>
+					<%--</ul>--%>
+                <%--</div>--%>
 			</div>
 			<div class="rtcont fr">
 				<div class="grzlbt ml40"><span class="mr40">我的资料</span><a href="" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer(${user.id})">编辑</a></div>

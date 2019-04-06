@@ -14,7 +14,7 @@
 				<div class="left fl">
 				</div>
 				<div class="right fr">
-					<div class="gouwuche fr"><a href="${pageContext.request.contextPath }/or">我的订单</a></div>
+					<div class="gouwuche fr"><a href="${pageContext.request.contextPath }/order/all_list">我的订单</a></div>
 					<div class="fr">
 						<%--<ul><c:if test="42l">--%>
 						<%--<li>欢迎,<jsp:text>${sessionScope.values()}</jsp:text></li>--%>
