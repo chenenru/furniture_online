@@ -294,6 +294,146 @@ public class TbFeedbackExample {
             addCriterion("f_date not between", value1, value2, "fDate");
             return (Criteria) this;
         }
+
+        public Criteria andFNameIsNull() {
+            addCriterion("f_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameIsNotNull() {
+            addCriterion("f_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameEqualTo(String value) {
+            addCriterion("f_name =", value, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameNotEqualTo(String value) {
+            addCriterion("f_name <>", value, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameGreaterThan(String value) {
+            addCriterion("f_name >", value, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameGreaterThanOrEqualTo(String value) {
+            addCriterion("f_name >=", value, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameLessThan(String value) {
+            addCriterion("f_name <", value, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameLessThanOrEqualTo(String value) {
+            addCriterion("f_name <=", value, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameLike(String value) {
+            addCriterion("f_name like", value, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameNotLike(String value) {
+            addCriterion("f_name not like", value, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameIn(List<String> values) {
+            addCriterion("f_name in", values, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameNotIn(List<String> values) {
+            addCriterion("f_name not in", values, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameBetween(String value1, String value2) {
+            addCriterion("f_name between", value1, value2, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFNameNotBetween(String value1, String value2) {
+            addCriterion("f_name not between", value1, value2, "fName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailIsNull() {
+            addCriterion("f_email is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailIsNotNull() {
+            addCriterion("f_email is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailEqualTo(String value) {
+            addCriterion("f_email =", value, "fEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailNotEqualTo(String value) {
+            addCriterion("f_email <>", value, "fEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailGreaterThan(String value) {
+            addCriterion("f_email >", value, "fEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailGreaterThanOrEqualTo(String value) {
+            addCriterion("f_email >=", value, "fEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailLessThan(String value) {
+            addCriterion("f_email <", value, "fEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailLessThanOrEqualTo(String value) {
+            addCriterion("f_email <=", value, "fEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailLike(String value) {
+            addCriterion("f_email like", value, "fEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailNotLike(String value) {
+            addCriterion("f_email not like", value, "fEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailIn(List<String> values) {
+            addCriterion("f_email in", values, "fEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailNotIn(List<String> values) {
+            addCriterion("f_email not in", values, "fEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailBetween(String value1, String value2) {
+            addCriterion("f_email between", value1, value2, "fEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andFEmailNotBetween(String value1, String value2) {
+            addCriterion("f_email not between", value1, value2, "fEmail");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
@@ -386,20 +526,6 @@ public class TbFeedbackExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        @Override
-        public String toString() {
-            return "Criterion{" +
-                    "condition='" + condition + '\'' +
-                    ", value=" + value +
-                    ", secondValue=" + secondValue +
-                    ", noValue=" + noValue +
-                    ", singleValue=" + singleValue +
-                    ", betweenValue=" + betweenValue +
-                    ", listValue=" + listValue +
-                    ", typeHandler='" + typeHandler + '\'' +
-                    '}';
         }
     }
 }

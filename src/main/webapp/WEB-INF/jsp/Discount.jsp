@@ -20,8 +20,7 @@
 	<body>
 	<div class="container-fluid">
 		<!-- 顶部复用代码块 -->
-	<%@include file="Header.jsp" %>	
-	
+	<%@include file="Header.jsp" %>
 <!-- self_info -->
 	<div class="grzxbj">
 		<div class="selfinfo center">
@@ -52,16 +51,14 @@
 			</s:iterator>
 			<div class="subgrzl ml40"><span>{优惠卷编号}</span><span>{适用商品类别}</span><span>{优惠时段}</span><span>{优惠金额}</span></div>
 			<div class="subgrzl ml40"><span>{优惠卷编号}</span><span>{适用商品类别}</span><span>{优惠时段}</span><span>{优惠金额}</span></div>
-
-			
 		</div>
 		<div class="clear"></div>
 		</div>
 	</div>
 <!-- self_info -->
 		
-		<footer class="mt20 center">			
-			<div>©由莫宽元、赖周浩、陈恩如学习小组进行编写</div> 
+		<footer class="mt20 center">
+			<div>©由莫宽元、赖周浩、陈恩如学习小组进行编写</div>
 			<div>本网站所列数据，所列信息都是虚拟信息，除特殊说明，仅供学习参考用途</div>
 		</footer>
 	</body>

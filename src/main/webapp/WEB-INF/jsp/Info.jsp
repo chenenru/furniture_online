@@ -94,11 +94,11 @@
 						<li><a href="#" style="color:#ff6700;font-weight:bold;">我的个人中心</a></li>
 					</ul>
 				</div>
-				<div class="subddzx">
+				<%--<div class="subddzx">
 					<ul>
-						<li><a href="#" style="color:#ff6700;font-weight:bold;">我要反馈</a></li>
+						<li><a href="${pageContext.request.contextPath}/client/feedback" style="color:#ff6700;font-weight:bold;">我要反馈</a></li>
 					</ul>
-				</div>
+				</div>--%>
 			</div>
 			<div class="rtcont fr">
 				<div class="grzlbt ml40"><span class="mr40">我的资料</span><a href="" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer(${user.id})">编辑</a></div>

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class TestController {
+public class BaseController {
 	
 	/**测试网站首页
 	 * @return
@@ -26,6 +26,16 @@ public class TestController {
 	public String ToRegist() {
 		System.out.println("----------------------测试----------------------");
 		return "Regist";//WEB-INF/jsp/Regist.jsp
+	}
+	@RequestMapping("/login")
+	public String ToLogin() {
+		System.out.println("----------------------测试----------------------");
+		return "Login";//WEB-INF/jsp/Regist.jsp
+	}
+	@RequestMapping("/feedback")
+	public String ToFeedback() {
+		System.out.println("----------------------测试----------------------");
+		return "Feedback";//WEB-INF/jsp/Regist.jsp
 	}
 
 }

@@ -26,7 +26,10 @@
 	<mvc:resources location="/css/" mapping="/css/**"/>
 	<mvc:resources location="/image/" mapping="/image/**"/>
 	<mvc:resources location="/fonts/" mapping="/fonts/**"/>
-    <bean
+	<!-- 处理静态资源被“/”所拦截的问题 -->
+	<mvc:default-servlet-handler/>
+
+	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />

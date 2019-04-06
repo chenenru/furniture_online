@@ -62,12 +62,12 @@
                        style="margin: 2px 0 0 0;height: 40px; width: 230px;"></input>
                 <span>请写下昵称吧，爱填不填！</span></div>
 
-                <div class="password">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;&nbsp;
+            <div class="password">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;&nbsp;
                     <input id="password" name="password" class="shurukuang" type="password" placeholder="请输入你的密码"
                            style="margin: 2px 0 0 0;height: 40px; width: 230px;"/>
                     <span>请输入6位以上字符</span></div>
 
-                <div class="Rpassword">确认密码:&nbsp;&nbsp;
+            <div class="Rpassword">确认密码:&nbsp;&nbsp;
                     <input id="Rpassword" name="Rpassword" class="shurukuang" type="password" placeholder="请确认你的密码"
                            style="margin: 2px 0 0 0;height: 40px; width: 230px;"></input>
                     <span>两次密码要输入一致哦</span></div>
@@ -78,12 +78,12 @@
                     <span>&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;男和女总得选一个吧！</span>
                 </div>--%>
 
-                <div class="phone">手&nbsp;&nbsp;机&nbsp;&nbsp;号:&nbsp;&nbsp;
+            <div class="phone">手&nbsp;&nbsp;机&nbsp;&nbsp;号:&nbsp;&nbsp;
                     <input id="phone" name="phone" class="shurukuang" type="text" placeholder="请填写正确的手机号"
                            style="margin: 2px 0 0 0;height: 40px; width: 230px;"></input>
                     <span>填写下手机号吧，方便我们联系您！</span></div>
 
-                <div class="address">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:&nbsp;&nbsp;
+            <div class="address">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:&nbsp;&nbsp;
                     <input  id="address" name="address" class="shurukuang" type="text" placeholder="请填写正确的地址"
                            style="margin: 2px 0 0 0;height: 40px; width: 230px;"></input>
                     <span>填写下地址吧，方便我们送货给您！</span></div>
@@ -95,9 +95,8 @@
                         <div class="btn">&gt;&gt;</div>
                     </div>
                 </div>--%>
-                <div class="regist_submit">
+            <div class="regist_submit">
                     <input class="submit" type="submit" name="submit" value="立即注册" onclick="toMail()">
-                </div>
             </div>
         </div>
     </div>

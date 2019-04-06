@@ -33,7 +33,7 @@
 							</c:if>
 							<%--<li><a href="${pageContext.request.contextPath }/OrderrDetail!QueryCustomer">个人中心</a></li>--%>
 							<li><a href="${pageContext.request.contextPath }/client/info">个人中心</a></li>
-							<li><a href="${pageContext.request.contextPath }/client/info">我要反馈</a></li>
+							<li><a href="${pageContext.request.contextPath }/client/feedback">我要反馈</a></li>
 						</ul>
 					</div>
 					<div class="clear"></div>

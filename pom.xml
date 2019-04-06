@@ -37,10 +37,18 @@
 		<javax.mail.version>1.5.4</javax.mail.version>
 		<activation.version>1.1.1</activation.version>
 		<commons-dbutils.version>1.6</commons-dbutils.version>
+        <joda-time.version>2.5</joda-time.version>
 	</properties>
 
 	<dependencies>
-		<!--邮箱-->
+        <!-- 日期转换-->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time.version}</version>
+        </dependency>
+
+        <!--邮箱-->
 		<dependency >
 			<groupId >com.sun.mail </groupId >
 			<artifactId >javax.mail </artifactId >

@@ -27,18 +27,18 @@
 				<div class="right fr">
 					<div class="gouwuche fr"><a href="${pageContext.request.contextPath }/Order">我的订单</a></div>
 					<div class="fr">
-						<ul><s:if test="#session.user!=null">
-						<li>欢迎,<s:text name="#session.user"></s:text></li>
+						<ul><c:if test="${sessionScope.size()>0}">
+						<li>欢迎,<c:out value="${sessionScope.values()}"></c:out></li>
 						<li><a href="${pageContext.request.contextPath }/logout">退出</a></li>
-						</s:if>
-						<s:else>
+						</c:if>
+						<c:if test="${sessionScope.size()<=0}">
 							<li><a href="/login" target="_blank">登录</a></li>
 							<li>|</li>
 							<li><a href="/regist" target="_blank" >注册</a></li>
 							<li>|</li>
-							</s:else>
+							</c:if>
 							<li><a href="${pageContext.request.contextPath }/client/info">个人中心</a></li>
-							<li><a href="${pageContext.request.contextPath }/client/info">我要反馈</a></li>
+							<li><a href="${pageContext.request.contextPath }/feedback">我要反馈</a></li>
 						</ul>
 					</div>
 					<div class="clear"></div>

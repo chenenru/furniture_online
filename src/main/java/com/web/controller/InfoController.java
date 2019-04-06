@@ -44,8 +44,10 @@ public class InfoController {
     public String ToLogin() {
         return "Login";
     }
-    @RequestMapping("/feedback")
-    public String ToFeedback() {
+    /*@RequestMapping("/feedback")
+    @ResponseBody
+    public String ToFeedback(@RequestBody TbFeedback tbFeedback) {
+
         return "Feedback";
-    }
+    }*/
 }
