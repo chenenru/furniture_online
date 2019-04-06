@@ -23,6 +23,9 @@ public interface TbClientMapper {
 
     TbClient selectByPrimaryKey(Integer id);
 
+    //登录
+    TbClient get(String value);
+
     int updateByExampleSelective(@Param("record") TbClient record, @Param("example") TbClientExample example);
 
     int updateByExample(@Param("record") TbClient record, @Param("example") TbClientExample example);

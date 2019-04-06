@@ -16,8 +16,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/client")
 public class InfoController {
 
+    /**
+     *
+     */
     @Autowired
     private InfoService infoService;
+
     @RequestMapping("/info")
     public String findTbClientById(Integer id , Model model){
         id=1;//没实现登陆和注册，只能这样了
