@@ -20,6 +20,7 @@ public interface TbClientMapper {
 
     List<TbClient> selectByExample(TbClientExample example);
 
+    //
     TbClient selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") TbClient record, @Param("example") TbClientExample example);

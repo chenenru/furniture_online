@@ -13,10 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
  * @create 2019-04-02 11:45
  */
 
+@SuppressWarnings("ALL")
 @Service
 public class InfoServiceImpl implements InfoService {
 
 
+    /**
+     *
+     */
     @Autowired
     private TbClientMapper tbClientMapper;
 

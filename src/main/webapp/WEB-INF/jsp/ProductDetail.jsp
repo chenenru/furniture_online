@@ -29,7 +29,7 @@
 	<form action="post" method="">
 	<div class="xiangqing">
 		<div class="neirong w">
-			<div class="xiaomi6 fl"><c:out value="product.productName"></c:out></div>
+			<div class="xiaomi6 fl"><c:out value="${ProductDetail.pName}"></c:out></div>
 			<nav class="fr" >
 			<ul style="margin-left: 150px;">
 				<div class="clear"></div>
@@ -40,23 +40,23 @@
 	</div>
 	
 	<div class="jieshao mt10 w">
-		<div class="left fl"><img src='<c:out value="product.productImage"></c:out>'  width="600" height="600"/></div>
+		<div class="left fl"><img src='<c:out value="${ProductDetail.tbProperty.prImage}"></c:out>' style="height: 560px; width: 560px;"/></div>
 		<div class="right fr">
-			<div class="h3 ml20 mt20"><c:out value="product.productName"></c:out><span id="product_id" style="display:none;"><s:text name="product.id"></s:text></span></div>
+			<div class="h3 ml20 mt20"><c:out value="${ProductDetail.pName}"></c:out><span id="product_id" style="display:none;"><s:text name="product.id"></s:text></span></div>
 			<div id="tishi">加入购物车成功！</div>
-			<div class="jianjie mr40 ml20 mt10">鞋子介绍：</div>
-			<div class="jiage ml20 mt10">单价：<span id="onePrice"><c:out value="product.productSellPrice"></c:out>.00</span></div>
-			<div class="ft20 ml20 mt20">颜色：<span><c:out value="product.productColor"></c:out></span></div>
+			<div class="jianjie mr40 ml20 mt10">家具介绍：<c:out value="${ProductDetail.pIntro}"></c:out></div>
+			<div class="jiage ml20 mt10">单价：<span id="onePrice"><c:out value="${ProductDetail.tbProperty.prOutprice}"></c:out>.00</span></div>
+			<div class="ft20 ml20 mt20">颜色：<span><c:out value="${ProductDetail.tbProperty.prColor}"></c:out></span></div>
 			
-			<div class="ft20 ml20 mt20">选择尺码：</div>
+			<div class="ft20 ml20 mt20">选择尺寸：<c:out value="${ProductDetail.tbProperty.prSize}"></c:out></div>
 			<div class="xzbb ml20 mt10">
 				<div class="banben">
 					<div class="yanse" id="yan1">
-						<a href="#" onclick="chooseSize1()"><span id="size1" >40</span></a>
+						<a href="#" onclick="chooseSize1()"><span id="size1" ><c:out value="${ProductDetail.tbProperty.prSize}"></c:out></span></a>
 					</div>
-					<div class="yanse" id="yan2">
-						<a href="#" onclick="chooseSize2()"><span id="size2">41</span></a>
-					</div>
+					<%--<div class="yanse" id="yan2">--%>
+						<%--<a href="#" onclick="chooseSize2()"><span id="size2">41</span></a>--%>
+					<%--</div>--%>
 				</div>
 			</div>
 			
@@ -70,11 +70,11 @@
 			
 			<div class="xqxq" style="background-color: rgb(248,248,248);">
 				<div class="top1 mt10">
-					<div class="left1 fl">鞋子类型：<c:out value="product.productType"></c:out></div>
+					<div class="left1 fl">类型：<c:out value="${ProductDetail.pType}"></c:out></div>
 					<div class="right1 fr"></div>
 					<div class="clear"></div>
 				</div>
-				<div class="bot mt20 ft20 ftbc">总计：<span id="AllPrice"><c:out value="product.productSellPrice"></c:out></span>.00元</div>
+				<div class="bot mt20 ft20 ftbc">总计：<span id="AllPrice"><c:out value="999"></c:out></span>.00元</div>
 			</div>
 			<br><br>
 			<div class="xiadan ml20 mt20">

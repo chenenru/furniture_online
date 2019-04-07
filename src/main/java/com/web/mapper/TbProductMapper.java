@@ -20,6 +20,7 @@ public interface TbProductMapper {
 
     List<TbProduct> selectByExample(TbProductExample example);
 
+    //根据id查询商品信息
     TbProduct selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") TbProduct record, @Param("example") TbProductExample example);
@@ -29,4 +30,5 @@ public interface TbProductMapper {
     int updateByPrimaryKeySelective(TbProduct record);
 
     int updateByPrimaryKey(TbProduct record);
+
 }

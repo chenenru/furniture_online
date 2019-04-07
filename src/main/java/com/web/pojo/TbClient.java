@@ -13,7 +13,7 @@ public class TbClient {
 
     private String cPhone;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
