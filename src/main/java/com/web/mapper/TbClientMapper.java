@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public interface TbClientMapper {
     int countByExample(TbClientExample example);
@@ -14,7 +15,7 @@ public interface TbClientMapper {
 
     int deleteByPrimaryKey(Integer id);
 
-    int insert(TbClient record);
+    boolean insert(TbClient record);
 
     int insertSelective(TbClient record);
 
@@ -23,6 +24,9 @@ public interface TbClientMapper {
     //
     TbClient selectByPrimaryKey(Integer id);
 
+    //登录
+    TbClient getClientByEmail(String c_email);
+
     int updateByExampleSelective(@Param("record") TbClient record, @Param("example") TbClientExample example);
 
     int updateByExample(@Param("record") TbClient record, @Param("example") TbClientExample example);
@@ -30,4 +34,5 @@ public interface TbClientMapper {
     int updateByPrimaryKeySelective(TbClient record);
 
     int updateByPrimaryKey(TbClient record);
+    TbClient selectByCode(String code);
 }

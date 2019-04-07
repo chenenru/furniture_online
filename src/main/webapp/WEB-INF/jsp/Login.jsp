@@ -17,7 +17,7 @@
 		<!-- login -->
 		<div class="top center">
 			<div class="logo center">
-				<a href="../../index.jsp" target="_blank"><img src="../../image/finallogo.jpg" alt=""></a>
+				<a href="../../index.jsp" target="_blank"><img src="<c:url value='/js'/>/finallogo.jpg" alt=""></a>
 			</div>
 		</div>
 		<form  method="post" action="processLogin" class="form center" id="myform">
@@ -33,15 +33,13 @@
 
 					<div class="input-group" style="margin: 0 13% 10%;">
 					  <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
-					  <s:textfield name="name" class="form-control" placeholder="请输入你的账号" aria-describedby="basic-addon1" cssStyle="margin: 2px 0 0 0;height: 40px; width: 230px;color:black;font-size:14px;font-family:微软雅黑 ;"></s:textfield>
-					  <!-- <input type="text" class="form-control" placeholder="请输入你的账号" aria-describedby="basic-addon1" style="margin: 2px 0 0 0;height: 40px; width: 230px;"> -->
+					  <input type="text" class="form-control" placeholder="请输入你的账号" aria-describedby="basic-addon1" style="margin: 2px 0 0 0;height: 40px; width: 230px;color: black;font-size: 14px;font-family: 微软雅黑;">
 					</div>
 
 					<div class="input-group" style="margin: 0 13% 10%;">
 					  <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon2"></span>
-					  <s:textfield name="pass" class="form-control" placeholder="请输入你的密码" aria-describedby="basic-addon2" cssStyle="margin: 2px 0 0 0;height: 40px; width: 230px;color:black;font-size:14px;font-family:微软雅黑 ;"></s:textfield>
-					  <!-- <input type="text" class="form-control" placeholder="请输入你的密码" aria-describedby="basic-addon2" style="margin: 2px 0 0 0;height: 40px; width: 230px;"> -->
-					</div>
+					  <input type="text" class="form-control" placeholder="请输入你的密码" aria-describedby="basic-addon2" style="margin: 2px 0 0 0;height: 40px; width: 230px;color:black;font-size:14px;font-family:微软雅黑 ;"> -->
+                    </div>
 
 					<div class="username" style="margin: 0 13% 5%;">
 						<div class="drag" style="width: 269px;height: 40px;">
@@ -62,10 +60,10 @@
 		</form>
 		<footer>
 			<div class="copyright">简体 | 繁体 | English | 常见问题</div>
-			<div class="copyright">小米公司版权所有-京ICP备10046444-<img src="../../image/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号</div>
+			<div class="copyright">小米公司版权所有-京ICP备10046444-<img src="<c:url value='/image'/>/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号</div>
 
 		</footer>
 	</body>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/content/js/drag.js"></script>
+	<script type="text/javascript" src="<c:url value='/js'/>/drag.js"></script>
 	
 </html>

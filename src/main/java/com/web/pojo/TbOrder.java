@@ -1,8 +1,7 @@
 package com.web.pojo;
-
 import java.util.Date;
 
-public class TbOrder {
+public class TbOrder{
     private Integer id;
 
     private Integer prId;
@@ -14,6 +13,23 @@ public class TbOrder {
     private Integer cId;
 
     private Integer oStatus;
+
+//    public String getOrderStatus(Integer status){
+//        if( status == 1 )
+//            return "未支付";
+//        if( status == 2)
+//            return "已支付";
+//        if( status == 3)
+//            return "已发货";
+//        if( status == 4)
+//            return "已收货";
+//        if( status == 5)
+//            return "已评论";
+//        return "不详";
+//    }
+
+    public TbOrder() {
+    }
 
     private Date oCreate;
 
@@ -122,4 +138,23 @@ public class TbOrder {
     public void setoPhone(String oPhone) {
         this.oPhone = oPhone == null ? null : oPhone.trim();
     }
+
+    @Override
+    public String toString() {
+        return "TbOrder{" +
+                "id=" + id +
+                ", prId=" + prId +
+                ", oNum=" + oNum +
+                ", oTotal=" + oTotal +
+                ", cId=" + cId +
+                ", oStatus=" + oStatus +
+                ", oCreate=" + oCreate +
+                ", oPay=" + oPay +
+                ", oDeliver=" + oDeliver +
+                ", oConfirm=" + oConfirm +
+                ", oAddress='" + oAddress + '\'' +
+                ", oPhone='" + oPhone + '\'' +
+                '}';
+    }
+
 }

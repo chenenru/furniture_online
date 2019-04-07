@@ -13,7 +13,11 @@ public class TbClient {
 
     private String cPhone;
 
-    public int getId() {
+    private String cCode;
+
+    private Integer cStatus;
+
+    public Integer getId() {
         return id;
     }
 
@@ -59,5 +63,35 @@ public class TbClient {
 
     public void setcPhone(String cPhone) {
         this.cPhone = cPhone == null ? null : cPhone.trim();
+    }
+
+    public String getcCode() {
+        return cCode;
+    }
+
+    public void setcCode(String cCode) {
+        this.cCode = cCode == null ? null : cCode.trim();
+    }
+
+    public Integer getcStatus() {
+        return cStatus;
+    }
+
+    public void setcStatus(Integer cStatus) {
+        this.cStatus = cStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "TbClient{" +
+                "id=" + id +
+                ", cEmail='" + cEmail + '\'' +
+                ", cPwd='" + cPwd + '\'' +
+                ", cName='" + cName + '\'' +
+                ", cAddress='" + cAddress + '\'' +
+                ", cPhone='" + cPhone + '\'' +
+                ", cCode='" + cCode + '\'' +
+                ", cStatus=" + cStatus +
+                '}';
     }
 }

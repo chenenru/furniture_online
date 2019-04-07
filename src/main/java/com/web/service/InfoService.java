@@ -8,4 +8,5 @@ import com.web.pojo.TbClient;
  */
 public interface InfoService {
     public TbClient Service_findTbclientById(Integer id);
+    public  void Service_UpdateClient(TbClient tbClient);
 }

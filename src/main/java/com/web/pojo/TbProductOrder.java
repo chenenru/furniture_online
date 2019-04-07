@@ -50,4 +50,15 @@ public class TbProductOrder {
     public void setProNumber(Integer proNumber) {
         this.proNumber = proNumber;
     }
+
+    @Override
+    public String toString() {
+        return "TbProductOrder{" +
+                "id=" + id +
+                ", prId=" + prId +
+                ", oId=" + oId +
+                ", cId=" + cId +
+                ", proNumber=" + proNumber +
+                '}';
+    }
 }

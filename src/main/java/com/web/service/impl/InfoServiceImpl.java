@@ -22,7 +22,7 @@ public class InfoServiceImpl implements InfoService {
      *
      */
     @Autowired
-    private TbClientMapper tbClientMapper;
+    public TbClientMapper tbClientMapper;
 
 
     @Override

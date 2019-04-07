@@ -62,4 +62,16 @@ public class TbComment {
     public void setCoGrade(Integer coGrade) {
         this.coGrade = coGrade;
     }
+
+    @Override
+    public String toString() {
+        return "TbComment{" +
+                "id=" + id +
+                ", cId=" + cId +
+                ", prId=" + prId +
+                ", coInfo='" + coInfo + '\'' +
+                ", coDate=" + coDate +
+                ", coGrade=" + coGrade +
+                '}';
+    }
 }

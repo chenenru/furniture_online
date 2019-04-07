@@ -3,10 +3,9 @@ package com.web.mapper;
 import com.web.pojo.TbFeedback;
 import com.web.pojo.TbFeedbackExample;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Repository
+
 public interface TbFeedbackMapper {
     int countByExample(TbFeedbackExample example);
 

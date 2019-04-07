@@ -40,4 +40,14 @@ public class TbProduct {
     public void setpIntro(String pIntro) {
         this.pIntro = pIntro == null ? null : pIntro.trim();
     }
+
+    @Override
+    public String toString() {
+        return "TbProduct{" +
+                "id=" + id +
+                ", pName='" + pName + '\'' +
+                ", pType='" + pType + '\'' +
+                ", pIntro='" + pIntro + '\'' +
+                '}';
+    }
 }
