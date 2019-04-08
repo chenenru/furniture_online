@@ -4,16 +4,51 @@ import java.util.Date;
 
 public class TbComment {
     private Integer id;
+    private Integer c_id;
+    private Integer pr_id;
+    private String co_info;
+    private Date co_date;
+    private Integer co_grade;
 
-    private Integer cId;
+    public Integer getC_id() {
+        return c_id;
+    }
 
-    private Integer prId;
+    public void setC_id(Integer c_id) {
+        this.c_id = c_id;
+    }
 
-    private String coInfo;
+    public Integer getPr_id() {
+        return pr_id;
+    }
 
-    private Date coDate;
+    public void setPr_id(Integer pr_id) {
+        this.pr_id = pr_id;
+    }
 
-    private Integer coGrade;
+    public String getCo_info() {
+        return co_info;
+    }
+
+    public void setCo_info(String co_info) {
+        this.co_info = co_info;
+    }
+
+    public Date getCo_date() {
+        return co_date;
+    }
+
+    public void setCo_date(Date co_date) {
+        this.co_date = co_date;
+    }
+
+    public Integer getCo_grade() {
+        return co_grade;
+    }
+
+    public void setCo_grade(Integer co_grade) {
+        this.co_grade = co_grade;
+    }
 
     public Integer getId() {
         return id;
@@ -23,55 +58,17 @@ public class TbComment {
         this.id = id;
     }
 
-    public Integer getcId() {
-        return cId;
-    }
 
-    public void setcId(Integer cId) {
-        this.cId = cId;
-    }
-
-    public Integer getPrId() {
-        return prId;
-    }
-
-    public void setPrId(Integer prId) {
-        this.prId = prId;
-    }
-
-    public String getCoInfo() {
-        return coInfo;
-    }
-
-    public void setCoInfo(String coInfo) {
-        this.coInfo = coInfo == null ? null : coInfo.trim();
-    }
-
-    public Date getCoDate() {
-        return coDate;
-    }
-
-    public void setCoDate(Date coDate) {
-        this.coDate = coDate;
-    }
-
-    public Integer getCoGrade() {
-        return coGrade;
-    }
-
-    public void setCoGrade(Integer coGrade) {
-        this.coGrade = coGrade;
-    }
 
     @Override
     public String toString() {
         return "TbComment{" +
                 "id=" + id +
-                ", cId=" + cId +
-                ", prId=" + prId +
-                ", coInfo='" + coInfo + '\'' +
-                ", coDate=" + coDate +
-                ", coGrade=" + coGrade +
+                ", cId=" + c_id +
+                ", prId=" + pr_id +
+                ", coInfo='" + co_info + '\'' +
+                ", coDate=" + co_date +
+                ", coGrade=" + co_grade +
                 '}';
     }
 }

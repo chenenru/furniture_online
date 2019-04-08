@@ -8,11 +8,12 @@
 		<package name="com.web.mapper*" />
 	</typeAliases>
 	<!-- mybatis分页插件 -->
-	<plugins>
-		<plugin interceptor="com.github.pagehelper.PageInterceptor" >
-			<!--分页参数合理化-->
-			<!--<property name="reasonable" value="true"/>-->
-			<!--<property name="dialect" value="mysql" /> -->
-		</plugin>
-	</plugins>
+	<!--<plugins>-->
+		<!--<plugin interceptor="com.github.pagehelper.PageInterceptor" >-->
+			<!--&lt;!&ndash;分页参数合理化&ndash;&gt;-->
+			<!--&lt;!&ndash;<property name="reasonable" value="true"/>&ndash;&gt;-->
+			<!--<property name="dialect" value="mysql" />-->
+		<!--</plugin>-->
+	<!--</plugins>-->
+
 </configuration>

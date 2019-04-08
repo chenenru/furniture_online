@@ -1,7 +1,13 @@
 package com.web.service;
 
 import com.web.pojo.ProductDetail;
+import com.web.pojo.TbComment;
+import com.web.pojo.TbProductOrder;
+
+import java.util.List;
 
 public interface ProductDetailService {
-    ProductDetail getProductDetailById(Integer id);
+    public ProductDetail getProductDetailById(Integer id);
+    public void addProductDetail(TbProductOrder tbProductOrder);
+    public List<TbComment> getComment(Integer pr_id);
 }

@@ -35,4 +35,6 @@ public interface TbClientMapper {
 
     int updateByPrimaryKey(TbClient record);
     TbClient selectByCode(String code);
+
+    TbClient get(String email);
 }

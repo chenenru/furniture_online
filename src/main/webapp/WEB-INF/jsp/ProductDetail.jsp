@@ -40,7 +40,10 @@
 	</div>
 	
 	<div class="jieshao mt10 w">
-		<div class="left fl"><img src='<c:out value="${ProductDetail.tbProperty.prImage}"></c:out>' style="height: 560px; width: 560px;"/></div>
+		<div class="left fl">
+			<div><img src='<c:out value="${ProductDetail.tbProperty.prImage}"></c:out>' style="height: 560px; width: 560px;"/></div>
+			<div style="margin: 20px 0 0 50%; font-size: 18px; font-family: Algerian"><a>评论</a></div>
+		</div>
 		<div class="right fr">
 			<div class="h3 ml20 mt20"><c:out value="${ProductDetail.pName}"></c:out><span id="product_id" style="display:none;"><s:text name="product.id"></s:text></span></div>
 			<div id="tishi">加入购物车成功！</div>
@@ -84,50 +87,65 @@
 		</div>
 		</div>
 		<div class="clear"></div>
+		<div style="height: 50px; width: 100%;">
+			<hr>
+			<c:forEach var="comment" items="${comments}" begin="0" step="1">
+				<div>
+					<div style="margin: 10px 0 10px 5%">用户${comment.c_id}</div>
+					<div style="margin: 10px 0 10px 5%">${comment.co_date}</div>
+					<div style="margin: 10px 0 10px 25%">${comment.co_info}</div>
+					<div style="margin: 10px 0 10px 45%; border-bottom: #201f1f;">星级：${comment.co_grade}</div>
+					<%--<div style="border-bottom: solid 1px #201f1f"></div>--%>
+					<hr>
+				</div>
+			</c:forEach>
+		</div>
 	</form>
 	<!-- footer -->
-		<footer class="mt20 center">			
-			<div>©由莫宽元、赖周浩、陈恩如、陈婉琳学习小组进行编写</div>
-			<div>本网站所列数据，所列信息都是虚拟信息，除特殊说明，仅供学习参考用途</div>
-		</footer>
 		</div>
+		<%--<footer class="mt20 center">--%>
+		<%--<div style="margin-top: 20px; ">--%>
+			<%--<div>©由莫宽元、赖周浩、陈恩如、陈婉琳学习小组进行编写</div>--%>
+			<%--<div>本网站所列数据，所列信息都是虚拟信息，除特殊说明，仅供学习参考用途</div>--%>
+		<%--</div>--%>
+		<%--</footer>--%>
 	</body>
 	<script type="text/javascript">
-	var size = -1;
-	var count = 1;
-	$(function() { 
-	    var offset = $("#cartHref").offset(); 
-	    $("#add").click(function(event){ 
-	        var add = $(".left").find('img'); 
-	        var img = add.attr('src');
-// 	        alert(img);
-	        var flyer = $('<img class="u-flyer" src="'+img+'">'); 
-	        flyer.fly({ 
-	            start: { 
-	                left: event.pageX-750, //开始位置（必填）#fly元素会被设置成position: fixed 
-	                top: event.pageY-600, //开始位置（必填）
-	                width: 50, //开始时宽度 
-	                height: 50 //开始时高度 
-	            }, 
-	            end: { 
-	                left: offset.left+30, //结束位置（必填） 
-	                top: offset.top+20, //结束位置（必填） 
-	                width: 0, //结束时宽度 
-	                height: 0 //结束时高度 
-	            }, 
-	            onEnd: function(){ //结束回调 
-	                $("#tishi").show().animate({width: '140px'}, 200).fadeOut(2000); //提示信息 
-// 	                addcar.css("cursor","default").removeClass('orange').unbind('click'); 
-// 	                this.destory(); //移除dom 
-					sleep(1000);
-					
-	                var productID = document.getElementById("product_id").innerText;
-					alert("${pageContext.request.contextPath}/OrderrDetail!AddProductToOrder?id=" + productID + size + "count=" + count);
-	        		window.location.href = "${pageContext.request.contextPath}/OrderrDetail!AddProductToCart?id=" + productID + "&size=" + size +"&count=" + count;
-	            } 
-	        }); 
-	    }); 
-	}); 
+	<%--var size = -1;--%>
+	<%--var count = 1;--%>
+	<%--$(function() { --%>
+	    <%--var offset = $("#cartHref").offset(); --%>
+	    <%--$("#add").click(function(event){ --%>
+	        <%--var add = $(".left").find('img'); --%>
+	        <%--var img = add.attr('src');--%>
+<%--// 	        alert(img);--%>
+	        <%--var flyer = $('<img class="u-flyer" src="'+img+'">'); --%>
+	        <%--flyer.fly({ --%>
+	            <%--start: { --%>
+	                <%--left: event.pageX-750, //开始位置（必填）#fly元素会被设置成position: fixed --%>
+	                <%--top: event.pageY-600, //开始位置（必填）--%>
+	                <%--width: 50, //开始时宽度 --%>
+	                <%--height: 50 //开始时高度 --%>
+	            <%--}, --%>
+	            <%--end: { --%>
+	                <%--left: offset.left+30, //结束位置（必填） --%>
+	                <%--top: offset.top+20, //结束位置（必填） --%>
+	                <%--width: 0, //结束时宽度 --%>
+	                <%--height: 0 //结束时高度 --%>
+	            <%--}, --%>
+	            <%--onEnd: function(){ //结束回调 --%>
+	                <%--$("#tishi").show().animate({width: '140px'}, 200).fadeOut(2000); //提示信息 --%>
+<%--// 	                addcar.css("cursor","default").removeClass('orange').unbind('click'); --%>
+<%--// 	                this.destory(); //移除dom --%>
+					<%--sleep(1000);--%>
+					<%----%>
+	                <%--var productID = document.getElementById("product_id").innerText;--%>
+					<%--alert("${pageContext.request.contextPath}/OrderrDetail!AddProductToOrder?id=" + productID + size + "count=" + count);--%>
+	        		<%--window.location.href = "${pageContext.request.contextPath}/OrderrDetail!AddProductToCart?id=" + productID + "&size=" + size +"&count=" + count;--%>
+	            <%--} --%>
+	        <%--}); --%>
+	    <%--}); --%>
+	<%--}); --%>
 	
 	function chooseSize1() {
 		size = document.getElementById("size1").innerText;
@@ -163,19 +181,28 @@
 			
 		count = $("#sum").val();
 		var oneprice = document.getElementById("onePrice").innerText;
-// 		alert(size);
-		
 		$("#AllPrice").text((count * oneprice) );
-			
 	});
 
-	<%--$("#buy").click(function(){--%>
-		<%--var allprice = document.getElementById("AllPrice").innerText;--%>
-		<%--var productID = document.getElementById("product_id").innerText;--%>
-		<%--alert("${pageContext.request.contextPath}/OrderrDetail!AddProductToOrder?id=" + productID + size + "count=" + count + "all" + allprice);--%>
-		<%--window.location.href = "${pageContext.request.contextPath}/OrderrDetail!SetOrderr?id=" + productID + "&size=" + size +"&count=" + count + "&allprice=" + allprice;--%>
-		<%--//window.location.href = "${pageContext.request.contextPath}/content/OrderCreate.jsp?id=" + productID;--%>
-	<%--});--%>
+
+	$('#add').click(function(){
+			var sum =$("#sum").val();
+			$.ajax({
+				type:"post",
+				url:"${pageContext.request.contextPath}/addProductDetail",
+				data:{
+					"addPid":"${ProductDetail.id}",
+					"addCid":2,
+					"addProNumber":sum,
+				},
+				success:function(){
+					alert("亲，加入购物车成功！");
+				},
+				error:function(){
+					alert("亲，很遗憾，加入购物车失败！");
+				}
+			});
+	});
 	
 
 	function sleep(numberMillis) { 

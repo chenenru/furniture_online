@@ -22,4 +22,11 @@
         on pt.id = py.id
         where pt.id = #{id,jdbcType=INTEGER}
     </select>
+    <insert id="addProductDetail" parameterType="com.web.pojo.TbProductOrder">
+        insert into tb_product_order(pr_id,o_id,c_id,pro_number) values(#{prId,jdbcType=INTEGER},null,#{cId,jdbcType=INTEGER},#{proNumber,jdbcType=INTEGER});
+    </insert>
+    <select id="getComment" resultType="com.web.pojo.TbComment" parameterType="java.lang.Integer" >
+        select * from tb_comment
+	       where pr_id = #{pr_Id,jdbcType=INTEGER}
+    </select>
 </mapper>

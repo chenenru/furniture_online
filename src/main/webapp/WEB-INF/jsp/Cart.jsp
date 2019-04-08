@@ -48,8 +48,9 @@
 					<div class="sub_top fr">操作</div>
 					<div class="clear"></div>
 				</div>
+				<%--<c:if test="${Carts}!=null">--%>
                         <c:forEach var="Cart" items="${Carts}" begin="0" step="1">
-                            <div class="content2 center" id="center">
+                            <div class="content2 center" id="${Carts.get(0).id}">
                                 <div class="sub_content fl ">
                                     <input type="checkbox" value="quanxuan" class="quanxuan" />
                                 </div>
@@ -65,6 +66,7 @@
                                 <div class="clear"></div>
                             </div>
                         </c:forEach>
+				<%--</c:if>--%>
 			</div>
 			<div class="jiesuandan mt20 center">
 				<div class="tishi fl ml20">
@@ -76,7 +78,7 @@
 					</ul>
 				</div>
 				<div class="jiesuan fr">
-					<div class="jiesuanjiage fl">合计（不含运费）：<span><c:out value="${Cart.proNumber*Cart.tbProperty.prOutprice}"></c:out></span></div>
+					<div class="jiesuanjiage fl">合计（不含运费）：<span><c:out value="${money}"></c:out></span></div>
 					<div class="jsanniu fr"><input class="jsan" type="submit" name="jiesuan"  value="去结算"/></div>
 					<div class="clear"></div>
 				</div>
@@ -93,12 +95,13 @@
 <script>
     $(document).ready(function(){
        $('.remove').click(function(){
-           $('#center').attr("style","display:none;");
-           // alert("点击");
+           $('#${Carts.get(0).id}').attr("style","display:none;");
+           // alert();
           $.ajax({
               type:"post",
-              url:"${pageContext.request.contextPath}/getRemoveId.do",
-              data:{"id":${Cart.id}},
+              // getRemoveId.do
+              url:"${pageContext.request.contextPath}/CartControl/remove",
+              data:{"removeId":${Carts.get(0).id}},
               success:function(){
                   alert(${Cart.id});
               },
