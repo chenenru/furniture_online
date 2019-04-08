@@ -12,7 +12,7 @@
 		<plugin interceptor="com.github.pagehelper.PageInterceptor" >
 			<!--分页参数合理化-->
 			<!--<property name="reasonable" value="true"/>-->
-			<property name="dialect" value="mysql" />
+			<!--<property name="dialect" value="mysql" /> -->
 		</plugin>
 	</plugins>
 </configuration>

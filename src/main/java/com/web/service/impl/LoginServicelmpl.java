@@ -6,20 +6,21 @@ import com.web.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@SuppressWarnings("ALL")
 @Service
 public class LoginServicelmpl implements LoginService {
     @Autowired
     private TbClientMapper tbClientMapper;
 
+
     @Override
-    public boolean login(String email, String pwd) {
-        TbClient tbClient = tbClientMapper.get(email);
+    public TbClient findClientByEmail(String c_email, String c_pwd) {
+        System.out.println("c_email="+c_email+",c_pwd="+c_pwd);
+        TbClient tbClient = tbClientMapper.getClientByEmail(c_email);
+        System.out.println("1111111"+tbClient);
         if (tbClient != null) {
-            if (tbClient.getcEmail().equals(email) && tbClient.getcPwd().equals(pwd)) {
-                return true;
-            }
-            return false;
+                return tbClient;
         }
-        return false;
+        return  null;
     }
 }

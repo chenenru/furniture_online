@@ -30,4 +30,9 @@ public class InfoServiceImpl implements InfoService {
         TbClient tbClient = tbClientMapper.selectByPrimaryKey(id);
         return tbClient;
     }
+
+    @Override
+    public void Service_UpdateClient(TbClient tbClient) {
+
+    }
 }

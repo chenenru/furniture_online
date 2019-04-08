@@ -44,10 +44,10 @@ public class InfoController {
         //System.out.println(tbClient+"22222222222222222222222222");
         return "Info";
     }
-    @RequestMapping("/login")
-    public String ToLogin() {
-        return "Login";
-    }
+//    @RequestMapping("/login")
+//    public String ToLogin() {
+//        return "Login";
+//    }
     /*@RequestMapping("/feedback")
     @ResponseBody
     public String ToFeedback(@RequestBody TbFeedback tbFeedback) {
