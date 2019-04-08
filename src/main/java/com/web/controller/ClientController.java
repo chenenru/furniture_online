@@ -2,13 +2,14 @@ package com.web.controller;
 
 import com.sun.mail.util.MailSSLSocketFactory;
 import com.web.pojo.TbClient;
-import com.web.service.RegistService;
+import com.web.service.ClientService;
 import com.web.utils.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.mail.*;
@@ -17,56 +18,117 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.security.GeneralSecurityException;
 import java.util.Properties;
 
 /**
- * @author shkstart
- * @create 2019-04-03 15:51
- */
-@Repository
+ * @ClassName ClientController
+ * @Description TODO
+ * @Author LonelySeven
+ * @Date 2019/4/8 17:23
+ * @Version 1.0
+ **/
+@Controller
 @RequestMapping("/client")
-public class RegistController {
-
-    @Autowired
-    public RegistService registService;
-
+public class ClientController {
     private static String userName = "3326257306@qq.com";//发送邮件的人
     private static String password = "mvdmciyyygcfdacd";//发送邮件的账户的密码
     //private static String to = "3326257306@qq.com";//接收邮件的人
     private static String port = "465";//465、587  端口号：易邮发给qq:25 qq发给易邮：465
 
+    @Autowired
+    private ClientService clientService;
+
+
+    @RequestMapping("logout")
+    public String client_logout(HttpSession session){
+        session.invalidate();
+
+        return "index";
+    }
+
+    @RequestMapping("login")
+    public String client_login(Model model, @RequestParam("email")String email,@RequestParam("pwd")String pwd ,
+                               HttpSession session , HttpServletResponse response){
+        TbClient client = clientService.ClientLogin(email,pwd);
+
+        if(client != null){
+            if(client.getcStatus() == 0 ){
+                model.addAttribute("error",1);
+                return "error";
+            }
+
+            else{
+                session.setAttribute("user",client);
+                session.setAttribute("username",client.getcName());
+                return "index";
+            }
+        }
+        else
+            return "index";
+    }
+
+    @RequestMapping("/info")
+    public String findTbClientById(HttpSession session , Model model){
+//        id=1;//没实现登陆和注册，只能这样了
+//        TbClient client =  (TbClient)session.getAttribute("user");
+//        TbClient tbclientById = clientService.Service_findTbclientById(client.getId());
+//        model.addAttribute("user",tbclientById);
+        return  "Info";
+    }
+
+
+    @RequestMapping("/edit")
+    @ResponseBody
+    public TbClient getClientById(Integer id) {
+        TbClient tbClient = clientService.Service_findTbclientById(id);
+        //System.out.println("11111111111111111111111");
+        return tbClient;
+    }
+
+
+    @RequestMapping("/update")
+    @ResponseBody
+    public String ClientUpdate(TbClient tbClient) {
+        clientService.Service_UpdateClient(tbClient);
+        //System.out.println(tbClient+"22222222222222222222222222");
+        return "Info";
+    }
+
+
     /**
      * 用户激活账号
      * @return
      */
-   @RequestMapping("/active")
+    @RequestMapping("/active")
     public String ToActive(HttpServletRequest req, HttpServletResponse res, Model model) throws Exception {
-       String code = req.getParameter("code");
-       System.out.println("==========="+code+"============");
-       TbClient byCode = registService.findByCode(code);
-       if(byCode !=null){
-           byCode.setcStatus(1);
-           byCode.setcCode(null);
-           registService.update(byCode);
-           model.addAttribute("msg","激活成功，请登录");
-       }else{
-           model.addAttribute("msg","激活失败，重新激活");
-       }
-       return "index";//WEB-INF/jsp/Regist.jsp
+        String code = req.getParameter("code");
+        System.out.println("==========="+code+"============");
+        TbClient byCode = clientService.findByCode(code);
+        if(byCode !=null){
+            byCode.setcStatus(1);
+            byCode.setcCode(null);
+            clientService.update(byCode);
+            model.addAttribute("msg","激活成功，请登录");
+        }else{
+            model.addAttribute("msg","激活失败，重新激活");
+        }
+        return "index";//WEB-INF/jsp/Regist.jsp
     }
 
     @RequestMapping("/regist")
     @ResponseBody
     public TbClient ToCRegist(@RequestBody TbClient tbClient) throws Exception{
-       tbClient.setId(4);//id应该是自动增长的
+//        tbClient.setId(4);//id应该是自动增长的
         tbClient.setcStatus(0);  //状态码0未激活，1激活
-       tbClient.setcCode(UUIDUtil.code());
+        tbClient.setcCode(UUIDUtil.code());
         System.out.println("-------------"+tbClient);
-        registService.save(tbClient);
+        clientService.save(tbClient);
         toMail(tbClient.getcEmail(),tbClient.getcCode());
         return tbClient;
     }
+
 
     /**
      * 该方法用来发送邮件
@@ -117,7 +179,7 @@ public class RegistController {
         message.setSubject("您好，这是网上家具商城激活用户账号的邮件");
         //2.4邮件的正文（即邮件的内容）
         message.setContent("<h1>来自网上家具商城的激活邮件，点击链接激活账号：</h1><h3><a href='http://localhost:8080/client/active?code="+code+"'>" +
-                        "http://localhost:8080/client/active?code="+code+"</a></h3>，祝您购物愉快！", "text/html;charset=utf-8");
+                "http://localhost:8080/client/active?code="+code+"</a></h3>，祝您购物愉快！", "text/html;charset=utf-8");
 
         //3.发送邮件
         Transport trans = session.getTransport();
@@ -133,4 +195,5 @@ public class RegistController {
         System.out.println("发送成功");
         return "success";
     }
+
 }

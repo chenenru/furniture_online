@@ -238,7 +238,7 @@
                     $(".divBox").toggle("slow");
                     $(".divBox2").toggle("slow");
                 });
-                alert(click);
+                // alert(click);
             });
 		</script>
 		<footer class="mt20 center">			

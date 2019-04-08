@@ -23,10 +23,10 @@ public class FeedbackController {
 @RequestMapping("/feedback")
 @DateTimeFormat()
 @ResponseBody
-    public String insertFeedback(@RequestBody TbFeedback tbFeedback) {
-    tbFeedback.setId(100);
-    tbFeedback.setfDate(new Date());
+    public TbFeedback insertFeedback(@RequestBody TbFeedback tbFeedback) {
+//    tbFeedback.setId(100);
+        tbFeedback.setfDate(new Date());
         feedbackService.saveFeedback(tbFeedback);
-        return  "Feedback";
+        return  tbFeedback;
     }
 }

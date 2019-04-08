@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 @SuppressWarnings("ALL")
 @Service
 public class FeedbackServiceImpl implements FeedbackService {
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     public TbFeedbackMapper tbFeedbackMapper;
     @Override

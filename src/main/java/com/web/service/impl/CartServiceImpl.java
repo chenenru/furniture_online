@@ -11,6 +11,8 @@ import java.util.List;
 @SuppressWarnings("ALL")
 @Service
 public class CartServiceImpl implements CartService {
+
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private CartMapper cartMapper;
     //获取购物车商品

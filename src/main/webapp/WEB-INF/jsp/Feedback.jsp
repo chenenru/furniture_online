@@ -86,6 +86,8 @@
                 data:jsonUser,
                 success:function (data) {
                     alert("亲，已收到您的反馈，祝您购物愉快");
+                    <%--window.location("${pageContext.request.contextPath }/index");--%>
+                    window.location.href = "${pageContext.request.contextPath }/index";
                 }
             });
 

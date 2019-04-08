@@ -1,6 +1,6 @@
 package com.web.controller;
 
-import com.web.pojo.TbOrder;
+import com.web.pojo.TbClient;
 import com.web.pojo.TbOrderProperty;
 import com.web.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +26,8 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @Autowired
-    private HttpSession session;
-
     @RequestMapping("/detail")
-    public String showOrder(Model model , @RequestParam("order_id") int id){
+    public String showOrder(Model model , @RequestParam("order_id") int id ){
 //        TbOrder tbOrder = orderService.getTbOrderbyPrimaryKey(1);
 //        model.addAttribute("orderMsg",tbOrder);
 
@@ -49,9 +46,10 @@ public class OrderController {
     }
 
     @RequestMapping("/all_list")
-    public String showList(Model model){
+    public String showList(Model model,HttpSession session){
 
-        List<TbOrderProperty> tbOrderPropertyList = orderService.getOrderListbyUser(2);
+        TbClient client = (TbClient)session.getAttribute("user");
+        List<TbOrderProperty> tbOrderPropertyList = orderService.getOrderListbyUser(client.getId());
         model.addAttribute("orderList",tbOrderPropertyList);
 
         //标记是以什么条件搜索订单
@@ -62,15 +60,15 @@ public class OrderController {
     }
 
     @RequestMapping("/status_list")
-    public String showStatus(Model model , @RequestParam("order_status")int order_status){
+    public String showStatus(Model model , @RequestParam("order_status")int order_status ,HttpSession session){
 
 
 //        获取当前登陆的账号id
 //        int userId = (int)session.getAttribute("userId") ;
 
         System.out.println(order_status);
-
-        List<TbOrderProperty> tbOrderProperties = orderService.getOrderListbyStatus(2,order_status);
+        TbClient client = (TbClient)session.getAttribute("user");
+        List<TbOrderProperty> tbOrderProperties = orderService.getOrderListbyStatus(client.getId(),order_status);
 
         model.addAttribute("orderList",tbOrderProperties);
 

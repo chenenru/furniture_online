@@ -21,11 +21,11 @@ public interface TbClientMapper {
 
     List<TbClient> selectByExample(TbClientExample example);
 
-    //
+
     TbClient selectByPrimaryKey(Integer id);
 
     //登录
-    TbClient getClientByEmail(String c_email);
+    TbClient getClientByEmail(@Param("email")String email , @Param("pwd")String pwd);
 
     int updateByExampleSelective(@Param("record") TbClient record, @Param("example") TbClientExample example);
 

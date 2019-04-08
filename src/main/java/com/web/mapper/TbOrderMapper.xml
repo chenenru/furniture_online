@@ -51,7 +51,7 @@
     <result property="oTotal" column="o_total"/>
     <result property="oStatus" column="o_status"/>
     <association property="tbProperty" javaType="com.web.pojo.TbProperty">
-      <result property="prImage" column="pr_image" />
+    <result property="prImage" column="pr_image" />
     </association>
   </resultMap>
 

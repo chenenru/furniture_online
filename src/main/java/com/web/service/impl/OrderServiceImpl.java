@@ -26,7 +26,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<TbOrderProperty> getOrderListbyUser(int userId) {
-        List<TbOrderProperty> tbOrderProperties = tbOrderMapper.getOrderListbyUser(2);
+        List<TbOrderProperty> tbOrderProperties = tbOrderMapper.getOrderListbyUser(userId);
 
         for(TbOrderProperty tbOrderProperty : tbOrderProperties)
             System.out.println(tbOrderProperty);

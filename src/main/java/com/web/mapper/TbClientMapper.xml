@@ -258,7 +258,9 @@
   <select id="selectByCode"  resultType="com.web.pojo.TbClient" parameterType="java.lang.String">
     select * from tb_client where c_code=#{code}
   </select>
-  <select id="getClientByEmail" parameterType="java.lang.String" resultType="com.web.pojo.TbClient">
-      select * from tb_client where c_email=#{c_email,jdbcType=VARCHAR}
+  <select id="getClientByEmail" resultMap="BaseResultMap">
+    select * from tb_client where c_email = #{email,jdbcType=VARCHAR} and c_pwd = #{pwd,jdbcType=VARCHAR}
   </select>
+
+
 </mapper>

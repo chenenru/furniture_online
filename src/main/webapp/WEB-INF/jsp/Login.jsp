@@ -17,7 +17,7 @@
 		<!-- login -->
 		<div class="top center">
 			<div class="logo center">
-				<a href="../../index.jsp" target="_blank"><img src="<c:url value='/js'/>/finallogo.jpg" alt=""></a>
+				<a href="${pageContext.request.contextPath}/index" target="_blank"><img src="<c:url value='/js'/>/finallogo.jpg" alt=""></a>
 			</div>
 		</div>
 		<form  method="post" action="/client/login" class="form center" id="myform">
@@ -25,7 +25,7 @@
 			<div class="login_center">
 				<div class="login_top">
 					<div class="left fl" style="font-family: 华文行楷;">用户登录</div>
-					<div class="right fr">您还不是我们的用户？<a href="Regist.jsp" target="_self">立即注册</a></div>
+					<div class="right fr">您还不是我们的用户？<a href="${pageContext.request.contextPath}/regist" target="_self">立即注册</a></div>
 					<div class="clear"></div>
 					<div class="xian center"></div>
 				</div>
@@ -33,12 +33,12 @@
 
 					<div class="input-group" style="margin: 0 13% 10%;">
 					  <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
-					  <input name="c_email" type="text" class="form-control" placeholder="请输入你的账号" aria-describedby="basic-addon1" style="margin: 2px 0 0 0;height: 40px; width: 230px;color: black;font-size: 14px;font-family: 微软雅黑;">
+					  <input name="email" type="text" class="form-control" placeholder="请输入你的账号" aria-describedby="basic-addon1" style="margin: 2px 0 0 0;height: 40px; width: 230px;color: black;font-size: 14px;font-family: 微软雅黑;">
 					</div>
 
 					<div class="input-group" style="margin: 0 13% 10%;">
 					  <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon2"></span>
-					  <input name="c_pwd" type="text" class="form-control" placeholder="请输入你的密码" aria-describedby="basic-addon2" style="margin: 2px 0 0 0;height: 40px; width: 230px;color:black;font-size:14px;font-family:微软雅黑 ;">
+					  <input name="pwd" type="password" class="form-control" placeholder="请输入你的密码" aria-describedby="basic-addon2" style="margin: 2px 0 0 0;height: 40px; width: 230px;color:black;font-size:14px;font-family:微软雅黑 ;">
                     </div>
 
 					<div class="username" style="margin: 0 13% 5%;">

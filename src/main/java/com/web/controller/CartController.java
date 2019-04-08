@@ -2,7 +2,6 @@ package com.web.controller;
 
 import com.web.pojo.Cart;
 import com.web.service.CartService;
-import org.apache.http.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,9 +18,9 @@ public class CartController {
     private CartService cartService;
 
     //接受前台传来的删除购物车商品的id
-    @RequestMapping(params = "id")
+//    @RequestMapping(params = "id")
     @ResponseBody
-    public void getRemoveId(HttpServletRequest request){
+    public String getRemoveId(HttpServletRequest request){
         removeId = Integer.valueOf(request.getParameter("id"));
         try{
             this.cartService.removeCart(removeId);
@@ -29,7 +28,7 @@ public class CartController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return;
+        return "Cart";
     }
 
     @RequestMapping("/Cart")

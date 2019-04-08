@@ -5,11 +5,12 @@ import com.web.pojo.ProductDetail;
 import com.web.service.ProductDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 @SuppressWarnings("ALL")
 @Service
 public class ProductDetailServiceImpl implements ProductDetailService {
+
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private ProductDetailMapper productDetailMapper;
 

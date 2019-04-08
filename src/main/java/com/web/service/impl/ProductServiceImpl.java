@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 @SuppressWarnings("ALL")
 @Service
 public class ProductServiceImpl implements ProductService {
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private TbProductMapper tbProductMapper;
 
