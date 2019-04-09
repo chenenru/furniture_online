@@ -91,6 +91,14 @@
     where tb_order.c_id = #{userId,jdbcType=INTEGER} and o_status = #{status,jdbcType=INTEGER} ;
   </select>
 
+  <select id="selectOrderByStatus" resultMap="BaseResultMap">
+    select * from tb_order
+    where pr_id = #{pr_id,jdbcType=INTEGER}
+     and c_id = #{c_id,jdbcType=INTEGER}
+     and o_status = #{status,jdbcType=INTEGER}
+
+  </select>
+
 
   <sql id="Example_Where_Clause" >
     <where >

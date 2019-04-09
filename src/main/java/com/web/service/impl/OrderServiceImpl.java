@@ -25,6 +25,19 @@ public class OrderServiceImpl implements OrderService {
     public TbOrderMapper tbOrderMapper;
 
     @Override
+    public TbOrder selectOrderByStatus(Integer pr_id, Integer c_id, Integer status) {
+        TbOrder tbOrder = tbOrderMapper.selectOrderByStatus(pr_id,c_id,status);
+
+        return  tbOrder;
+    }
+
+    @Override
+    public void insertOrder(TbOrder tbOrder) {
+        tbOrderMapper.insertSelective(tbOrder);
+
+    }
+
+    @Override
     public List<TbOrderProperty> getOrderListbyUser(int userId) {
         List<TbOrderProperty> tbOrderProperties = tbOrderMapper.getOrderListbyUser(userId);
 
@@ -66,4 +79,7 @@ public class OrderServiceImpl implements OrderService {
 
         return tbOrderProperty;
     }
+
+
+
 }

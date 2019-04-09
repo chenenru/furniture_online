@@ -7,7 +7,11 @@ import java.util.List;
 
 public interface OrderService {
 
+    public void insertOrder(TbOrder tbOrder);
+
     TbOrder getTbOrderbyPrimaryKey(int key);
+
+    TbOrder selectOrderByStatus(Integer pr_id,Integer c_id,Integer status);
 
     TbOrderProperty getOrderProperty(int key);
 

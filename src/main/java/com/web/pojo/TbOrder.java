@@ -14,23 +14,6 @@ public class TbOrder{
 
     private Integer oStatus;
 
-//    public String getOrderStatus(Integer status){
-//        if( status == 1 )
-//            return "未支付";
-//        if( status == 2)
-//            return "已支付";
-//        if( status == 3)
-//            return "已发货";
-//        if( status == 4)
-//            return "已收货";
-//        if( status == 5)
-//            return "已评论";
-//        return "不详";
-//    }
-
-    public TbOrder() {
-    }
-
     private Date oCreate;
 
     private Date oPay;
@@ -42,6 +25,9 @@ public class TbOrder{
     private String oAddress;
 
     private String oPhone;
+
+    public TbOrder() {
+    }
 
     public Integer getId() {
         return id;
