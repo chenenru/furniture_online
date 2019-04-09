@@ -60,7 +60,7 @@
 		</form>
 		<footer>
 			<div class="copyright">简体 | 繁体 | English | 常见问题</div>
-			<div class="copyright">小米公司版权所有-京ICP备10046444-<img src="<c:url value='/image'/>/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号</div>
+			<div class="copyright">小莫所有版权所有-00000-<img src="<c:url value='/image'/>/ghs.png" alt="">京公网安备000000000号-京ICP证00000号</div>
 
 		</footer>
 	</body>

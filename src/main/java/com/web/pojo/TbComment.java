@@ -7,7 +7,7 @@ public class TbComment {
     private Integer c_id;
     private Integer pr_id;
     private String co_info;
-    private Date co_date;
+    private String co_date;
     private Integer co_grade;
 
     public Integer getC_id() {
@@ -34,11 +34,11 @@ public class TbComment {
         this.co_info = co_info;
     }
 
-    public Date getCo_date() {
+    public String getCo_date() {
         return co_date;
     }
 
-    public void setCo_date(Date co_date) {
+    public void setCo_date(String co_date) {
         this.co_date = co_date;
     }
 

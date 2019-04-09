@@ -41,7 +41,7 @@
 	
 	<div class="jieshao mt10 w">
 		<div class="left fl">
-			<div><img src='<c:out value="${ProductDetail.tbProperty.prImage}"></c:out>' style="height: 560px; width: 560px;"/></div>
+			<div><img src="<c:url value='/image/img'/>/<c:out value='${ProductDetail.tbProperty.prImage}'></c:out>" style="height: 560px; width: 560px;"/></div>
 			<div style="margin: 20px 0 0 50%; font-size: 18px; font-family: Algerian"><a>评论</a></div>
 		</div>
 		<div class="right fr">
@@ -51,10 +51,10 @@
 			<div class="jiage ml20 mt10">单价：<span id="onePrice"><c:out value="${ProductDetail.tbProperty.prOutprice}"></c:out>.00</span></div>
 			<div class="ft20 ml20 mt20">颜色：<span><c:out value="${ProductDetail.tbProperty.prColor}"></c:out></span></div>
 			
-			<div class="ft20 ml20 mt20">选择尺寸：<c:out value="${ProductDetail.tbProperty.prSize}"></c:out></div>
+			<div class="ft20 ml20 mt20" >选择尺寸：<c:out value="${ProductDetail.tbProperty.prSize}"></c:out></div>
 			<div class="xzbb ml20 mt10">
 				<div class="banben">
-					<div class="yanse" id="yan1">
+					<div class="yanse" id="yan1" style="height: 60px; width: 200px;">
 						<a href="#" onclick="chooseSize1()"><span id="size1" ><c:out value="${ProductDetail.tbProperty.prSize}"></c:out></span></a>
 					</div>
 					<%--<div class="yanse" id="yan2">--%>
@@ -77,7 +77,7 @@
 					<div class="right1 fr"></div>
 					<div class="clear"></div>
 				</div>
-				<div class="bot mt20 ft20 ftbc">总计：<span id="AllPrice"><c:out value="999"></c:out></span>.00元</div>
+				<div class="bot mt20 ft20 ftbc">总计：<span id="AllPrice"><c:out value="${ProductDetail.tbProperty.prOutprice}"></c:out></span>.00元</div>
 			</div>
 			<br><br>
 			<div class="xiadan ml20 mt20">
@@ -90,8 +90,8 @@
 		<div style="height: 50px; width: 100%;">
 			<hr>
 			<c:forEach var="comment" items="${comments}" begin="0" step="1">
-				<div>
-					<div style="margin: 10px 0 10px 5%">用户${comment.c_id}</div>
+				<div style="background-color: #aaaaaa;">
+					<div style="margin: 10px 0 10px 5%">用户<%session.getAttribute("user");%></div>
 					<div style="margin: 10px 0 10px 5%">${comment.co_date}</div>
 					<div style="margin: 10px 0 10px 25%">${comment.co_info}</div>
 					<div style="margin: 10px 0 10px 45%; border-bottom: #201f1f;">星级：${comment.co_grade}</div>

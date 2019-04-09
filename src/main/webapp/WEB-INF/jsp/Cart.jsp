@@ -39,7 +39,7 @@
 			<div class="gwcxd center">
 				<div class="top2 center">
 					<div class="sub_top fl">
-						<input type="checkbox" value="quanxuan" class="quanxuan" />全选
+						<%--<input type="checkbox" value="quanxuan" class="quanxuan" />全选--%>
 					</div>
 					<div class="sub_top fl">商品名称</div>
 					<div class="sub_top fl">单价</div>
@@ -50,12 +50,13 @@
 				</div>
 				<%--<c:if test="${Carts}!=null">--%>
                         <c:forEach var="Cart" items="${Carts}" begin="0" step="1">
-                            <div class="content2 center" id="${Carts.get(0).id}">
+                            <div class="content2 center cart" id="${Cart.id}">
                                 <div class="sub_content fl ">
-                                    <input type="checkbox" value="quanxuan" class="quanxuan" />
+									<img src="<c:url value='/image/img'/>/<c:out value="${Cart.tbProperty.prImage}"></c:out>" style="width: 50px; height: 50px;" >
+                                    <%--<input type="checkbox" value="quanxuan" class="quanxuan" />--%>
                                 </div>
                                 <div class="sub_content fl"></div>
-                                <div class="sub_content fl"><img src="<c:out value="${Cart.tbProperty.prImage}"></c:out>" style="width: 50px; height: 50px;" ><c:out value="${Cart.pName}"></c:out></div>
+                                <div class="sub_content fl"><c:out value="${Cart.pName}"></c:out></div>
                                 <div class="sub_content fl "><c:out value="${Cart.tbProperty.prOutprice}"></c:out></div>
                                 <div class="sub_content fl">
 									<c:out value="${Cart.proNumber}"></c:out>
@@ -95,18 +96,26 @@
 <script>
     $(document).ready(function(){
        $('.remove').click(function(){
-           $('#${Carts.get(0).id}').attr("style","display:none;");
+       		var r = $('.cart').attr("id");
+		   alert("--------"+r);
+           $("#"+r).attr("style","display:none;");
            // alert();
           $.ajax({
               type:"post",
               // getRemoveId.do
-              url:"${pageContext.request.contextPath}/CartControl/remove",
-              data:{"removeId":${Carts.get(0).id}},
+              url:"${pageContext.request.contextPath}/remove",
+              data:{
+              	  "removeId":${Carts.get(0).id},
+				  "money":${money},
+				  "number":${Carts.get(0).proNumber},
+				  "price":${Carts.get(0).tbProperty.prOutprice}
+			  },
               success:function(){
-                  alert(${Cart.id});
+                  <%--alert(${Carts.get(0).id});--%>
+				  window.location.reload();
               },
               error:function(){
-                  alert("failed");
+                  // alert("failed");
               }
           });
        });

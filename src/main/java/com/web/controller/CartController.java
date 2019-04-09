@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-@RequestMapping("/CartControl")
+@RequestMapping("/")
 public class CartController {
     @Autowired
     private CartService cartService;
@@ -23,12 +23,13 @@ public class CartController {
 //    @RequestMapping(params = "id")
     @RequestMapping("/remove")
     @ResponseBody
-    public void getRemoveId(String removeId){
+    public void getRemoveId(String removeId, int money, int number, int price){
         System.out.println(removeId);
 //        removeId = Integer.valueOf(request.getParameter("id"));
 //        System.out.println(removeId);
         try{
             this.cartService.removeCart(Integer.valueOf(removeId));
+//            this.money = money-number*price;
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -38,12 +39,14 @@ public class CartController {
     @RequestMapping("/Cart")
     public String getCart(Integer cid, Model model){
         try{
+            int money = 0;
             List<Cart> carts = this.cartService.getCart(2);
             model.addAttribute("Carts",carts);
-            int money = 0;
+            System.out.println(carts.size());
             for(int i=0; i<carts.size();i++){
-                money+=carts.get(i).getTbProperty().getPrOutprice();
+                money+=carts.get(i).getTbProperty().getPrOutprice()*carts.get(i).getProNumber();
             }
+            System.out.println("money==="+money);
             model.addAttribute("productNum",carts.size());
             model.addAttribute("money",money);
         }catch(Exception e){
