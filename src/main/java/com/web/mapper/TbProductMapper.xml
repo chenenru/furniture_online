@@ -7,6 +7,30 @@
     <result column="p_type" property="pType" jdbcType="VARCHAR" />
     <result column="p_intro" property="pIntro" jdbcType="VARCHAR" />
   </resultMap>
+
+  <resultMap id="Product_property_Result" type="com.web.pojo.TbProductProperty">
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="p_name" property="pName" jdbcType="VARCHAR" />
+    <result column="p_type" property="pType" jdbcType="VARCHAR" />
+    <result column="p_intro" property="pIntro" jdbcType="VARCHAR" />
+    <result column="p_id" property="pId" jdbcType="INTEGER" />
+    <result column="pr_image" property="prImage" jdbcType="VARCHAR" />
+    <result column="pr_color" property="prColor" jdbcType="VARCHAR" />
+    <result column="pr_size" property="prSize" jdbcType="VARCHAR" />
+    <result column="pr_material" property="prMaterial" jdbcType="VARCHAR" />
+    <result column="pr_store" property="prStore" jdbcType="INTEGER" />
+    <result column="pr_innum" property="prInnum" jdbcType="INTEGER" />
+    <result column="pr_inprice" property="prInprice" jdbcType="INTEGER" />
+    <result column="pr_outprice" property="prOutprice" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="selectProductByName" parameterType="java.lang.String" resultMap="Product_property_Result">
+    select tb_property.id, p_name, p_type, p_intro,p_id, pr_image, pr_color, pr_size, pr_material, pr_store, pr_innum, pr_inprice, pr_outprice
+    from tb_property
+    left join tb_product on tb_property.p_id = tb_product.id
+    where p_name like #{name,jdbcType=VARCHAR}
+  </select>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

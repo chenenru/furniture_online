@@ -26,7 +26,7 @@ public class ClientServiceImpl implements ClientService {
     public TbClient ClientLogin(String email, String pwd) {
         TbClient tbClient = tbClientMapper.getClientByEmail(email,pwd);
 
-        System.out.println(tbClient.toString());
+//        System.out.println(tbClient.toString());
         return tbClient;
     }
 
@@ -38,7 +38,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void Service_UpdateClient(TbClient tbClient) {
-
+        tbClientMapper.updateByPrimaryKeySelective(tbClient);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.web.mapper;
 
 import com.web.pojo.TbProduct;
 import com.web.pojo.TbProductExample;
+import com.web.pojo.TbProductProperty;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +21,8 @@ public interface TbProductMapper {
     int insertSelective(TbProduct record);
 
     List<TbProduct> selectByExample(TbProductExample example);
+
+    List<TbProductProperty> selectProductByName(@Param("name")String name);
 
     //根据id查询商品信息
     TbProduct selectByPrimaryKey(Integer id);

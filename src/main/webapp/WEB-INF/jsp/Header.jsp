@@ -68,9 +68,9 @@
 			</div>
 
 			<div class="rightNav">
-				<div class="rightNavDiv"><a href="#" id="cartHref"><img src="${pageContext.request.contextPath}/image/gouwuche.jpg" style="height: 80px;width: 100px;" id="cart"></a></div>
+				<div class="rightNavDiv"><a href="${pageContext.request.contextPath}/Cart" id="cartHref"><img src="${pageContext.request.contextPath}/image/gouwuche.jpg" style="height: 80px;width: 100px;" id="cart"></a></div>
 <!-- 				<div class="rightNavDiv"><a href="#" id="serviceHref"><img src="./image/kefu.jpg" style="height: 80px;width: 100px;" id="service"></a></div> -->
-				<div class="rightNavDiv"><a href="#" id="personHref"><img src="${pageContext.request.contextPath}/image/gerenzhongxin.jpg" style="height: 80px;width: 100px;" id="person"></a></div>
+				<div class="rightNavDiv"><a href="${pageContext.request.contextPath}/client/info" id="personHref"><img src="${pageContext.request.contextPath}/image/gerenzhongxin.jpg" style="height: 80px;width: 100px;" id="person"></a></div>
 				<div class="rightNavDiv"><a href="#" id="toTopHref"><img src="${pageContext.request.contextPath}/image/toTop.jpg" style="height: 80px;width: 100px;" id="toTop"></a></div>
 			</div>
 			<div class="searchProduct" style="display: inline-block;">
@@ -88,7 +88,7 @@
 		<script type="text/javascript">
 			function findKey() {
 				var name = $("#productName").val();
-				var my_action = "ProductDetail!QueryProductByProductName?productName=" + name ;
+				var my_action = "${pageContext.request.contextPath}/selectProduct?name=" + name ;
 // 				alert(my_action);
 				document.searchForm.action = my_action;
 				searchForm.submit();

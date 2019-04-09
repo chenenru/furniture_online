@@ -21,6 +21,14 @@
             });
         </script>
     </c:when>
+    <c:when test="${error == 2}">
+        <script type="text/javascript">
+            $(document).ready(function(){
+                alert("用户名或密码错误！");
+                history.go(-1);
+            });
+        </script>
+    </c:when>
     <c:otherwise>
         <script type="text/javascript">
             $(document).ready(function(){

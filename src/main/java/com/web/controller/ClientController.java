@@ -65,8 +65,10 @@ public class ClientController {
                 return "index";
             }
         }
-        else
-            return "index";
+        else{
+            model.addAttribute("error",2);
+            return  "error";
+        }
     }
 
     @RequestMapping("/info")
@@ -75,7 +77,11 @@ public class ClientController {
 //        TbClient client =  (TbClient)session.getAttribute("user");
 //        TbClient tbclientById = clientService.Service_findTbclientById(client.getId());
 //        model.addAttribute("user",tbclientById);
-        return  "Info";
+       if( session.getAttribute("user") != null){
+           return "Info";
+       }
+       else
+           return "Login";
     }
 
 
