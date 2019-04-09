@@ -56,14 +56,12 @@
 			<a href=""><div class="ad_top fl"></div></a>
 			<div class="nav fl" style="display: inline-block;">
 				<ul>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=男鞋" target="_blank">男鞋</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=女鞋">女鞋</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=篮球鞋">篮球鞋</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=平板鞋">平板鞋</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=休闲鞋">休闲鞋</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=马丁靴">马丁靴</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=跑步鞋">跑步鞋</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=帆布鞋">帆布鞋</a></li>
+					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=餐厅" target="_blank">餐厅</a></li>
+					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=儿童">儿童</a></li>
+					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=客厅">客厅</a></li>
+					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=书房">书房</a></li>
+					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=卧室">卧室</a></li>
+					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=阳台户外">阳台户外</a></li>
 				</ul>
 			</div>
 

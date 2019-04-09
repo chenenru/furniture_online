@@ -98,14 +98,14 @@
 			<div class="nav">				
 				<ul>
 					<li>
-						<a href="" id="nike" style="text-decoration: none;">耐克&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a href="" id="nike" style="text-decoration: none;">桌子&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
 						<!-- <a href="">电话卡</a> -->
 						<div class="pop">
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">
-											<span class="fl">女靴</span>
+											<span class="fl">餐桌</span>
 											<div class="clear"></div>
 										</a>
 									</div>
@@ -115,7 +115,7 @@
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">
-											<span class="fl">休闲鞋</span>
+											<span class="fl">书桌</span>
 											<div class="clear"></div>
 										</a>
 									</div>
@@ -127,13 +127,13 @@
 					</li>
 
 					<li>
-						<a href="" id="adidas" style="text-decoration: none;">阿迪达斯&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a href="" id="adidas" style="text-decoration: none;">床&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
 						<div class="pop">
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2">
-											<span class="fl">男子经典鞋</span>
+											<span class="fl">沙发床</span>
 											<div class="clear"></div>
 										</a>
 									</div>
@@ -143,7 +143,7 @@
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2">
-											<span class="fl">跑步鞋</span>
+											<span class="fl">大床</span>
 											<div class="clear"></div>
 										</a>
 									</div>
@@ -154,13 +154,13 @@
 						</div>
 					</li>
 					<li>
-						<a href="" id="converse" style="text-decoration: none;">匡威&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a href="" id="converse" style="text-decoration: none;">椅子&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
 						<div class="pop">
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3">
-											<span class="fl">经典款 男女帆布鞋</span>
+											<span class="fl">餐椅</span>
 											<div class="clear"></div>
 										</a>
 									</div>
@@ -170,7 +170,7 @@
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3">
-											<span class="fl">低帮帆布鞋硫化鞋 </span>
+											<span class="fl">沙发椅 </span>
 											<div class="clear"></div>
 										</a>
 									</div>
@@ -182,13 +182,13 @@
 					</li>
 
 					<li>
-						<a href="" id="Xtep" style="text-decoration: none;">特步&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a href="" id="Xtep" style="text-decoration: none;">沙发&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
 						<div class="pop">
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4">
-											<span class="fl">慢跑鞋</span>
+											<span class="fl">木质沙发</span>
 											<div class="clear"></div>
 										</a>
 									</div>
@@ -198,7 +198,7 @@
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4">
-											<span class="fl">休闲运动鞋</span>
+											<span class="fl">欧式沙发</span>
 											<div class="clear"></div>
 										</a>
 									</div>
@@ -209,13 +209,13 @@
 						</div>	
 					</li>
 					<li>
-						<a href="" id="AnTa" style="text-decoration: none;">安踏&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a href="" id="AnTa" style="text-decoration: none;">户外&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
 						<div class="pop">
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5">
-											<span class="fl">帆布鞋 女</span>
+											<span class="fl">晾衣架</span>
 											<div class="clear"></div>
 										</a>
 									</div>
@@ -225,7 +225,7 @@
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5">
-											<span class="fl">休闲鞋 男</span>
+											<span class="fl">户外椅</span>
 											<div class="clear"></div>
 										</a>
 									</div>
@@ -236,13 +236,13 @@
 						</div>
 					</li>
 					<li>
-						<a href="" id="flowerMan" style="text-decoration: none;">花花公子&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
+						<a href="" id="flowerMan" style="text-decoration: none;">柜子&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
 						<div class="pop">
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=6">
-											<span class="fl">运动休闲鞋</span>
+											<span class="fl">书柜</span>
 											<div class="clear"></div>
 										</a>
 									</div>
@@ -252,119 +252,11 @@
 								<div>
 									<div class="xuangou_left fl">
 										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=6">
-											<span class="fl">黑色加绒小皮鞋</span>
+											<span class="fl">床头柜</span>
 											<div class="clear"></div>
 										</a>
 									</div>
 									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=6">选购</a></div>
-									<div class="clear"></div>
-								</div>		
-							</div>
-						</div>
-					</li>
-					<li>
-						<a href="" id="Reebok" style="text-decoration: none;">锐步&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-						<div class="pop">
-							<div class="left fl">
-								<div>
-									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=7">
-											<span class="fl">男子休闲鞋</span>
-											<div class="clear"></div>
-										</a>
-									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=7">选购</a></div>
-									<div class="clear"></div>
-								</div>
-								<div>
-									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=7">
-											<span class="fl"> 低帮休闲跑步鞋</span>
-											<div class="clear"></div>
-										</a>
-									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=7">选购</a></div>
-									<div class="clear"></div>
-								</div>		
-							</div>
-						</div>
-					</li>
-					<li>
-						<a href="" id="AJ" style="text-decoration: none;">乔丹&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-						<div class="pop">
-							<div class="left fl">
-								<div>
-									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=8">
-											<span class="fl">运动鞋</span>
-											<div class="clear"></div>
-										</a>
-									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=8">选购</a></div>
-									<div class="clear"></div>
-								</div>
-								<div>
-									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=8">
-											<span class="fl"> 防滑减震耐磨战靴</span>
-											<div class="clear"></div>
-										</a>
-									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=8">选购</a></div>
-									<div class="clear"></div>
-								</div>		
-							</div>
-						</div>
-					</li>
-					<li>
-						<a href="" id="LiNing" style="text-decoration: none;">李宁&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-						<div class="pop">
-							<div class="left fl">
-								<div>
-									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">
-											<span class="fl">跑步鞋 女</span>
-											<div class="clear"></div>
-										</a>
-									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">选购</a></div>
-									<div class="clear"></div>
-								</div>
-								<div>
-									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2">
-											<span class="fl">跑步鞋 男</span>
-											<div class="clear"></div>
-										</a>
-									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">选购</a></div>
-									<div class="clear"></div>
-								</div>		
-							</div>
-						</div>
-					</li>
-					<li>
-						<a href="" id="umbro" style="text-decoration: none;">新百伦&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
-						<div class="pop">
-							<div class="left fl">
-								<div>
-									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">
-											<span class="fl">休闲运动鞋跑步鞋</span>
-											<div class="clear"></div>
-										</a>
-									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">选购</a></div>
-									<div class="clear"></div>
-								</div>
-								<div>
-									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">
-											<span class="fl">运动鞋</span>
-											<div class="clear"></div>
-										</a>
-									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">选购</a></div>
 									<div class="clear"></div>
 								</div>		
 							</div>
@@ -381,10 +273,10 @@
 	<!-- start danpin -->
 		<div class="danpin center">
 			
-			<div class="biaoti center">疾风明星单品</div>
+			<div class="biaoti center">疾风爆款单品</div>
 			<div class="main center">
 				<div class="mingxing fl">
-					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1"><img src="<c:url value='/image'/>/KT4.jpg" alt=""></a></div>
+					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1"><img src="<c:url value='/image'/>/餐厅1.jpg" alt=""></a></div>
 					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">KT4</a></div>
 					<div class="youhui">享满减优惠卷</div>
 					<div class="jiage">699元</div>
