@@ -1,6 +1,7 @@
 package com.web.controller;
 
 import com.web.pojo.Cart;
+import com.web.pojo.TbClient;
 import com.web.service.CartService;
 import org.apache.http.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -25,8 +27,6 @@ public class CartController {
     @ResponseBody
     public void getRemoveId(String removeId, int money, int number, int price){
         System.out.println(removeId);
-//        removeId = Integer.valueOf(request.getParameter("id"));
-//        System.out.println(removeId);
         try{
             this.cartService.removeCart(Integer.valueOf(removeId));
 //            this.money = money-number*price;
@@ -37,10 +37,14 @@ public class CartController {
     }
 
     @RequestMapping("/Cart")
-    public String getCart(Integer cid, Model model){
+    public String getCart(HttpServletRequest request, Model model){
         try{
+            HttpSession session = request.getSession();
+            TbClient tbClient = (TbClient)session.getAttribute("user");
             int money = 0;
-            List<Cart> carts = this.cartService.getCart(2);
+            List<Cart> carts = null;
+//            tbClient.getId()
+            carts = this.cartService.getCart(2);
             model.addAttribute("Carts",carts);
             System.out.println(carts.size());
             for(int i=0; i<carts.size();i++){
