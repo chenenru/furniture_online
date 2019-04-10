@@ -52,8 +52,8 @@
 				<div class="login_submit" >
 					<button type="button" id="sbbt" onclick="checkform()">立即登录</button>
 				</div>
-				<div style="margin: 30px 0 0 280px;">
-					<span><a href="#" style="color: orange; font-size: 16px;">忘记密码？</a></span>
+				<div style="margin: 30px 0 0 260px;">
+					<span><a href="#" style="color: orange; font-size: 15px;">忘记密码？</a></span>
 				</div>
 			</div>
 		</div>
