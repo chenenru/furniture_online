@@ -39,7 +39,7 @@ public class ProductDetailController {
     public String findProductDetailById(Integer id,Model model){
         ProductDetail productDetail = this.productDetailService.getProductDetailById(1);
         List<TbComment> comments = this.productDetailService.getComment(1);
-        System.out.println("评论是======="+comments);
+//        System.out.println("评论是======="+comments);
         model.addAttribute("ProductDetail",productDetail);
         model.addAttribute("comments",comments);
 //        System.out.println("评论是======="+comments.get(0).getTbComment().getCo_info());

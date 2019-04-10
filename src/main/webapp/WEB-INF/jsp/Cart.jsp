@@ -82,7 +82,7 @@
 				</div>
 				<div class="jiesuan fr">
 					<div class="jiesuanjiage fl">合计（不含运费）：<span class="monry" id="totalMoney">0</span></div>
-					<div class="jsanniu fr"><input class="jsan" type="submit" name="jiesuan"  value="去结算"/></div>
+					<div class="jsanniu fr"><input class="jsan" type="submit" name="jiesuan"  value="去付款"/></div>
 					<div class="clear"></div>
 				</div>
 				<div class="clear"></div>
@@ -96,6 +96,9 @@
 
 	</body>
 <script>
+	var ids = new Array();
+	var nums = new Array();
+	var len = 0;
 	$(document).on("click","input",function(){
 		if($(this).attr("id")=="selectAll"){
 			if($(".selectAll").prop("checked")==true){
@@ -103,9 +106,11 @@
 			}else{
 				$(".monry").text(0);
 			}
-			return 0;
 		}else{
 		var id = $(this).parent().parent().attr("id");
+		ids[len] = parseInt(id);
+		nums[len++] = parseInt($("#" + id).children("div.number").text());
+		// alert(ids[1]+"-----"+nums[1]);
 		var checkbox =$("#"+id).find("input.select").attr("id");
 		if($("#"+checkbox).prop("checked")==true) {
 			var i = parseInt($(".monry").text()) + parseInt($("#" + $("#" + id).children("div.price").attr("id")).text());
@@ -114,7 +119,6 @@
 			var j = parseInt($(".monry").text());
 			$(".monry").text(j-parseInt($("#" + $("#" + id).children("div.price").attr("id")).text()))
 		}
-			return 0;
 		}
 	});
 	//传递删除的id
@@ -147,27 +151,34 @@
 
 	//设置全选
 	$(".selectAll").click(function() {
-		// alert($('.select').attr("id"));
-		// $('.select').each(function(){
-		//
-		// 	if($(this).prop("checked")==true){
-		// 		alert("选中"+$(this).prop("checked"))
-		// 		$(this).attr("checked",false);
-		// 	}else{
-		// 		$(this).attr("checked",true);
-		// 	}
-		// 	alert($(this).prop("checked"))
-		// });
-		// $('input').attr("checked",true);
-		// alert($('.select').prop("checked"));
-		// $(".select").attr("checked",false);
-		// alert($(".selectAll").attr("checked"));
 		if($(".selectAll").prop("checked")==true){
 			// $(".select").attr("checked",false);
 			$(".select").attr("checked",true);
 		}else{
 			$(".select").attr("checked",false);
 		}
+	});
+
+	//结算
+	var allTerminal = new Array();
+	$('.jsan').click(function () {
+		for(var j=0; j<len; j++){
+			allTerminal.push({id:ids[j],num:nums[j]});
+		}
+		var Json = JSON.stringify(allTerminal);
+		$.ajax({
+			type:"post",
+			// getRemoveId.do
+			url:"${pageContext.request.contextPath}/remove",
+			data:Json,
+			// dataType:"JSON",
+			success:function(){
+				window.location.href="${pageContext.request.contextPath}/goAlipay";
+			},
+			error:function(){
+				// alert("failed");
+			}
+		});
 	});
 </script>
 </html>
