@@ -19,7 +19,7 @@ public class ProductDetailServiceImpl implements ProductDetailService {
 
     @Override
     public ProductDetail getProductDetailById(Integer id) {
-        ProductDetail productDetail = this.productDetailMapper.getProductDetail(1);
+        ProductDetail productDetail = this.productDetailMapper.getProductDetail(id);
         return productDetail;
     }
 

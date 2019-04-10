@@ -62,7 +62,7 @@
 			<c:forEach var="order_item" items="${orderList}" begin="0" end="${orderList.size()}" varStatus="index">
 				<div class="ddxq">
 					<div class="ddspt fl">
-						<img src="<c:url value="/image"/>${order_item.tbProperty.prImage} "
+						<img src="<c:url value="/image"/>/${order_item.tbProperty.prImage} "
 							style="margin-bottom:50px" width="80" height="80">
 					</div>
 					<div class="ddbh fl">订单号:${order_item.id}</div>
@@ -96,38 +96,6 @@
 					<div class="clear"></div>
 				</div>
 			</c:forEach>
-
-
-			<%--<div class="ddxq">--%>
-				<%--<div class="ddspt fl"><img src="#" alt="" width="80" height="80"></div>--%>
-				<%--<div class="ddbh fl">订单号:xxx</div>--%>
-				<%--<div class="ztxx fr">--%>
-					<%--<ul>--%>
-						<%--<li>已发货</li>--%>
-						<%--<li>总价：xxx</li>--%>
-						<%--<li>下单数量</li>--%>
-						<%--<li><a href="./content/OrderMsg.jsp">订单详情></a></li>--%>
-						<%--<div class="clear"></div>--%>
-					<%--</ul>--%>
-				<%--</div>--%>
-				<%--<div class="clear"></div>--%>
-			<%--</div>--%>
-
-			<%--原始的html页面显示内容：--%>
-			<%--<div class="ddxq">--%>
-				<%--<div class="ddspt fl"><img src="#" alt="" width="80" height="80"></div>--%>
-				<%--<div class="ddbh fl">订单号:xxx</div>--%>
-				<%--<div class="ztxx fr">--%>
-					<%--<ul>--%>
-						<%--<li>已发货</li>--%>
-						<%--<li>总价：xxx</li>--%>
-						<%--<li>下单数量</li>--%>
-						<%--<li><a href="./content/OrderMsg.jsp">订单详情></a></li>--%>
-						<%--<div class="clear"></div>--%>
-					<%--</ul>--%>
-				<%--</div>--%>
-				<%--<div class="clear"></div>--%>
-			<%--</div>--%>
 
 		</div>
 		<div class="clear"></div>

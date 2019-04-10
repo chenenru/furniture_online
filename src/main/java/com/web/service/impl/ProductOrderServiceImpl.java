@@ -2,6 +2,7 @@ package com.web.service.impl;
 
 import com.web.mapper.TbProductOrderMapper;
 import com.web.pojo.TbProductOrder;
+import com.web.pojo.TbProductProperty;
 import com.web.service.ProductOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,11 +30,22 @@ public class ProductOrderServiceImpl implements ProductOrderService {
         return tbProductOrder;
     }
 
+
     @Override
     public void updateProductOrderById(TbProductOrder tbProductOrder) {
         tbProductOrderMapper.updateByPrimaryKeySelective(tbProductOrder);
 
     }
 
+    @Override
+    public void removeProductOrderById(Integer id) {
+        tbProductOrderMapper.deleteByPrimaryKey(id);
+    }
 
+    @Override
+    public TbProductProperty selectProductOrderByClientOrderProproty(Integer c_id, Integer o_id, Integer pr_id) {
+        TbProductProperty tbProductProperty = tbProductOrderMapper.selectProductOrderByClientOrderProproty(c_id, o_id, pr_id);
+
+        return tbProductProperty;
+    }
 }

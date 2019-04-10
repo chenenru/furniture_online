@@ -8,6 +8,13 @@
     <result column="c_id" property="cId" jdbcType="INTEGER" />
     <result column="pro_number" property="proNumber" jdbcType="INTEGER" />
   </resultMap>
+
+
+  <select id="selectProductOrderByClientOrderProproty" resultMap="BaseResultMap">
+    select * from tb_product_order
+    where c_id = #{c_id,jdbcType=INTEGER} and o_id = #{o_id,jdbcType=INTEGER} and pr_id = #{pr_id,jdbcType=INTEGER}
+  </select>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

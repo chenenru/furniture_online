@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface ProductDetailMapper {
-    ProductDetail getProductDetail(Integer id);
+    ProductDetail getProductDetail(@Param("id") Integer id);
     void addProductDetail(TbProductOrder tbProductOrder);
     List<TbComment> getComment(Integer pr_id);
 

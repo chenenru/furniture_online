@@ -169,14 +169,15 @@
 		$.ajax({
 			type:"post",
 			// getRemoveId.do
-			url:"${pageContext.request.contextPath}/remove",
+			url:"${pageContext.request.contextPath}/test_add_order",
 			data:Json,
-			// dataType:"JSON",
+			dataType:"json",
+			contentType:"application/json;charset=UTF-8",
 			success:function(){
 				window.location.href="${pageContext.request.contextPath}/goAlipay";
 			},
 			error:function(){
-				// alert("failed");
+				window.location.href="${pageContext.request.contextPath}/order/status_list?order_status=1"
 			}
 		});
 	});

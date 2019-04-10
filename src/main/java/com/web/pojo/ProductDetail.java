@@ -7,6 +7,13 @@ public class ProductDetail extends TbProduct{
         return tbProperty;
     }
 
+    @Override
+    public String toString() {
+        return "ProductDetail{" +
+                "tbProperty=" + tbProperty +
+                '}';
+    }
+
     public void setTbProperty(TbProperty tbProperty) {
         this.tbProperty = tbProperty;
     }

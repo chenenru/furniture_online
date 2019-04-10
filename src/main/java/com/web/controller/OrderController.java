@@ -2,7 +2,9 @@ package com.web.controller;
 
 import com.web.pojo.TbClient;
 import com.web.pojo.TbOrderProperty;
+import com.web.pojo.TbProductProperty;
 import com.web.service.OrderService;
+import com.web.service.ProductOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,10 +28,38 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private ProductOrderService productOrderService;
+
+    public String remove(Model model, @RequestParam("o_id")int o_id,@RequestParam("pr_id")int pr_id,HttpSession session){
+
+        TbClient tbClient = (TbClient) session.getAttribute("user");
+        if(tbClient == null){
+            model.addAttribute("error",2);
+            return "error";
+        }
+
+        TbProductProperty tbProductProperty =
+                productOrderService.selectProductOrderByClientOrderProproty(tbClient.getId(),o_id,pr_id);
+
+        productOrderService.removeProductOrderById(tbProductProperty.getId());
+
+        orderService.removeOrderById(o_id);
+
+        return "OrderList";
+    }
+
+
     @RequestMapping("/detail")
-    public String showOrder(Model model , @RequestParam("order_id") int id ){
+    public String showOrder(Model model , @RequestParam("order_id") int id ,HttpSession session){
 //        TbOrder tbOrder = orderService.getTbOrderbyPrimaryKey(1);
 //        model.addAttribute("orderMsg",tbOrder);
+
+        TbClient tbClient = (TbClient) session.getAttribute("user");
+        if(tbClient == null){
+            model.addAttribute("error",2);
+            return "error";
+        }
 
         System.out.println("Controller: id" + id );
         TbOrderProperty tbOrderProperty = orderService.getOrderProperty(id);
@@ -63,11 +93,16 @@ public class OrderController {
     public String showStatus(Model model , @RequestParam("order_status")int order_status ,HttpSession session){
 
 
+
 //        获取当前登陆的账号id
 //        int userId = (int)session.getAttribute("userId") ;
 
         System.out.println(order_status);
-        TbClient client = (TbClient)session.getAttribute("user");
+        TbClient client = (TbClient) session.getAttribute("user");
+        if(client == null){
+            model.addAttribute("error",2);
+            return "error";
+        }
         List<TbOrderProperty> tbOrderProperties = orderService.getOrderListbyStatus(client.getId(),order_status);
 
         model.addAttribute("orderList",tbOrderProperties);

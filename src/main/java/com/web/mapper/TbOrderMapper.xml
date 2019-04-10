@@ -28,6 +28,7 @@
     <result property="oAddress" column="o_address"/>
     <result property="oPhone" column="o_phone"/>
     <association property="tbProperty" javaType="com.web.pojo.TbProperty">
+      <id property="id" column="pr_id" />
       <result property="prImage" column="pr_image" />
       <result property="prColor" column="pr_color" />
       <result property="prSize" column="pr_size" />

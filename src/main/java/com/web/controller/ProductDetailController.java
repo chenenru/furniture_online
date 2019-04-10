@@ -42,7 +42,10 @@ public class ProductDetailController {
         if(id == -1)
             return "error";
         ProductDetail productDetail = this.productDetailService.getProductDetailById(id);
-        List<CommentProperty> commentProperties = productDetailService.getCommentListByPropertyId(1);
+
+        System.out.println(productDetail.toString());
+
+        List<CommentProperty> commentProperties = productDetailService.getCommentListByPropertyId(id);
 //        System.out.println("评论是======="+comments);
         model.addAttribute("ProductDetail",productDetail);
         model.addAttribute("comments",commentProperties);

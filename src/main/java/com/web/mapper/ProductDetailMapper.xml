@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.web.mapper.ProductDetailMapper" >
     <resultMap id="BaseResultMap" type="com.web.pojo.ProductDetail" >
-        <id column="id" property="id" jdbcType="INTEGER" />
+        <id property="id" column="id" />
         <result column="p_name" property="pName" jdbcType="VARCHAR" />
         <result column="p_type" property="pType" jdbcType="VARCHAR" />
         <result column="p_intro" property="pIntro" jdbcType="VARCHAR" />
         <!--多表查询中关联另一个实体的配置-->
         <association property="tbProperty" javaType="com.web.pojo.TbProperty">
             <!-- property 表示com.mybatis.bean.Class中的属性； column 表示表中的列名 -->
-            <id property="id" column="id" />
+            <!--<id property="id" column="id" />-->
             <result property="prColor" column="pr_color"/>
             <result property="prImage" column="pr_image"/>
             <result property="prOutprice" column="pr_outprice"/>
@@ -36,12 +36,14 @@
         where tb_property.id = #{id,jdbcType=INTEGER}
     </select>
 
-    <select id="getProductDetail" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-        select pt.id,pt.p_name,pt.p_type,pt.p_intro,py.id,py.pr_color,py.pr_outprice,py.pr_image,py.pr_size
-        from tb_product pt left join tb_property py
-        on pt.id = py.id
-        where pt.id = #{id,jdbcType=INTEGER}
+    <select id="getProductDetail" resultMap="BaseResultMap" >
+      select tb_property.id, p_name, p_type, p_intro,p_id, pr_image, pr_color, pr_size, pr_material, pr_store, pr_innum, pr_inprice, pr_outprice
+        from tb_property
+        left join tb_product on tb_property.p_id = tb_product.id
+		where tb_property.id = #{id,jdbcType=INTEGER}
     </select>
+
+
     <insert id="addProductDetail" parameterType="com.web.pojo.TbProductOrder">
         insert into tb_product_order(pr_id,o_id,c_id,pro_number) values(#{prId,jdbcType=INTEGER},null,#{cId,jdbcType=INTEGER},#{proNumber,jdbcType=INTEGER});
     </insert>

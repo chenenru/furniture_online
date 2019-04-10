@@ -57,11 +57,11 @@
 			<div class="nav fl" style="display: inline-block;">
 				<ul>
 					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=餐厅" target="_blank">餐厅</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=儿童">儿童</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=客厅">客厅</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=书房">书房</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=卧室">卧室</a></li>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=阳台户外">阳台户外</a></li>
+					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=儿童">儿童</a></li>
+					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=客厅">客厅</a></li>
+					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=书房">书房</a></li>
+					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=卧室">卧室</a></li>
+					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=阳台户外">阳台户外</a></li>
 				</ul>
 			</div>
 
@@ -71,7 +71,7 @@
 				<div class="rightNavDiv"><a href="${pageContext.request.contextPath}/client/info" id="personHref"><img src="${pageContext.request.contextPath}/image/gerenzhongxin.jpg" style="height: 80px;width: 100px;" id="person"></a></div>
 				<div class="rightNavDiv"><a href="#" id="toTopHref"><img src="${pageContext.request.contextPath}/image/toTop.jpg" style="height: 80px;width: 100px;" id="toTop"></a></div>
 			</div>
-			<div class="searchProduct" style="display: inline-block;">
+			<div class="searchProduct" style="display: inline-block; margin-left: 150px;">
 				<form action="" method="post" id="searchName" name="searchForm">
 					<div class="input-group" id="searchProduct">
 						<input type="text" class="form-control" placeholder="请输入商品名" id="productName">

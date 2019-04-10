@@ -14,10 +14,14 @@
 		<script type="text/javascript" src="<c:url value='/js'/>/fly.js"></script>
 		<script src="<c:url value='/js'/>/requestAnimationFrame.js"></script>
 		<style type="text/css">
-		.banner_y .nav ul li{
-			width: 300px;
-		}
-		#tishi{border:1px solid; border-radius:10px; width:140px; background-color: orange;position: fixed; margin-left: 600px; display:none ; font-size: 24px; color:white;}
+			.banner_y .nav ul li{
+				width: 300px;
+			}
+			#tishi{border:1px solid; border-radius:10px; width:140px; background-color: orange;position: fixed; margin-left: 600px; display:none ; font-size: 24px; color:white;}
+
+
+
+
 		</style>
 	</head>
 	<body>
@@ -42,7 +46,7 @@
 	<div class="jieshao mt10 w">
 		<div class="left fl">
 			<div><img src="<c:url value='/image'/>/<c:out value='${ProductDetail.tbProperty.prImage}'></c:out>" style="height: 560px; width: 560px;"/></div>
-			<div style="margin: 20px 0 0 50%; font-size: 18px; font-family: Algerian"><a>评论</a></div>
+			<div style="margin: 20px 0 0 0%; font-size: 28px; font-family: Algerian;" ><a style=" color: red;">评论&nbsp;:</a></div>
 		</div>
 		<div class="right fr">
 			<div class="h3 ml20 mt20"><c:out value="${ProductDetail.pName}"></c:out><span id="product_id" style="display:none;"><s:text name="product.id"></s:text></span></div>
@@ -87,65 +91,24 @@
 		</div>
 		</div>
 		<div class="clear"></div>
-		<div style="height: 50px; width: 100%;">
+		<div style="height: 1px; width: 1300px; margin: auto;background-color:#fffaf5;">
 			<hr>
 			<c:forEach var="comment" items="${comments}" begin="0" step="1">
-				<div style="background-color: #aaaaaa;">
+				<div style="background-color: #fffaf5;padding-top: 5px;">
 					<div style="margin: 10px 0 10px 5%">用户:${comment.cName}</div>
 					<div style="margin: 10px 0 10px 5%">${comment.co_date}</div>
 					<div style="margin: 10px 0 10px 25%">${comment.co_info}</div>
-					<div style="margin: 10px 0 10px 45%; border-bottom: #201f1f;">星级：${comment.co_grade}</div>
+					<div style="margin: 10px 15% 10px 5%; border-bottom: #201f1f;">星级：${comment.co_grade}</div>
 					<%--<div style="border-bottom: solid 1px #201f1f"></div>--%>
 					<hr>
 				</div>
 			</c:forEach>
 		</div>
 	</form>
-	<!-- footer -->
 		</div>
-		<%--<footer class="mt20 center">--%>
-		<%--<div style="margin-top: 20px; ">--%>
-			<%--<div>©由莫宽元、赖周浩、陈恩如、陈婉琳学习小组进行编写</div>--%>
-			<%--<div>本网站所列数据，所列信息都是虚拟信息，除特殊说明，仅供学习参考用途</div>--%>
-		<%--</div>--%>
-		<%--</footer>--%>
 	</body>
 	<script type="text/javascript">
-	<%--var size = -1;--%>
-	<%--var count = 1;--%>
-	<%--$(function() { --%>
-	    <%--var offset = $("#cartHref").offset(); --%>
-	    <%--$("#add").click(function(event){ --%>
-	        <%--var add = $(".left").find('img'); --%>
-	        <%--var img = add.attr('src');--%>
-<%--// 	        alert(img);--%>
-	        <%--var flyer = $('<img class="u-flyer" src="'+img+'">'); --%>
-	        <%--flyer.fly({ --%>
-	            <%--start: { --%>
-	                <%--left: event.pageX-750, //开始位置（必填）#fly元素会被设置成position: fixed --%>
-	                <%--top: event.pageY-600, //开始位置（必填）--%>
-	                <%--width: 50, //开始时宽度 --%>
-	                <%--height: 50 //开始时高度 --%>
-	            <%--}, --%>
-	            <%--end: { --%>
-	                <%--left: offset.left+30, //结束位置（必填） --%>
-	                <%--top: offset.top+20, //结束位置（必填） --%>
-	                <%--width: 0, //结束时宽度 --%>
-	                <%--height: 0 //结束时高度 --%>
-	            <%--}, --%>
-	            <%--onEnd: function(){ //结束回调 --%>
-	                <%--$("#tishi").show().animate({width: '140px'}, 200).fadeOut(2000); //提示信息 --%>
-<%--// 	                addcar.css("cursor","default").removeClass('orange').unbind('click'); --%>
-<%--// 	                this.destory(); //移除dom --%>
-					<%--sleep(1000);--%>
-					<%----%>
-	                <%--var productID = document.getElementById("product_id").innerText;--%>
-					<%--alert("${pageContext.request.contextPath}/OrderrDetail!AddProductToOrder?id=" + productID + size + "count=" + count);--%>
-	        		<%--window.location.href = "${pageContext.request.contextPath}/OrderrDetail!AddProductToCart?id=" + productID + "&size=" + size +"&count=" + count;--%>
-	            <%--} --%>
-	        <%--}); --%>
-	    <%--}); --%>
-	<%--}); --%>
+
 	
 	function chooseSize1() {
 		size = document.getElementById("size1").innerText;

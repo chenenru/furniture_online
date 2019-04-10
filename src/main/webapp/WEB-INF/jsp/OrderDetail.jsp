@@ -78,10 +78,16 @@
                 <P><span>收货地址：</span><span>${orderProperty.oAddress}</span></P>
                 <P><span>联系电话：</span><span>${orderProperty.oPhone}</span></P>
                 <P><span>下单时间：</span><span>${orderProperty.oCreate}</span></P>
-                <P><span>支付时间：</span><span>${orderProperty.oPay}</span></P>
-                <P><span>发货时间：</span><span>${orderProperty.oDeliver}</span></P>
-                <P><span>收货时间：</span><span>${orderProperty.oConfirm}</span></P>
+                <P><c:if test="${orderProperty.oPay == null}"><a class="btn btn-warning"
+                      href="/goAlipay?orderid=${orderProperty.id}&productName=${orderProperty.tbProduct.pName}
+                      &price=${orderProperty.oTotal}&num=${orderProperty.oNum}">点此支付</a>&nbsp;&nbsp;
+                    <a class="btn btn-warning" href="${pageContext.request.contextPath}
+                        /remove?o_id=${orderProperty.id}&pr_id=${orderProperty.tbProperty.id}">取消订单</a></c:if> </P>
+                <P><c:if test="${orderProperty.oPay != null}"><span>支付时间：</span><span>${orderProperty.oPay}</span></c:if> </P>
 
+                <P><c:if test="${orderProperty.oPay != null}"><span>发货时间：</span><span>${orderProperty.oDeliver}</span</c:if> </P>
+
+                <P><c:if test="${orderProperty.oPay != null}"><span>收货时间：</span><span>${orderProperty.oConfirm}</span></c:if> </P>
 
             </div>
 

@@ -31,10 +31,10 @@
 					<div class="mingxing  mb20" style="border:2px solid #fff;width:230px;cursor:pointer;"
 						 onmouseout="this.style.border='2px solid #fff'" onmousemove="this.style.border='2px solid red'">
 						<div class="sub_mingxing">
-							<a href="${pageContext.request.contextPath }/ProductDetail?id=${product.id}" target="_blank">
+							<a href="${pageContext.request.contextPath }/ProductDetail?pr_id=${product.id}" target="_blank">
 							<img src='${pageContext.request.contextPath }/image/${ product.prImage }' alt=""></a></div>
 						<div class="pinpai">
-							<a href="${pageContext.request.contextPath }/ProductDetail?id=${product.id}" target="_blank">
+							<a href="${pageContext.request.contextPath }/ProductDetail?pr_id=${product.id}" target="_blank">
 							${product.pName}</a></div>
 						<div class="youhui">
 								${product.prColor} ${product.prSize} ${product.prMaterial}

@@ -89,14 +89,16 @@ public class ClientController {
     @ResponseBody
     public TbClient getClientById(Integer id) {
         TbClient tbClient = clientService.Service_findTbclientById(id);
+
         return tbClient;
     }
 
 
     @RequestMapping("/update")
     @ResponseBody
-    public String ClientUpdate(TbClient tbClient) {
+    public String ClientUpdate(TbClient tbClient,HttpSession session) {
         clientService.Service_UpdateClient(tbClient);
+        session.setAttribute("user",tbClient);
         return "Info";
     }
 
