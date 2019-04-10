@@ -6,6 +6,7 @@ import com.web.pojo.TbProductProperty;
 import com.web.service.OrderService;
 import com.web.service.ProductOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,6 +52,7 @@ public class OrderController {
 
 
     @RequestMapping("/detail")
+    @DateTimeFormat(pattern = "yyyy-MM-dd　HH:mm:ss")
     public String showOrder(Model model , @RequestParam("order_id") int id ,HttpSession session){
 //        TbOrder tbOrder = orderService.getTbOrderbyPrimaryKey(1);
 //        model.addAttribute("orderMsg",tbOrder);
@@ -63,6 +65,8 @@ public class OrderController {
 
         System.out.println("Controller: id" + id );
         TbOrderProperty tbOrderProperty = orderService.getOrderProperty(id);
+        System.out.println(tbOrderProperty.toString());
+
         model.addAttribute("orderProperty",tbOrderProperty);
         System.out.println(tbOrderProperty.toString());
         model.addAttribute("order_status",tbOrderProperty.getOrderStatus(tbOrderProperty.getoStatus()));

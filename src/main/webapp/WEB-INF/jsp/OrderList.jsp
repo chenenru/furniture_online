@@ -43,10 +43,6 @@
 						<a href="${pageContext.request.contextPath}/order/status_list?order_status=4"
 						   <c:if test="${order_page == 4}">style="color:#ff6700;font-weight:bold;font-size: 16px;"</c:if>>已收货订单</a>
 					</li>
-					<li>
-						<a href="${pageContext.request.contextPath}/order/status_list?order_status=5"
-						   <c:if test="${order_page == 5}">style="color:#ff6700;font-weight:bold;font-size: 16px;"</c:if>>已评论订单</a>
-					</li>
 
 				</ul>
 			</div>

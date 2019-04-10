@@ -1,3 +1,4 @@
+<%@ page import="com.web.pojo.TbOrderProperty" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -43,10 +44,6 @@
                             <a href="${pageContext.request.contextPath}/order/status_list?order_status=4"
                                <c:if test="${order_page == 4}">style="color:#ff6700;font-weight:bold;font-size: 16px;"</c:if>>已收货订单</a>
                         </li>
-                        <li>
-                            <a href="${pageContext.request.contextPath}/order/status_list?order_status=5"
-                               <c:if test="${order_page == 5}">style="color:#ff6700;font-weight:bold;font-size: 16px;"</c:if>>已评论订单</a>
-                        </li>
 
                     </ul>
                 </div>
@@ -79,16 +76,24 @@
                 <P><span>联系电话：</span><span>${orderProperty.oPhone}</span></P>
                 <P><span>下单时间：</span><span>${orderProperty.oCreate}</span></P>
                 <P><c:if test="${orderProperty.oPay == null}"><a class="btn btn-warning"
-                      href="/goAlipay?orderid=${orderProperty.id}&productName=${orderProperty.tbProduct.pName}
-                      &price=${orderProperty.oTotal}&num=${orderProperty.oNum}">点此支付</a>&nbsp;&nbsp;
+                      href="${pageContext.request.contextPath}/goAlipay">点此支付</a>&nbsp;&nbsp;
                     <a class="btn btn-warning" href="${pageContext.request.contextPath}
                         /remove?o_id=${orderProperty.id}&pr_id=${orderProperty.tbProperty.id}">取消订单</a></c:if> </P>
                 <P><c:if test="${orderProperty.oPay != null}"><span>支付时间：</span><span>${orderProperty.oPay}</span></c:if> </P>
 
-                <P><c:if test="${orderProperty.oPay != null}"><span>发货时间：</span><span>${orderProperty.oDeliver}</span</c:if> </P>
+                <P><c:if test="${orderProperty.oDeliver != null}"><span>发货时间：</span><span>${orderProperty.oDeliver}</span></c:if> </P>
 
-                <P><c:if test="${orderProperty.oPay != null}"><span>收货时间：</span><span>${orderProperty.oConfirm}</span></c:if> </P>
+                <P><c:if test="${orderProperty.oConfirm != null}"><span>收货时间：</span><span>${orderProperty.oConfirm}</span></c:if> </P>
 
+                <P><c:if test="${orderProperty.oConfirm != null}"><a class="btn btn-warning"  >评论该商品</a></c:if> </P>
+
+                <%
+                    TbOrderProperty tbOrderProperty = (TbOrderProperty) request.getAttribute("orderProperty");
+                    session.setAttribute("orderid", tbOrderProperty.getId() );
+                    session.setAttribute("productName",tbOrderProperty.getTbProduct().getpName());
+                    session.setAttribute("price",tbOrderProperty.getTbProperty().getPrOutprice() * tbOrderProperty.getoNum());
+                    session.setAttribute("num",tbOrderProperty.getoNum());
+                %>
             </div>
 
         </div>
@@ -103,3 +108,7 @@
 		</footer>
     </body>
 </html>
+
+
+<%--/goAlipay?orderid=${orderProperty.id}&productName=${orderProperty.tbProduct.pName}--%>
+<%--&price=${orderProperty.oTotal}&num=${orderProperty.oNum}--%>
