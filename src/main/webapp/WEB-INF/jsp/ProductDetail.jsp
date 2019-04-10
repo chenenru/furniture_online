@@ -41,7 +41,7 @@
 	
 	<div class="jieshao mt10 w">
 		<div class="left fl">
-			<div><img src="<c:url value='/image/img'/>/<c:out value='${ProductDetail.tbProperty.prImage}'></c:out>" style="height: 560px; width: 560px;"/></div>
+			<div><img src="<c:url value='/image'/>/<c:out value='${ProductDetail.tbProperty.prImage}'></c:out>" style="height: 560px; width: 560px;"/></div>
 			<div style="margin: 20px 0 0 50%; font-size: 18px; font-family: Algerian"><a>评论</a></div>
 		</div>
 		<div class="right fr">

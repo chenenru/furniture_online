@@ -58,7 +58,7 @@
                                     <input type="checkbox" name="selectOne" value="quan" class="select" id="select${Cart.id}"/>
                                 </div>
                                 <div class="sub_content fl"></div>
-                                <div class="sub_content fl"><img src="<c:url value='/image/img'/>/<c:out value="${Cart.tbProperty.prImage}"></c:out>" style="width: 50px; height: 50px;" ><c:out value="${Cart.pName}"></c:out></div>
+                                <div class="sub_content fl"><img src="<c:url value='/image'/>/<c:out value="${Cart.tbProperty.prImage}"></c:out>" style="width: 50px; height: 50px;" ><c:out value="${Cart.pName}"></c:out></div>
                                 <div class="sub_content fl "><c:out value="${Cart.tbProperty.prOutprice}"></c:out></div>
                                 <div class="sub_content fl number" id="number${Cart.id}">
 									<c:out value="${Cart.proNumber}"></c:out>
