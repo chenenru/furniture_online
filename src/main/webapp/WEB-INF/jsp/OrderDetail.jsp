@@ -62,7 +62,7 @@
             <h3 style="color:darkgray;margin:0;" align="center">订单详情</h3>
             <hr style="margin : 10px">
             <div class="order_image fr">
-                <img src="<c:url value='/image'/>${orderProperty.tbProperty.prImage}" width="400px" height="400px"/>
+                <img src="<c:url value='/image/'/>${orderProperty.tbProperty.prImage}" width="400px" height="400px"/>
             </div>
             <div class="order_info">
 
