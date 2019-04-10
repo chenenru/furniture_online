@@ -37,7 +37,7 @@
 			<div class="gwcxd center">
 				<div class="top2 center">
 					<div class="sub_top fl">
-						<input type="checkbox" value="quanxuan" class="selectAll"/>全选
+						<input type="checkbox" value="quanxuan" class="selectAll" id="selectAll"/>全选
 					</div>
 					<div class="sub_top fl">商品名称</div>
 					<div class="sub_top fl">单价</div>
@@ -46,25 +46,25 @@
 					<div class="sub_top fr">操作</div>
 					<div class="clear"></div>
 				</div>
-				<c:if test="${Carts==null}">
+				<c:if test="${Carts.size()==0}">
 					<div class="content2 center">
-						<strong style="font-size: 24px;">亲</strong>>购物车空空如也，赶紧去购物吧！
+						<div style="margin: 30px 0 0 43%; font-size: 20px;"><strong style="font-size: 30px; ">亲,</strong>购物车空空如也，赶紧去购物吧!</div>
 					</div>
 				</c:if>
 				<%--<c:if test="${Carts}!=null">--%>
                         <c:forEach var="Cart" items="${Carts}" begin="0" step="1">
                             <div class="content2 center cart12" id="${Cart.id}">
-                                <div class="sub_content fl ">
-                                    <input type="checkbox" value="quanxuan" class="select" />
+                                <div class="sub_content fl checkDiv">
+                                    <input type="checkbox" name="selectOne" value="quan" class="select" id="select${Cart.id}"/>
                                 </div>
                                 <div class="sub_content fl"></div>
                                 <div class="sub_content fl"><img src="<c:url value='/image/img'/>/<c:out value="${Cart.tbProperty.prImage}"></c:out>" style="width: 50px; height: 50px;" ><c:out value="${Cart.pName}"></c:out></div>
                                 <div class="sub_content fl "><c:out value="${Cart.tbProperty.prOutprice}"></c:out></div>
-                                <div class="sub_content fl" id="number">
+                                <div class="sub_content fl number" id="number${Cart.id}">
 									<c:out value="${Cart.proNumber}"></c:out>
                                 </div>
                                     <%--<c:param name="productCount"/>--%>
-                                <div class="sub_content fl" id="price"><c:out value="${Cart.tbProperty.prOutprice*Cart.proNumber}"></c:out></div>
+                                <div class="sub_content fl price" id="price${Cart.id}"><c:out value="${Cart.tbProperty.prOutprice*Cart.proNumber}"></c:out></div>
                                 <div class="sub_content fl"><a class="remove" style="font-size: 14px;">x</a></div>
                                 <div class="clear"></div>
                             </div>
@@ -81,7 +81,7 @@
 					</ul>
 				</div>
 				<div class="jiesuan fr">
-					<div class="jiesuanjiage fl">合计（不含运费）：<span id="money"><c:out value="${money}"></c:out></span></div>
+					<div class="jiesuanjiage fl">合计（不含运费）：<span class="monry" id="totalMoney">0</span></div>
 					<div class="jsanniu fr"><input class="jsan" type="submit" name="jiesuan"  value="去结算"/></div>
 					<div class="clear"></div>
 				</div>
@@ -96,14 +96,35 @@
 
 	</body>
 <script>
+	$(document).on("click","input",function(){
+		if($(this).attr("id")=="selectAll"){
+			if($(".selectAll").prop("checked")==true){
+				$(".monry").text(${money});
+			}else{
+				$(".monry").text(0);
+			}
+			return 0;
+		}else{
+		var id = $(this).parent().parent().attr("id");
+		var checkbox =$("#"+id).find("input.select").attr("id");
+		if($("#"+checkbox).prop("checked")==true) {
+			var i = parseInt($(".monry").text()) + parseInt($("#" + $("#" + id).children("div.price").attr("id")).text());
+			$(".monry").text(i);
+		}else{
+			var j = parseInt($(".monry").text());
+			$(".monry").text(j-parseInt($("#" + $("#" + id).children("div.price").attr("id")).text()))
+		}
+			return 0;
+		}
+	});
 	//传递删除的id
 	$(document).on("click","a",function(){
         var id = $(this).parent().parent().attr("id");
+		// alert($("#"+id).children("div.number").attr("id"));
         var money = null;
-        var number = parseInt($("#"+$("#"+id).children("div#number").attr("id")).text());
-        var price = parseInt($("#"+$("#"+id).children("div#price").attr("id")).text());
-		// alert($("#"+$("#"+r).children("div#zz").attr("id")));
-		// alert($("#"+$("#"+r).children("div#zz").attr("id")).text());
+        // var number = parseInt($("#"+$("#"+id).children("div.number").attr("id")).text());
+        var price = parseInt($("#"+$("#"+id).children("div.price").attr("id")).text());
+		return null;
           $.ajax({
               type:"post",
               // getRemoveId.do
@@ -123,39 +144,30 @@
               }
           });
 	});
+
 	//设置全选
 	$(".selectAll").click(function() {
+		// alert($('.select').attr("id"));
+		// $('.select').each(function(){
+		//
+		// 	if($(this).prop("checked")==true){
+		// 		alert("选中"+$(this).prop("checked"))
+		// 		$(this).attr("checked",false);
+		// 	}else{
+		// 		$(this).attr("checked",true);
+		// 	}
+		// 	alert($(this).prop("checked"))
+		// });
+		// $('input').attr("checked",true);
+		// alert($('.select').prop("checked"));
+		// $(".select").attr("checked",false);
 		// alert($(".selectAll").attr("checked"));
 		if($(".selectAll").prop("checked")==true){
+			// $(".select").attr("checked",false);
 			$(".select").attr("checked",true);
 		}else{
 			$(".select").attr("checked",false);
 		}
 	});
-	<%--$('#jsan').click(function(){--%>
-		<%--var ids = new Array(50);--%>
-		<%--alert($(this).parent().parent().parent().parent().attr("id"));--%>
-		<%--&lt;%&ndash;for(var i=0; i<${Carts.size()}; i++){&ndash;%&gt;--%>
-			<%--&lt;%&ndash;if($(".select").prop("checked")==true){&ndash;%&gt;--%>
-				<%--&lt;%&ndash;var id = $(this).parent().parent().parent().parent().attr("id");&ndash;%&gt;--%>
-			<%--&lt;%&ndash;}&ndash;%&gt;--%>
-		<%--&lt;%&ndash;}&ndash;%&gt;--%>
-		<%--alert(ids[1]);--%>
-		<%--$.ajax({--%>
-			<%--type:"post",--%>
-			<%--// getRemoveId.do--%>
-			<%--url:"${pageContext.request.contextPath}/remove",--%>
-			<%--data:{--%>
-				<%--"ids":ids--%>
-			<%--},--%>
-			<%--success:function(){--%>
-				<%--&lt;%&ndash;alert(${Carts.get(0).id});&ndash;%&gt;--%>
-
-			<%--},--%>
-			<%--error:function(){--%>
-				<%--// alert("failed");--%>
-			<%--}--%>
-		<%--});--%>
-	<%--});--%>
 </script>
 </html>
