@@ -5,7 +5,7 @@ a{border:none;text-decoration: none;color:#000;}
 .border{border:1px solid red;}
 .center{margin: 0 auto;}
 .w{width: 1300px;margin: 0 auto;}
-.fl{float: left;}
+.fl{float: left;margin-right:28px;}
 .fr{float: right;}
 .clear{clear:both;}
 .mt020{margin-top: -10px;}
@@ -37,7 +37,7 @@ header .top .right .gouwuche{margin:0 20px;background: #424242;width: 120px;text
 
 header .top .right .gouwuche:hover{color:#000;background: #666;}
 /*banner_x*/
-.banner_x {width: 1226px;height: 100px;}
+.banner_x {width: 1400px;height: 100px;}
 .banner_x .logo{background: url('../image/demologo.jpg') no-repeat center center;width: 50px;height: 100px;}
 .banner_x .ad_top{width: 180px;height: 100px;background: url('../image/2.gif') no-repeat center center;}
 .banner_x .nav{display: inline-block;}
@@ -51,8 +51,8 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 .banner_x .search .submit .sousuo{letter-spacing:3px;text-align:center;width: 50px;height:50px;border: none;background: none;cursor:pointer;}
 .banner_x .search .submit:hover{border-color: #ff6700;color:#ff6700;} 
 /*banner_y*/
-.banner_y{width:1400px;height:460px;background: url('../image/背景1.jpg') no-repeat;}
-.banner_y .nav{width: 234px;height: 460px;background: rgb(50%,20%,30%);}
+.banner_y{width:1400px;height:460px;background: url('../image/背景2.jpg') no-repeat;}
+.banner_y .nav{width: 234px;height: 460px;background: rgb(126, 128, 101);}
 .banner_y .nav ul{padding: 20px 0;position:relative;}
 .banner_y .nav ul li{display: block;width: 174px;height: 40px;line-height:40px;font-size: 14px;padding: 0 30px;}
 .banner_y .nav ul li .pop{width: 800px;height: 460px;background: #fff;position:absolute;left:234px;top:0px;display: none;}
