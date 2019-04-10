@@ -16,9 +16,9 @@
 	<body>
 		<!-- login -->
 		<div class="top center">
-			<div class="logo center">
+			<!--<div class="logo center">
 				<a href="${pageContext.request.contextPath}/index" target="_blank"><img src="<c:url value='/js'/>/finallogo.jpg" alt=""></a>
-			</div>
+			</div>-->
 		</div>
 		<form  method="post" action="/client/login" class="form center" id="myform">
 		<div class="login">

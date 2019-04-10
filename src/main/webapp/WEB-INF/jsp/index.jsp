@@ -277,33 +277,33 @@
 			<div class="main center">
 				<div class="mingxing fl">
 					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1"><img src="<c:url value='/image'/>/餐厅1.jpg" alt=""></a></div>
-					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">KT4</a></div>
+					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">鲁菲特 实木餐桌 餐厅吃饭桌子</a></div>
 					<div class="youhui">享满减优惠卷</div>
-					<div class="jiage">699元</div>
+					<div class="jiage">1380元</div>
 				</div>
 				<div class="mingxing fl">
-					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2"><img src="<c:url value='/image'/>/KT轻骑兵.jpg" alt=""></a></div>
-					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2">KT轻骑兵</a></div>
+					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2"><img src="<c:url value='/image'/>/餐厅2.jpg" alt=""></a></div>
+					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2">曲客（QUKE）餐桌椅组合实木餐</a></div>
 					<div class="youhui">满300-30</div>
-					<div class="jiage">399元</div>
+					<div class="jiage">999元</div>
 				</div>
 				<div class="mingxing fl">
-					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3"><img src="<c:url value='/image'/>/安踏篮球鞋.jpg" alt=""></a></div>
-					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3">安踏篮球鞋</a></div>
+					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3"><img src="<c:url value='/image'/>/餐厅3.jpg" alt=""></a></div>
+					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3">布雷格 实木餐桌 可伸缩折叠实木餐桌椅</a></div>
 					<div class="youhui">享满减优惠卷</div>
-					<div class="jiage">599元</div>
+					<div class="jiage">1699元</div>
 				</div>
 				<div class="mingxing fl"> 	
-					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4"><img src="<c:url value='/image'/>/KT鸳鸯鞋.jpg" alt=""></a></div>
-					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4">KT鸳鸯鞋</a></div>
+					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4"><img src="<c:url value='/image'/>/儿童4.jpg" alt=""></a></div>
+					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4">儿童床地中海上下床实木框架</a></div>
 					<div class="youhui">享满减优惠卷</div>
-					<div class="jiage">699元</div>
+					<div class="jiage">2675元</div>
 				</div>
 				<div class="mingxing fl">
-					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5"><img src="<c:url value='/image'/>/kT4破坏.jpg" alt=""></a></div>
-					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5">KT4破坏</a></div>
+					<div class="sub_mingxing"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5"><img src="<c:url value='/image'/>/儿童5.jpg" alt=""></a></div>
+					<div class="pinpai"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5">全友 现代简约青少年床卧室套装全友家居卧室组合家具</a></div>
 					<div class="youhui">享满减优惠卷</div>
-					<div class="jiage">899元</div>
+					<div class="jiage">4778元</div>
 				</div>
 				<div class="clear"></div>
 			</div>
