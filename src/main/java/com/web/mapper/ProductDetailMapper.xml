@@ -16,6 +16,26 @@
             <result property="prSize" column="pr_size"/>
         </association>
     </resultMap>
+
+    <resultMap id="commentPropertyResult" type="com.web.pojo.CommentProperty">
+        <result column="c_email" property="cEmail" jdbcType="VARCHAR" />
+        <result column="c_name" property="cName" jdbcType="VARCHAR" />
+        <result column="co_info" property="co_info" jdbcType="VARCHAR" />
+        <result column="co_date" property="co_date" jdbcType="TIMESTAMP" />
+        <result column="co_grade" property="co_grade" jdbcType="INTEGER" />
+        <result column="pr_color" property="prColor" jdbcType="VARCHAR" />
+        <result column="pr_size" property="prSize" jdbcType="VARCHAR" />
+        <result column="pr_material" property="prMaterial" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+    <select id="getCommentListByPropertyId" resultMap="commentPropertyResult">
+        select pr_color, pr_size, pr_material,c_email,c_name,co_info,co_date,co_grade
+        from tb_property left join tb_comment on tb_property.id = tb_comment.pr_id
+            left join tb_client on tb_client.id = tb_comment.c_id
+        where tb_property.id = #{id,jdbcType=INTEGER}
+    </select>
+
     <select id="getProductDetail" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
         select pt.id,pt.p_name,pt.p_type,pt.p_intro,py.id,py.pr_color,py.pr_outprice,py.pr_image,py.pr_size
         from tb_product pt left join tb_property py

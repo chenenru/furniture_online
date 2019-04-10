@@ -91,7 +91,7 @@
 			<hr>
 			<c:forEach var="comment" items="${comments}" begin="0" step="1">
 				<div style="background-color: #aaaaaa;">
-					<div style="margin: 10px 0 10px 5%">用户<%session.getAttribute("user");%></div>
+					<div style="margin: 10px 0 10px 5%">用户:${comment.cName}</div>
 					<div style="margin: 10px 0 10px 5%">${comment.co_date}</div>
 					<div style="margin: 10px 0 10px 25%">${comment.co_info}</div>
 					<div style="margin: 10px 0 10px 45%; border-bottom: #201f1f;">星级：${comment.co_grade}</div>

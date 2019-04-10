@@ -21,6 +21,7 @@ public interface TbClientMapper {
 
     List<TbClient> selectByExample(TbClientExample example);
 
+    List<TbClient> selectClientOfAll();
 
     TbClient selectByPrimaryKey(Integer id);
 

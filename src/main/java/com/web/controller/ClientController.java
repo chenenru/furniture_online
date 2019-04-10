@@ -89,7 +89,6 @@ public class ClientController {
     @ResponseBody
     public TbClient getClientById(Integer id) {
         TbClient tbClient = clientService.Service_findTbclientById(id);
-        //System.out.println("11111111111111111111111");
         return tbClient;
     }
 
@@ -98,7 +97,6 @@ public class ClientController {
     @ResponseBody
     public String ClientUpdate(TbClient tbClient) {
         clientService.Service_UpdateClient(tbClient);
-        //System.out.println(tbClient+"22222222222222222222222222");
         return "Info";
     }
 

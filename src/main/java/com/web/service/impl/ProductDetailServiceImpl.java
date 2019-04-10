@@ -1,6 +1,7 @@
 package com.web.service.impl;
 
 import com.web.mapper.ProductDetailMapper;
+import com.web.pojo.CommentProperty;
 import com.web.pojo.ProductDetail;
 import com.web.pojo.TbComment;
 import com.web.pojo.TbProductOrder;
@@ -29,6 +30,12 @@ public class ProductDetailServiceImpl implements ProductDetailService {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<CommentProperty> getCommentListByPropertyId(Integer id) {
+        List<CommentProperty> commentProperties = productDetailMapper.getCommentListByPropertyId(id);
+        return commentProperties;
     }
 
     @Override

@@ -13,6 +13,11 @@
     <result column="pr_inprice" property="prInprice" jdbcType="INTEGER" />
     <result column="pr_outprice" property="prOutprice" jdbcType="INTEGER" />
   </resultMap>
+
+  <select id="selectPropertyOfAll" resultMap="BaseResultMap">
+    select * from tb_property
+  </select>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

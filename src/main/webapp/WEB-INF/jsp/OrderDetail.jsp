@@ -1,4 +1,3 @@
-<%@ page import="com.web.pojo.TbOrderProperty" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -93,7 +92,7 @@
 <!-- self_info -->
         
 		<footer class="mt20 center">			
-			<div>©由莫宽元、赖周浩、陈恩如学习小组进行编写</div> 
+			<div>©由莫宽元、赖周浩、陈恩如学习小组进行编写</div>
 			<div>本网站所列数据，所列信息都是虚拟信息，除特殊说明，仅供学习参考用途</div>
 		</footer>
     </body>

@@ -24,7 +24,7 @@ public class ProductListController {
     @Autowired
     ProductService productService;
 
-    @RequestMapping("selectProduct")
+    @RequestMapping("selectProductByName")
     public String selectProductByName(Model model, @RequestParam("name")String name){
         List<TbProductProperty> productPropertyList = productService.selectProductByName(name);
         model.addAttribute("productList",productPropertyList);
@@ -33,6 +33,19 @@ public class ProductListController {
             System.out.println(productProperty.toString());
 
         return "ProductList";
+    }
+
+    @RequestMapping("selectProductByType")
+    public String selectProductByType(Model model,@RequestParam("type")String type){
+        List<TbProductProperty> productPropertyList = productService.selectProductByType(type);
+
+        model.addAttribute("productList",productPropertyList);
+
+        for(TbProductProperty tbProductProperty : productPropertyList)
+            System.out.println(tbProductProperty.toString());
+
+        return "ProductList";
+
     }
 
 }

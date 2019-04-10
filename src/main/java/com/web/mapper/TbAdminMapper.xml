@@ -6,6 +6,15 @@
     <result column="a_email" property="aEmail" jdbcType="VARCHAR" />
     <result column="a_pwd" property="aPwd" jdbcType="VARCHAR" />
   </resultMap>
+
+  <select id="Admin_login" resultMap="BaseResultMap">
+    select * from tb_admin where a_email = #{email,jdbcType=VARCHAR} and a_pwd = #{pwd,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectAdminOfAll" resultMap="BaseResultMap">
+    select * from tb_admin
+  </select>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

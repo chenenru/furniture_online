@@ -53,10 +53,10 @@
 	<!-- 中间类型导航条 -->
 		<div class="banner_x center">
 			<a href="${pageContext.request.contextPath}/index" ><div class="logo fl"></div></a>
-			<a href=""><div class="ad_top fl"></div></a>
+			<a href="#" ><div class="logo1 fl"></div></a>
 			<div class="nav fl" style="display: inline-block;">
 				<ul>
-					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=餐厅" target="_blank">餐厅</a></li>
+					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=餐厅" target="_blank">餐厅</a></li>
 					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=儿童">儿童</a></li>
 					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=客厅">客厅</a></li>
 					<li><a href="${pageContext.request.contextPath }/ProductDetail!QueryProductByType?productType=书房">书房</a></li>
@@ -86,7 +86,7 @@
 		<script type="text/javascript">
 			function findKey() {
 				var name = $("#productName").val();
-				var my_action = "${pageContext.request.contextPath}/selectProduct?name=" + name ;
+				var my_action = "${pageContext.request.contextPath}/selectProductByName?name=" + name ;
 // 				alert(my_action);
 				document.searchForm.action = my_action;
 				searchForm.submit();

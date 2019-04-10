@@ -19,6 +19,8 @@ public interface TbFeedbackMapper {
 
     List<TbFeedback> selectByExample(TbFeedbackExample example);
 
+    List<TbFeedback> selectFeedbackOfAll();
+
     TbFeedback selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") TbFeedback record, @Param("example") TbFeedbackExample example);

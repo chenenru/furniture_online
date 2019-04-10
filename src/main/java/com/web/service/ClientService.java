@@ -2,6 +2,8 @@ package com.web.service;
 
 import com.web.pojo.TbClient;
 
+import java.util.List;
+
 public interface ClientService {
 
     public TbClient Service_findTbclientById(Integer id);
@@ -19,7 +21,8 @@ public interface ClientService {
     //实现登陆功能
     TbClient ClientLogin(String email,String pwd);
 
-    //实现
+
+    List<TbClient> selectClientOfAll();
 
 
 }

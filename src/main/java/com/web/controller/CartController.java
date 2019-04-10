@@ -3,12 +3,10 @@ package com.web.controller;
 import com.web.pojo.Cart;
 import com.web.pojo.TbClient;
 import com.web.service.CartService;
-import org.apache.http.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,12 +37,16 @@ public class CartController {
     @RequestMapping("/Cart")
     public String getCart(HttpServletRequest request, Model model){
         try{
+
             HttpSession session = request.getSession();
             TbClient tbClient = (TbClient)session.getAttribute("user");
+            if(tbClient == null){
+                return "Login";
+            }
             int money = 0;
             List<Cart> carts = null;
 //            tbClient.getId()
-            carts = this.cartService.getCart(2);
+            carts = this.cartService.getCart(tbClient.getId());
             model.addAttribute("Carts",carts);
             System.out.println(carts.size());
             for(int i=0; i<carts.size();i++){

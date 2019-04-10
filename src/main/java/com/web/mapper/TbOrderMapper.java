@@ -22,6 +22,8 @@ public interface TbOrderMapper {
 
     List<TbOrder> selectByExample(TbOrderExample example);
 
+    List<TbOrder> selectOrderOfAll();
+
     TbOrder selectOrderByStatus(@Param("pr_id") Integer pr_id,@Param("c_id") Integer c_id,@Param("status") Integer status);
 
     TbOrder selectByPrimaryKey(Integer id);

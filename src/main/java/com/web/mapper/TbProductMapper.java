@@ -24,6 +24,12 @@ public interface TbProductMapper {
 
     List<TbProductProperty> selectProductByName(@Param("name")String name);
 
+    List<TbProductProperty> selectProductByType(@Param("type")String type);
+
+    List<TbProduct> selectProductOfAll();
+
+    List<TbProductProperty> selectProductPropertyOfAll();
+
     //根据id查询商品信息
     TbProduct selectByPrimaryKey(Integer id);
 

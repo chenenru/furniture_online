@@ -67,7 +67,7 @@ th{width: 60px;}
 .xian{height: 2px;background: #ff6700;margin: 8px auto;}
 
 .regist_main{padding:10px 0;padding-left:45px;}
-.regist_main .username{font:16px Times New Roman;height: 40px;line-height: 40px;margin:20px 0px 20px 100px;}
+.regist_main .username{font:16px Times New Roman;height: 40px;line-height: 40px;margin:20px 0px 30px 100px;}
 .regist_main .username .shurukuang{width: 220px;height: 30px;border:1px solid #ccc;padding:5px 10px; }
 .regist_main .username .yanzhengma{width: 100px;height: 30px;border:1px solid #ccc;padding:5px 10px; }
 .regist_main .username .shurukuang:focus{border: 1px solid blue;background: #F0FFFF;}

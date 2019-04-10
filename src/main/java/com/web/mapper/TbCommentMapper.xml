@@ -9,6 +9,11 @@
     <result column="co_date" property="coDate" jdbcType="TIMESTAMP" />
     <result column="co_grade" property="coGrade" jdbcType="INTEGER" />
   </resultMap>
+
+  <select id="selectCommentOfAll" resultMap="BaseResultMap">
+    select * from tb_comment
+  </select>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

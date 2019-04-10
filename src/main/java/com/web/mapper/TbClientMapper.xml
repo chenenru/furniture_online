@@ -262,5 +262,9 @@
     select * from tb_client where c_email = #{email,jdbcType=VARCHAR} and c_pwd = #{pwd,jdbcType=VARCHAR}
   </select>
 
+  <select id="selectClientOfAll" resultMap="BaseResultMap">
+    select * from tb_client
+  </select>
+
 
 </mapper>

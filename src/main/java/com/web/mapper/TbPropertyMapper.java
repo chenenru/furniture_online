@@ -21,6 +21,8 @@ public interface TbPropertyMapper {
 
     List<TbProperty> selectByExample(TbPropertyExample example);
 
+    List<TbProperty> selectPropertyOfAll();
+
     TbProperty selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") TbProperty record, @Param("example") TbPropertyExample example);

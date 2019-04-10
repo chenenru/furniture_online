@@ -19,4 +19,10 @@ public interface OrderService {
 
     List<TbOrderProperty> getOrderListbyStatus(int userId,int status);
 
+    List<TbOrder> selectOrderOfAll();
+
+    void updateOrder(TbOrder tbOrder);
+
+    void removeOrderById(Integer id);
+
 }

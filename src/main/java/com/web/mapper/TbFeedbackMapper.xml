@@ -8,6 +8,11 @@
     <result column="f_name" property="fName" jdbcType="VARCHAR" />
     <result column="f_email" property="fEmail" jdbcType="VARCHAR" />
   </resultMap>
+
+  <select id="selectFeedbackOfAll" resultMap="BaseResultMap">
+    select * from tb_feedback
+  </select>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

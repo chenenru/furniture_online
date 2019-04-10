@@ -6,6 +6,8 @@ import com.web.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @ClassName ClientServiceImpl
  * @Description TODO
@@ -21,6 +23,12 @@ public class ClientServiceImpl implements ClientService {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     public TbClientMapper tbClientMapper;
+
+
+    @Override
+    public List<TbClient> selectClientOfAll() {
+        return tbClientMapper.selectClientOfAll();
+    }
 
     @Override
     public TbClient ClientLogin(String email, String pwd) {

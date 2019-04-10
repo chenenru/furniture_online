@@ -21,6 +21,8 @@ public interface TbCommentMapper {
 
     List<TbComment> selectByExample(TbCommentExample example);
 
+    List<TbComment> selectCommentOfAll();
+
     TbComment selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") TbComment record, @Param("example") TbCommentExample example);

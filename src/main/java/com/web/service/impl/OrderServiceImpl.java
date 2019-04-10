@@ -25,6 +25,21 @@ public class OrderServiceImpl implements OrderService {
     public TbOrderMapper tbOrderMapper;
 
     @Override
+    public List<TbOrder> selectOrderOfAll() {
+        return tbOrderMapper.selectOrderOfAll();
+    }
+
+    @Override
+    public void updateOrder(TbOrder tbOrder) {
+        tbOrderMapper.updateByPrimaryKeySelective(tbOrder);
+    }
+
+    @Override
+    public void removeOrderById(Integer id) {
+        tbOrderMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
     public TbOrder selectOrderByStatus(Integer pr_id, Integer c_id, Integer status) {
         TbOrder tbOrder = tbOrderMapper.selectOrderByStatus(pr_id,c_id,status);
 

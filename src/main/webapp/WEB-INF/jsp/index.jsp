@@ -104,22 +104,22 @@
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=餐桌">
 											<span class="fl">餐桌</span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1" target="_blank">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=餐桌" target="_blank">选购</a></div>
 									<div class="clear"></div>
 								</div>
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=书桌">
 											<span class="fl">书桌</span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=1">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=书桌">选购</a></div>
 									<div class="clear"></div>
 								</div>		
 							</div>
@@ -132,22 +132,22 @@
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=沙发床">
 											<span class="fl">沙发床</span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=沙发床">选购</a></div>
 									<div class="clear"></div>
 								</div>
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=大床">
 											<span class="fl">大床</span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=2">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=大床">选购</a></div>
 									<div class="clear"></div>
 								</div>		
 							</div>
@@ -159,22 +159,22 @@
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=餐椅">
 											<span class="fl">餐椅</span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=餐椅">选购</a></div>
 									<div class="clear"></div>
 								</div>
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=沙发椅">
 											<span class="fl">沙发椅 </span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=3">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=沙发椅">选购</a></div>
 									<div class="clear"></div>
 								</div>		
 							</div>
@@ -187,22 +187,22 @@
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=木质沙发">
 											<span class="fl">木质沙发</span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=木质沙发">选购</a></div>
 									<div class="clear"></div>
 								</div>
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=欧式沙发">
 											<span class="fl">欧式沙发</span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=4">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=欧式沙发">选购</a></div>
 									<div class="clear"></div>
 								</div>		
 							</div>
@@ -214,22 +214,22 @@
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=晾衣架">
 											<span class="fl">晾衣架</span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=晾衣架">选购</a></div>
 									<div class="clear"></div>
 								</div>
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=户外椅">
 											<span class="fl">户外椅</span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=5">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=户外椅">选购</a></div>
 									<div class="clear"></div>
 								</div>		
 							</div>
@@ -241,22 +241,22 @@
 							<div class="left fl">
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=6">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=书柜">
 											<span class="fl">书柜</span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=6">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=书柜">选购</a></div>
 									<div class="clear"></div>
 								</div>
 								<div>
 									<div class="xuangou_left fl">
-										<a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=6">
+										<a href="${pageContext.request.contextPath }/selectProductByName?name=书柜">
 											<span class="fl">床头柜</span>
 											<div class="clear"></div>
 										</a>
 									</div>
-									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/ProductDetail!QueryProduct?id=6">选购</a></div>
+									<div class="xuangou_right fr"><a href="${pageContext.request.contextPath }/selectProductByName?name=书柜">选购</a></div>
 									<div class="clear"></div>
 								</div>		
 							</div>

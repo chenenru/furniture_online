@@ -27,4 +27,19 @@ public class PropertyServiceImpl implements PropertyService {
 
         return  tbProperty;
     }
+
+    @Override
+    public void updateProperty(TbProperty tbProperty) {
+        tbPropertyMapper.updateByPrimaryKeySelective(tbProperty);
+    }
+
+    @Override
+    public void removePropertyById(Integer id) {
+        tbPropertyMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public void insertProperty(TbProperty tbProperty) {
+        tbPropertyMapper.insertSelective(tbProperty);
+    }
 }

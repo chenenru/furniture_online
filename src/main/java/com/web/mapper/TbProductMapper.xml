@@ -24,7 +24,24 @@
     <result column="pr_outprice" property="prOutprice" jdbcType="INTEGER" />
   </resultMap>
 
-  <select id="selectProductByName" parameterType="java.lang.String" resultMap="Product_property_Result">
+  <select id="selectProductOfAll" resultMap="BaseResultMap">
+    select * from tb_product
+  </select>
+
+  <select id="selectProductPropertyOfAll" resultMap="Product_property_Result">
+    select tb_property.id, p_name, p_type, p_intro,p_id, pr_image, pr_color, pr_size, pr_material, pr_store, pr_innum, pr_inprice, pr_outprice
+    from tb_property
+    left join tb_product on tb_property.p_id = tb_product.id
+  </select>
+
+  <select id="selectProductByType" resultMap="Product_property_Result">
+    select tb_property.id, p_name, p_type, p_intro,p_id, pr_image, pr_color, pr_size, pr_material, pr_store, pr_innum, pr_inprice, pr_outprice
+    from tb_property
+    left join tb_product on tb_property.p_id = tb_product.id
+    where p_type like #{type,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectProductByName"  resultMap="Product_property_Result">
     select tb_property.id, p_name, p_type, p_intro,p_id, pr_image, pr_color, pr_size, pr_material, pr_store, pr_innum, pr_inprice, pr_outprice
     from tb_property
     left join tb_product on tb_property.p_id = tb_product.id

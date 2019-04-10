@@ -19,6 +19,17 @@
     <script src="<c:url value='/js'/>/bootstrap.min.js"></script>
     <script src="<c:url value='/js'/>/index.js"></script>
     <style>
+        .heading{
+            margin-bottom:30px;
+            margin-top: 100px;
+        }
+
+        .border-radius{
+            margin-top: 50px;
+        }
+
+        .col-md-4{ padding-left: 100px }
+
         .contact-form .btn-form {
             background: #79b6c8;
             color: #fff;
@@ -53,6 +64,7 @@
         }
         .uppercase {
             text-transform: uppercase;
+            margin-bottom: 30px;
         }
     </style>
     <%--<link rel="stylesheet" type="text/css" href="<c:url value="/css"/>/login.css">--%>
@@ -118,7 +130,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <label >信息</label>
-                            <textarea class="form-control" placeholder="宝贵的信息" id="exampleInputMessage2"></textarea>
+                            <textarea class="form-control" placeholder="请填写您宝贵的意见" id="exampleInputMessage2"></textarea>
                             <input type="submit" class="btn-form uppercase border-radius margintop40" value="提交反馈信息" onclick="feedback()">
                         </div>
                     </div>
@@ -128,10 +140,10 @@
             <div class="col-md-4">
                 <div class="contact_detail padding_bottom">
                     <h3 class="uppercase heading bottom30">我们办公信息</h3>
-                    <p class="bottom30">...</p>
+                    <p class="bottom30">肇庆学院16软件1班 第六小组</p>
                     <div class="address bottom30">
                         <i class="fa fa-map-marker"></i>
-                        <h5 class="uppercase">我们的地址</h5>
+                        <h5 class="uppercase" style="padding-top:20px;">我们的地址</h5>
                         <p>广东省肇庆市端州区肇庆学院主校区</p>
                     </div>
                     <div class="address bottom30">
