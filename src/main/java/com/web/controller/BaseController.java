@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class BaseController {
 
+	@RequestMapping("/Admin")
+	public String ToAdmin(){
+
+		return "AdminLogin";
+	}
+
 	@RequestMapping("/index")
 	public String ToIndex() {
 		System.out.println("----------------------测试----------------------");
