@@ -3,10 +3,15 @@ package com.web.controller;
 import com.web.pojo.CommentProperty;
 import com.web.pojo.ProductDetail;
 import com.web.pojo.TbProductOrder;
+import com.web.pojo.TbProductProperty;
 import com.web.service.ProductDetailService;
+import com.web.service.impl.ProductDetailServiceImpl;
+import com.web.utils.Page;
+import com.web.utils.PageTag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,6 +21,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class ProductDetailController {
+    PageTag pageTag = new PageTag();
+
     @Autowired
     private ProductDetailService productDetailService;
 
@@ -46,13 +53,39 @@ public class ProductDetailController {
         System.out.println(productDetail.toString());
 
         List<CommentProperty> commentProperties = productDetailService.getCommentListByPropertyId(id);
-//        System.out.println("评论是======="+comments);
         model.addAttribute("ProductDetail",productDetail);
         model.addAttribute("comments",commentProperties);
         for(CommentProperty commentProperty : commentProperties)
             System.out.println(commentProperty.toString());
-//        System.out.println("评论是======="+comments.get(0).getTbComment().getCo_info());
         return "ProductDetail";
+    }
+
+    @RequestMapping("ProductManage")
+    public String getProductManage(@RequestParam(defaultValue = "1")Integer page, @RequestParam(defaultValue = "10")Integer row,@RequestParam(defaultValue = "") String productName, Model model){
+        try{
+            System.out.println("民资======"+productName);
+            Page<ProductDetail> productDetailPage = this.productDetailService.findProductList(page,row,productName);
+            model.addAttribute("page",productDetailPage);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "ProductManage";
+    }
+
+    @RequestMapping("editProductManage")
+    @ResponseBody
+    public TbProductProperty getProductManageById(Integer id){
+        TbProductProperty tbProductProperty = this.productDetailService.editProductManage(id);
+        System.out.println(tbProductProperty.getpName());
+        return tbProductProperty;
+    }
+
+    @RequestMapping("UpdateProductManage")
+    @ResponseBody
+    public TbProductProperty updateProductManage(TbProductProperty tbProductProperty){
+//        TbProductProperty tbProductProperty = new TbProductProperty();
+        this.productDetailService.updateProductManage(tbProductProperty);
+        return tbProductProperty;
     }
 
 }

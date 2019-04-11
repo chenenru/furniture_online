@@ -9,7 +9,7 @@ public class TbProduct {
 
     private String pIntro;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

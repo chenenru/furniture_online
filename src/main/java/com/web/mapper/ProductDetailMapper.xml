@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.web.mapper.ProductDetailMapper" >
     <resultMap id="BaseResultMap" type="com.web.pojo.ProductDetail" >
@@ -9,11 +10,16 @@
         <!--多表查询中关联另一个实体的配置-->
         <association property="tbProperty" javaType="com.web.pojo.TbProperty">
             <!-- property 表示com.mybatis.bean.Class中的属性； column 表示表中的列名 -->
-            <!--<id property="id" column="id" />-->
-            <result property="prColor" column="pr_color"/>
+            <id property="id" column="id" />
+            <result property="pId" column="p_id"></result>
             <result property="prImage" column="pr_image"/>
-            <result property="prOutprice" column="pr_outprice"/>
+            <result property="prColor" column="pr_color"/>
             <result property="prSize" column="pr_size"/>
+            <result property="prMaterial" column="pr_material"/>
+            <result property="prStore" column="pr_store"/>
+            <result property="prInnum" column="pr_innum"/>
+            <result property="prInprice" column="pr_inprice"/>
+            <result property="prOutprice" column="pr_outprice"/>
         </association>
     </resultMap>
 
@@ -28,6 +34,30 @@
         <result column="pr_material" property="prMaterial" jdbcType="VARCHAR" />
 
     </resultMap>
+
+    <resultMap id="tbProductPropertyResult" type="com.web.pojo.TbProductProperty">
+        <id column="id" property="id"/>
+        <result column="p_name" property="pName" jdbcType="VARCHAR" />
+        <result column="p_type" property="pType" jdbcType="VARCHAR" />
+        <result column="p_intro" property="pIntro" jdbcType="VARCHAR" />
+        <result property="pId" column="p_id" jdbcType="INTEGER"></result>
+        <result property="prImage" column="pr_image" jdbcType="VARCHAR"/>
+        <result property="prColor" column="pr_color" jdbcType="VARCHAR"/>
+        <result property="prSize" column="pr_size" jdbcType="VARCHAR"/>
+        <result property="prMaterial" column="pr_material" jdbcType="VARCHAR"/>
+        <result property="prStore" column="pr_store" jdbcType="INTEGER"/>
+        <result property="prInnum" column="pr_innum" jdbcType="INTEGER"/>
+        <result property="prInprice" column="pr_inprice" jdbcType="INTEGER"/>
+        <result property="prOutprice" column="pr_outprice" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="selectProduct">
+        <where>
+            <if test="name!=null">
+                p_name like "%"#{name}"%"
+            </if>
+        </where>
+    </sql>
 
     <select id="getCommentListByPropertyId" resultMap="commentPropertyResult">
         select pr_color, pr_size, pr_material,c_email,c_name,co_info,co_date,co_grade
@@ -50,5 +80,54 @@
     <select id="getComment" resultType="com.web.pojo.TbComment" parameterType="java.lang.Integer" >
         select * from tb_comment
 	       where pr_id = #{pr_Id,jdbcType=INTEGER}
+    </select>
+
+    <!--parameterType="com.web.utils.PageTag"-->
+    <select id="getProductManage" resultMap="BaseResultMap">
+        select * from tb_property py left join tb_product pt
+          on py.p_id = pt.id
+          <include refid="selectProduct"/>
+           limit #{start},#{rows}
+    </select>
+
+    <select id="getProductCount" parameterType="com.web.pojo.ProductDetail" resultType="java.lang.Integer">
+      	select count(*)
+		  from tb_property py left join tb_product pt
+          on py.p_id = pt.id
+    </select>
+    <update id="updateProductManage" parameterType="com.web.pojo.TbProductProperty">
+        update tb_product p inner join tb_property pr
+        on pr.p_id = p.id
+        <set>
+            <if test="pName!=null">
+                p.p_name=#{pName},
+            </if>
+            <if test="pType!=null">
+                p.p_type=#{pType},
+            </if>
+            <if test="prColor!=null">
+            pr.pr_color=#{prColor},
+            </if>
+            <if test="prSize!=null">
+            pr.pr_size=#{prSize},
+            </if>
+            <if test="prStore!=null">
+            pr.pr_store=#{prStore},
+            </if>
+            <if test="prInnum!=null">
+            pr.pr_innum=#{prInnum},
+            </if>
+            <if test="prInprice!=null">
+            pr.pr_inprice=#{prInprice},
+            </if>
+            <if test="prOutprice!=null">
+            pr.pr_outprice=#{prOutprice},
+            </if>
+        </set>
+          where pr.id = #{id}
+    </update>
+    <select id="editProductManage" resultMap="tbProductPropertyResult">
+        select * from tb_property pr left join tb_product p
+	      on pr.p_id = p.id where pr.id = #{id}
     </select>
 </mapper>

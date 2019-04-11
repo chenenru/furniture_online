@@ -15,10 +15,9 @@ public class Cart extends TbProduct{
         this.cid = cid;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
