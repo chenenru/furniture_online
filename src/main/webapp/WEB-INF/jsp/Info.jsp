@@ -50,25 +50,25 @@
 		</style>
 		<!-- jQuery -->
 		<script type="text/javascript"
-				src="<c:url value='/js'/>/js2/jquery.min.js"></script>
+				src="<c:url value='/js'/>/jquery.min.js"></script>
 
 		<!-- Bootstrap Core JavaScript -->
 		<script type="text/javascript"
-				src="<c:url value='/js'/>/js2/bootstrap.min.js"></script>
+				src="<c:url value='/js'/>/bootstrap.min.js"></script>
 
 		<!-- Metis Menu Plugin JavaScript -->
 		<script type="text/javascript"
-				src="<c:url value='/js'/>/js2/metisMenu.min.js"></script>
+				src="<c:url value='/js'/>/metisMenu.min.js"></script>
 
 		<!-- DataTables JavaScript -->
 		<script type="text/javascript"
-				src="<c:url value='/js'/>/js2/jquery.dataTables.min.js"></script>
+				src="<c:url value='/js'/>/jquery.dataTables.min.js"></script>
 		<script type="text/javascript"
-				src="<c:url value='/js'/>/js2/dataTables.bootstrap.min.js"></script>
+				src="<c:url value='/js'/>/dataTables.bootstrap.min.js"></script>
 
 		<!-- Custom Theme JavaScript -->
 		<script type="text/javascript"
-				src="<c:url value='/js'/>/js2/sb-admin-2.js"></script>
+				src="<c:url value='/js'/>/sb-admin-2.js"></script>
 	</head>
 	<body>
 	<%--<c:out value="不登录就要跳转到登录页面"/>--%>
@@ -237,7 +237,7 @@
                 // alert(click);
             });
 		</script>
-		<footer class="mt20 center">			
+		<footer class="mt20 center">
 			<div>©由莫宽元、赖周浩、陈恩如、陈婉琳学习小组进行编写</div>
 			<div>本网站所列数据，所列信息都是虚拟信息，除特殊说明，仅供学习参考用途</div>
 		</footer>
