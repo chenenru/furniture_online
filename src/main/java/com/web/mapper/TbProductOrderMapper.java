@@ -2,7 +2,6 @@ package com.web.mapper;
 
 import com.web.pojo.TbProductOrder;
 import com.web.pojo.TbProductOrderExample;
-import com.web.pojo.TbProductProperty;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +19,7 @@ public interface TbProductOrderMapper {
 
     int insertSelective(TbProductOrder record);
 
-    TbProductProperty selectProductOrderByClientOrderProproty(@Param("c_id") Integer c_id, @Param("o_id")Integer o_id, @Param("pr_id") Integer pr_id);
+    TbProductOrder selectProductOrderByClientOrderProproty(@Param("c_id") Integer c_id, @Param("o_id")Integer o_id, @Param("pr_id") Integer pr_id);
 
     List<TbProductOrder> selectByExample(TbProductOrderExample example);
 

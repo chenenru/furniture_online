@@ -11,6 +11,43 @@
     <result column="c_code" property="cCode" jdbcType="VARCHAR" />
     <result column="c_status" property="cStatus" jdbcType="INTEGER" />
   </resultMap>
+
+
+  <sql id="selectCustomerListWhere">
+    <where>
+      <if test="cName != null" >
+        c_name like "%"#{cName}"%"
+      </if>
+      <if test="cEmail != null" >
+        and c_email = #{cEmail}
+      </if>
+      <if test="cAddress != null" >
+        and c_address = #{cAddress}
+      </if>
+      <if test="cPhone != null" >
+        and c_phone = #{cPhone}
+      </if>
+    </where>
+  </sql>
+
+  <select id="selectManage_ClientList" parameterType="com.web.pojo.Manage_Client" resultMap="BaseResultMap">
+    SELECT
+    id, c_email, c_pwd, c_name, c_address, c_phone, c_code, c_status
+    FROM
+    tb_client
+    <include refid="selectCustomerListWhere"/>
+    <if test="start !=null and rows != null">
+      limit #{start},#{rows}
+    </if>
+
+  </select>
+
+  <select id="selectManage_ClientListCount" parameterType="com.web.pojo.Manage_Client" resultType="int">
+    select count(*)
+    from tb_client
+    <include refid="selectCustomerListWhere"/>
+  </select>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

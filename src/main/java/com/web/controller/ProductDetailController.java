@@ -1,11 +1,8 @@
 package com.web.controller;
 
-import com.web.pojo.CommentProperty;
-import com.web.pojo.ProductDetail;
-import com.web.pojo.TbProductOrder;
-import com.web.pojo.TbProductProperty;
+import com.web.pojo.*;
+import com.web.service.CommentService;
 import com.web.service.ProductDetailService;
-import com.web.service.impl.ProductDetailServiceImpl;
 import com.web.utils.Page;
 import com.web.utils.PageTag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -25,6 +24,27 @@ public class ProductDetailController {
 
     @Autowired
     private ProductDetailService productDetailService;
+
+    @Autowired
+    private CommentService commentService;
+
+
+    @RequestMapping("/setcomment")
+    @ResponseBody
+    public TbComment getComment(HttpSession session, @RequestBody TbComment tbComment, Integer pr_id){
+        //TbProperty tbProperty = propertyService.selectPropertyById(pr_id);
+        //CommentService.
+        //System.out.println("=================pr_id"+pr_id);
+        TbClient tbClient = (TbClient) session.getAttribute("user");
+        System.out.println("pr_id======="+tbComment.getCo_info());
+        //TbComment tbComment = new TbComment();
+        tbComment.setC_id(tbClient.getId());
+        tbComment.setCo_date(new Date().toString());
+        tbComment.setPr_id(pr_id);
+        System.out.println("=========="+tbComment);
+        commentService.insertComment(tbComment);
+        return tbComment;
+    }
 
     @ResponseBody
     @RequestMapping("/addProductDetail")
@@ -53,10 +73,12 @@ public class ProductDetailController {
         System.out.println(productDetail.toString());
 
         List<CommentProperty> commentProperties = productDetailService.getCommentListByPropertyId(id);
+//        System.out.println("评论是======="+comments);
         model.addAttribute("ProductDetail",productDetail);
         model.addAttribute("comments",commentProperties);
         for(CommentProperty commentProperty : commentProperties)
             System.out.println(commentProperty.toString());
+//        System.out.println("评论是======="+comments.get(0).getTbComment().getCo_info());
         return "ProductDetail";
     }
 

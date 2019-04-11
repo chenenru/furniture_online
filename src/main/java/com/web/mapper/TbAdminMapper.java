@@ -1,5 +1,6 @@
 package com.web.mapper;
 
+import com.web.pojo.Manage_Admin;
 import com.web.pojo.TbAdmin;
 import com.web.pojo.TbAdminExample;
 import org.apache.ibatis.annotations.Param;
@@ -9,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface TbAdminMapper {
-    TbAdmin Admin_login(String email, String pwd);
+    TbAdmin Admin_login(@Param("email") String email, @Param("pwd") String pwd);
 
     int countByExample(TbAdminExample example);
 
@@ -34,4 +35,8 @@ public interface TbAdminMapper {
     int updateByPrimaryKeySelective(TbAdmin record);
 
     int updateByPrimaryKey(TbAdmin record);
+
+
+    List<Manage_Admin> selectManage_AdminList(Manage_Admin customer);
+    Integer selectManage_AdminListCount(Manage_Admin customer);
 }

@@ -1,6 +1,8 @@
 package com.web.service;
 
+import com.web.pojo.Manage_Feedback;
 import com.web.pojo.TbFeedback;
+import com.web.utils.Page;
 
 import java.util.List;
 
@@ -18,4 +20,6 @@ public interface FeedbackService {
     void removeFeedbackById(Integer id);
 
     TbFeedback getFeedbackById(Integer id);
+
+    public Page<Manage_Feedback> selectManage_FeedbackList(Integer page, Integer rows);
 }

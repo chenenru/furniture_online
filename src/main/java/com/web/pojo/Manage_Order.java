@@ -1,6 +1,14 @@
 package com.web.pojo;
 
-public class TbOrder{
+/**
+ * @ClassName Manage_Order
+ * @Description TODO
+ * @Author LonelySeven
+ * @Date 2019/4/11 13:42
+ * @Version 1.0
+ **/
+public class Manage_Order {
+
     private Integer id;
 
     private Integer prId;
@@ -25,6 +33,28 @@ public class TbOrder{
 
     private String oPhone;
 
+    private Integer start;
+    private Integer rows;
+
+    @Override
+    public String toString() {
+        return "Manage_Order{" +
+                "id=" + id +
+                ", prId=" + prId +
+                ", oNum=" + oNum +
+                ", oTotal=" + oTotal +
+                ", cId=" + cId +
+                ", oStatus=" + oStatus +
+                ", oCreate='" + oCreate + '\'' +
+                ", oPay='" + oPay + '\'' +
+                ", oDeliver='" + oDeliver + '\'' +
+                ", oConfirm='" + oConfirm + '\'' +
+                ", oAddress='" + oAddress + '\'' +
+                ", oPhone='" + oPhone + '\'' +
+                ", start=" + start +
+                ", rows=" + rows +
+                '}';
+    }
 
     public Integer getId() {
         return id;
@@ -122,10 +152,26 @@ public class TbOrder{
         this.oPhone = oPhone;
     }
 
-    public TbOrder() {
+    public Integer getStart() {
+        return start;
     }
 
-    public TbOrder(Integer id, Integer prId, Integer oNum, Integer oTotal, Integer cId, Integer oStatus, String oCreate, String oPay, String oDeliver, String oConfirm, String oAddress, String oPhone) {
+    public void setStart(Integer start) {
+        this.start = start;
+    }
+
+    public Integer getRows() {
+        return rows;
+    }
+
+    public void setRows(Integer rows) {
+        this.rows = rows;
+    }
+
+    public Manage_Order() {
+    }
+
+    public Manage_Order(Integer id, Integer prId, Integer oNum, Integer oTotal, Integer cId, Integer oStatus, String oCreate, String oPay, String oDeliver, String oConfirm, String oAddress, String oPhone, Integer start, Integer rows) {
         this.id = id;
         this.prId = prId;
         this.oNum = oNum;
@@ -138,24 +184,7 @@ public class TbOrder{
         this.oConfirm = oConfirm;
         this.oAddress = oAddress;
         this.oPhone = oPhone;
+        this.start = start;
+        this.rows = rows;
     }
-
-    @Override
-    public String toString() {
-        return "TbOrder{" +
-                "id=" + id +
-                ", prId=" + prId +
-                ", oNum=" + oNum +
-                ", oTotal=" + oTotal +
-                ", cId=" + cId +
-                ", oStatus=" + oStatus +
-                ", oCreate=" + oCreate +
-                ", oPay=" + oPay +
-                ", oDeliver=" + oDeliver +
-                ", oConfirm=" + oConfirm +
-                ", oAddress='" + oAddress + '\'' +
-                ", oPhone='" + oPhone + '\'' +
-                '}';
-    }
-
 }

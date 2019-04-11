@@ -1,8 +1,9 @@
 package com.web.controller;
 
 import com.web.pojo.TbClient;
+import com.web.pojo.TbOrder;
 import com.web.pojo.TbOrderProperty;
-import com.web.pojo.TbProductProperty;
+import com.web.pojo.TbProductOrder;
 import com.web.service.OrderService;
 import com.web.service.ProductOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
 
 /**
  * @ClassName OrderController
@@ -22,6 +27,8 @@ import java.util.List;
  * @Date 2019/4/4 9:14
  * @Version 1.0
  **/
+
+
 @Controller
 @RequestMapping("/order")
 public class OrderController {
@@ -32,6 +39,49 @@ public class OrderController {
     @Autowired
     private ProductOrderService productOrderService;
 
+
+
+
+    @RequestMapping("updateOrder")
+    public String updateOrder(TbOrder tbOrder){
+        System.out.println("更新的订单" + tbOrder);
+
+        orderService.updateOrder(tbOrder);
+
+        return "orderManage";
+    }
+
+    @RequestMapping("/gotoOrder")
+    @ResponseBody
+    public TbOrder tbOrder(Integer id){
+        TbOrder tbOrder = orderService.getTbOrderbyPrimaryKey(id);
+
+        System.out.println("订单装换情况：：" + tbOrder);
+
+        return tbOrder;
+
+    }
+
+    @RequestMapping("adminRemove")
+    public String Admin_remove(HttpSession session,
+           int o_id,int pr_id,int c_id){
+
+        System.out.println("管理页面传来的ID" + o_id + "管理页面传来的ID" + pr_id + "管理页面传来的ID" + c_id);
+
+        if(session.getAttribute("admin") == null){
+            return "AdminLogin";
+        }
+
+        TbProductOrder tbProductOrder = productOrderService.selectProductOrderByClientOrderProproty(c_id,o_id,pr_id);
+
+        productOrderService.removeProductOrderById(tbProductOrder.getId());
+
+        orderService.removeOrderById(o_id);
+
+        return "orderManage";
+    }
+
+    @RequestMapping("clientRemove")
     public String remove(Model model, @RequestParam("o_id")int o_id,@RequestParam("pr_id")int pr_id,HttpSession session){
 
         TbClient tbClient = (TbClient) session.getAttribute("user");
@@ -40,15 +90,45 @@ public class OrderController {
             return "error";
         }
 
-        TbProductProperty tbProductProperty =
+        TbProductOrder tbProductOrder =
                 productOrderService.selectProductOrderByClientOrderProproty(tbClient.getId(),o_id,pr_id);
 
-        productOrderService.removeProductOrderById(tbProductProperty.getId());
+        productOrderService.removeProductOrderById(tbProductOrder.getId());
 
         orderService.removeOrderById(o_id);
 
         return "OrderList";
     }
+
+    @RequestMapping("orderDeliver")
+    public String orderDeliver(int o_id){
+
+        System.out.println("测试发货操作#############" + o_id );
+
+        TbOrder tbOrder = orderService.getTbOrderbyPrimaryKey(o_id);
+
+        tbOrder.setoStatus(3);
+        tbOrder.setoDeliver(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+        orderService.updateOrder(tbOrder);
+
+        return "orderManage";
+    }
+
+    @RequestMapping("orderConfirm")
+    public String clintConfirm(int o_id){
+
+        System.out.println("测试收货操作#############" + o_id );
+
+        TbOrder tbOrder = orderService.getTbOrderbyPrimaryKey(o_id);
+
+        tbOrder.setoStatus(4);
+        tbOrder.setoConfirm(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+        orderService.updateOrder(tbOrder);
+
+
+        return "OrderList";
+    }
+
 
 
 

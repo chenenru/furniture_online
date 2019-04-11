@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.mapper.ManageOrderMapper" >
+
+    <resultMap id="ordermanageResult" type="com.web.pojo.Manage_Order">
+            <id column="id" property="id" jdbcType="INTEGER" />
+            <result column="pr_id" property="prId" jdbcType="INTEGER" />
+            <result column="o_num" property="oNum" jdbcType="INTEGER" />
+            <result column="o_total" property="oTotal" jdbcType="INTEGER" />
+            <result column="c_id" property="cId" jdbcType="INTEGER" />
+            <result column="o_status" property="oStatus" jdbcType="INTEGER" />
+            <result column="o_create" property="oCreate" jdbcType="TIMESTAMP" />
+            <result column="o_pay" property="oPay" jdbcType="TIMESTAMP" />
+            <result column="o_deliver" property="oDeliver" jdbcType="TIMESTAMP" />
+            <result column="o_confirm" property="oConfirm" jdbcType="TIMESTAMP" />
+            <result column="o_address" property="oAddress" jdbcType="VARCHAR" />
+            <result column="o_phone" property="oPhone" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+
+
+    <select id="selectManage_OrderList" parameterType="com.web.pojo.Manage_Order" resultMap="ordermanageResult">
+        SELECT
+        id, pr_id, o_num, o_total, c_id, o_status, o_create, o_pay, o_deliver, o_confirm,
+        o_address, o_phone
+        FROM
+        tb_order
+
+        <if test="cId != null ">
+            where c_id = #{cId}
+        </if>
+
+        <if test="start !=null and rows != null">
+            limit #{start},#{rows}
+        </if>
+
+
+
+    </select>
+
+
+    <select id="selectManage_OrderList1" parameterType="com.web.pojo.Manage_Order" resultMap="ordermanageResult">
+        SELECT
+        id, pr_id, o_num, o_total, c_id, o_status, o_create, o_pay, o_deliver, o_confirm,
+        o_address, o_phone
+        FROM
+        tb_order where o_create is not null and o_pay is null and o_deliver is null and o_confirm is null
+
+        <if test="start !=null and rows != null">
+            limit #{start},#{rows}
+        </if>
+
+    </select>
+
+
+
+
+    <select id="selectManage_OrderList2" parameterType="com.web.pojo.Manage_Order" resultMap="ordermanageResult">
+        SELECT
+        id, pr_id, o_num, o_total, c_id, o_status, o_create, o_pay, o_deliver, o_confirm,
+        o_address, o_phone
+        FROM
+        tb_order where o_create is not null and o_pay is not null and o_deliver is null and o_confirm is null
+
+        <if test="start !=null and rows != null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+
+    <select id="selectManage_OrderList3" parameterType="com.web.pojo.Manage_Order" resultMap="ordermanageResult">
+        SELECT
+        id, pr_id, o_num, o_total, c_id, o_status, o_create, o_pay, o_deliver, o_confirm,
+        o_address, o_phone
+        FROM
+        tb_order where o_create is not null and o_pay is not null and o_deliver is not null and o_confirm is null
+
+        <if test="start !=null and rows != null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+
+    <select id="selectManage_OrderList4" parameterType="com.web.pojo.Manage_Order" resultMap="ordermanageResult">
+        SELECT
+        id, pr_id, o_num, o_total, c_id, o_status, o_create, o_pay, o_deliver, o_confirm,
+        o_address, o_phone
+        FROM
+        tb_order where o_create is not null and o_pay is not null and o_deliver is not null and o_confirm is not null
+
+        <if test="start !=null and rows != null">
+            limit #{start},#{rows}
+        </if>
+
+    </select>
+
+
+
+    <!--where o_create is not null and o_pay is null and o_deliver is null and o_confirm is null-->
+
+
+    <!--where o_create is null and o_pay is not null and o_deliver is null and o_confirm is null-->
+
+
+    <!--where o_create is null and o_pay is null and o_deliver is not null and o_confirm is null-->
+
+
+    <!--where o_create is null and o_pay is null and o_deliver is null and o_confirm is not null-->
+
+
+    <select id="selectManage_OrderListCount" parameterType="com.web.pojo.Manage_Order" resultType="int">
+        select count(*)
+        from tb_order
+        <if test="cId != null ">
+            where c_id = #{cId}
+        </if>
+    </select>
+
+    <select id="selectManage_OrderListCount1" parameterType="com.web.pojo.Manage_Order" resultType="int">
+        select count(*)
+        from tb_order
+        where o_create is not null and o_pay is null and o_deliver is null and o_confirm is null
+    </select>
+
+    <select id="selectManage_OrderListCount2" parameterType="com.web.pojo.Manage_Order" resultType="int">
+        select count(*)
+        from tb_order where o_create is null and o_pay is not null and o_deliver is null and o_confirm is null
+    </select>
+
+    <select id="selectManage_OrderListCount3" parameterType="com.web.pojo.Manage_Order" resultType="int">
+        select count(*)
+        from tb_order where o_create is null and o_pay is null and o_deliver is not null and o_confirm is null
+    </select>
+
+    <select id="selectManage_OrderListCount4" parameterType="com.web.pojo.Manage_Order" resultType="int">
+        select count(*)
+        from tb_order where o_create is null and o_pay is null and o_deliver is null and o_confirm is not null
+    </select>
+
+</mapper>

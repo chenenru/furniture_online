@@ -32,7 +32,7 @@ public class NavigationTag extends TagSupport {
     public int doStartTag() throws JspException {
         JspWriter writer = pageContext.getOut();
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
-        Page page = (Page)request.getAttribute(bean); 
+        Page page = (Page)request.getAttribute(bean);
         if (page == null) 
             return SKIP_BODY;
         url = resolveUrl(url, pageContext);
@@ -116,7 +116,7 @@ public class NavigationTag extends TagSupport {
      * @param url
      * @param pageContext
      * @return
-     * @throws javax.servlet.jsp.JspException
+     * @throws JspException
      */
     private String resolveUrl(String url, javax.servlet.jsp.PageContext pageContext) throws JspException {
     	//UrlSupport.resolveUrl(url, context, pageContext)

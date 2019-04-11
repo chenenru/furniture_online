@@ -1,5 +1,6 @@
 package com.web.mapper;
 
+import com.web.pojo.Manage_Comment;
 import com.web.pojo.TbComment;
 import com.web.pojo.TbCommentExample;
 import org.apache.ibatis.annotations.Param;
@@ -32,4 +33,9 @@ public interface TbCommentMapper {
     int updateByPrimaryKeySelective(TbComment record);
 
     int updateByPrimaryKey(TbComment record);
+
+
+    List<Manage_Comment> selectManage_CommentList(Manage_Comment customer);
+    Integer selectManage_CommentListCount(Manage_Comment customer);
+
 }

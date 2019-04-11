@@ -41,6 +41,57 @@ public class ClientController {
     private ClientService clientService;
 
 
+    @RequestMapping("/gotoClient")
+    @ResponseBody
+    public TbClient getClientInfo(Integer id){
+        TbClient tbClient = clientService.Service_findTbclientById(id);
+
+//        System.out.println("订单装换情况：：" + tbOrder);
+
+        return tbClient;
+    }
+
+
+    @RequestMapping("updateClient")
+    public String updateClient(TbClient tbClient){
+//        System.out.println("更新的订单" + tbOrder);
+
+        clientService.Service_UpdateClient(tbClient);
+
+        return "clientManage";
+    }
+
+    @RequestMapping("addClient")
+    public String addClient(String usr,String pwd,String name,String address,String phone){
+        TbClient tbClient = new TbClient();
+        tbClient.setcEmail(usr);
+        tbClient.setcPwd(pwd);
+        tbClient.setcName(name);
+        tbClient.setcAddress(address);
+        tbClient.setcPhone(phone);
+        tbClient.setcStatus(1);
+
+        System.out.println(tbClient.toString());
+
+        try {
+            clientService.save(tbClient);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "clientManage";
+
+    }
+
+    @RequestMapping("removeClient")
+    public String removeAdmin(int id){
+//        clientService.removeClientById(id);
+
+
+
+        return "clientManage";
+    }
+
     @RequestMapping("logout")
     public String client_logout(HttpSession session){
         session.invalidate();

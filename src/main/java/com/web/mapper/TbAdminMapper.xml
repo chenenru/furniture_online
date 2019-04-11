@@ -7,6 +7,24 @@
     <result column="a_pwd" property="aPwd" jdbcType="VARCHAR" />
   </resultMap>
 
+  <select id="selectManage_AdminList" parameterType="com.web.pojo.Manage_Admin" resultMap="BaseResultMap">
+    SELECT
+    id, a_email, a_pwd
+    FROM
+    tb_admin
+
+    <if test="start !=null and rows != null">
+      limit #{start},#{rows}
+    </if>
+
+  </select>
+
+  <select id="selectManage_AdminListCount" parameterType="com.web.pojo.Manage_Admin" resultType="int">
+    select count(*)
+    from tb_admin
+  </select>
+
+
   <select id="Admin_login" resultMap="BaseResultMap">
     select * from tb_admin where a_email = #{email,jdbcType=VARCHAR} and a_pwd = #{pwd,jdbcType=VARCHAR}
   </select>

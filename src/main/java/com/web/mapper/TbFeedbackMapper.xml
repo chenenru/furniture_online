@@ -9,6 +9,24 @@
     <result column="f_email" property="fEmail" jdbcType="VARCHAR" />
   </resultMap>
 
+  <select id="selectManage_FeedbackList" parameterType="com.web.pojo.Manage_Feedback" resultMap="BaseResultMap">
+    SELECT
+    id, f_info, f_date, f_name, f_email
+    FROM
+    tb_feedback
+
+    <if test="start !=null and rows != null">
+      limit #{start},#{rows}
+    </if>
+
+  </select>
+
+  <select id="selectManage_FeedbackListCount" parameterType="com.web.pojo.Manage_Feedback" resultType="int">
+    select count(*)
+    from tb_feedback
+  </select>
+
+
   <select id="selectFeedbackOfAll" resultMap="BaseResultMap">
     select * from tb_feedback
   </select>

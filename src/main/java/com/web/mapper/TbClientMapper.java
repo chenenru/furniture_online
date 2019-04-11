@@ -1,5 +1,6 @@
 package com.web.mapper;
 
+import com.web.pojo.Manage_Client;
 import com.web.pojo.TbClient;
 import com.web.pojo.TbClientExample;
 import org.apache.ibatis.annotations.Param;
@@ -9,6 +10,11 @@ import java.util.List;
 
 @Repository
 public interface TbClientMapper {
+
+    List<Manage_Client> selectManage_ClientList(Manage_Client customer);
+    Integer selectManage_ClientListCount(Manage_Client customer);
+
+    
     int countByExample(TbClientExample example);
 
     int deleteByExample(TbClientExample example);

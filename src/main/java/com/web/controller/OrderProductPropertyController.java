@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -98,7 +99,7 @@ public class OrderProductPropertyController {
             tbOrder.setoAddress(tbClient.getcAddress());
             tbOrder.setoPhone(tbClient.getcPhone());
             tbOrder.setPrId(tbProductOrder.getPrId());
-            tbOrder.setoCreate(new Date());
+            tbOrder.setoCreate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
             tbOrder.setoNum(orderPay.getNum());
             tbOrder.setoStatus(0);
             tbOrder.setoTotal(tbProperty.getPrOutprice() * orderPay.getNum());
@@ -287,7 +288,7 @@ public class OrderProductPropertyController {
             TbOrder tbOrderbyPrimaryKey = orderService.getTbOrderbyPrimaryKey(Integer.valueOf(out_trade_no));
             System.out.println("##############################" + tbOrderbyPrimaryKey.toString());
             tbOrderbyPrimaryKey.setoStatus(2);
-            tbOrderbyPrimaryKey.setoPay(new Date());
+            tbOrderbyPrimaryKey.setoPay(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
             orderService.updateOrder(tbOrderbyPrimaryKey);
 
             tbOrderbyPrimaryKey = orderService.getTbOrderbyPrimaryKey(Integer.valueOf(out_trade_no));
