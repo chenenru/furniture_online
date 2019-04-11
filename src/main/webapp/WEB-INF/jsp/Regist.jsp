@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/css"/>/login.css">
     <script type="text/javascript">
         function toMail() {
-            alert("怎么回事啊，小老弟");
+            // alert("怎么回事啊，小老弟");
             var email = $("#email").val();
             var username = $("#username").val();
             var password  = $("#password").val();
@@ -22,7 +22,7 @@
             /*var sex  = $("#sex").val();*/
             var phone  = $("#phone").val();
             var address  = $("#address").val();
-            alert(email+" "+username+" "+password+" "+Rpassword+" "+phone+" "+" "+address);
+            // alert(email+" "+username+" "+password+" "+Rpassword+" "+phone+" "+" "+address);
             var jsonUser = JSON.stringify({"cName":username,"address":address,"cPwd":password,"cPhone":phone,"cAddress":address,"cEmail":email});
             $.ajax({
                 url : "${pageContext.request.contextPath }/client/regist",

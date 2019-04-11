@@ -51,6 +51,9 @@ public class OrderController {
     }
 
 
+
+
+
     @RequestMapping("/detail")
     @DateTimeFormat(pattern = "yyyy-MM-dd　HH:mm:ss")
     public String showOrder(Model model , @RequestParam("order_id") int id ,HttpSession session){

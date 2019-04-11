@@ -10,7 +10,6 @@ import com.web.utils.AlipayConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -77,7 +76,6 @@ public class OrderProductPropertyController {
 
 
     @RequestMapping(value="test_add_order",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd　HH:mm:ss")
     @ResponseBody
     public List<OrderPay> test_add_order(HttpSession session,Model model, @RequestBody List<OrderPay> orderPayList) {
 
@@ -177,7 +175,7 @@ public class OrderProductPropertyController {
 //    @RequestParam("price")Integer price,@RequestParam("num")Integer num ,
 
 
-    @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8")
+    @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8",method ={ RequestMethod.POST,RequestMethod.GET} )
     @ResponseBody
     public String goAlipay(HttpSession session ) throws Exception {
 //        System.out.println("========golipay的订单号："+orderId);
@@ -237,11 +235,13 @@ public class OrderProductPropertyController {
         //请求
         String result = alipayClient.pageExecute(alipayRequest).getBody();
 
+        System.out.println("---#@3444444444$$$$$$$$$$$$$$$$$$$" + alipayRequest.toString());
+        System.out.println("---#@3444444444$$$$$$$$$$$$$$$$$$$" + result.toString());
+
         return result;
     }
 
     @RequestMapping(value = "/alipayReturnNotice")
-    @DateTimeFormat(pattern = "yyyy-MM-dd　HH:mm:ss")
     public ModelAndView alipayReturnNotice(HttpServletRequest request, HttpServletRequest response) throws Exception {
 
         System.out.println("get===============");

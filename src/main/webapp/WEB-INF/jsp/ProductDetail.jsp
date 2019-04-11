@@ -148,6 +148,7 @@
 	});
 
 
+
 	$('#add').click(function(){
 			var sum =$("#sum").val();
 			$.ajax({
@@ -155,7 +156,7 @@
 				url:"${pageContext.request.contextPath}/addProductDetail",
 				data:{
 					"addPid":"${ProductDetail.id}",
-					"addCid":2,
+					"addCid":${sessionScope.get("user").getId()},
 					"addProNumber":sum,
 				},
 				success:function(){

@@ -74,7 +74,7 @@
                 <P><span>订单总价：</span><span>${orderProperty.oTotal}</span></P>
                 <P><span>收货地址：</span><span>${orderProperty.oAddress}</span></P>
                 <P><span>联系电话：</span><span>${orderProperty.oPhone}</span></P>
-                <P><span>下单时间：</span><span>${orderProperty.oCreate}</span></P>
+                <P><span>下单时间：</span><span>${orderProperty.oCreate}</span></P><c:if test="${orderProperty.oConfirm != null}"><a class="btn btn-warning fr"  >评论该商品</a></c:if>
                 <P><c:if test="${orderProperty.oPay == null}"><a class="btn btn-warning"
                       href="${pageContext.request.contextPath}/goAlipay">点此支付</a>&nbsp;&nbsp;
                     <a class="btn btn-warning" href="${pageContext.request.contextPath}
@@ -82,10 +82,10 @@
                 <P><c:if test="${orderProperty.oPay != null}"><span>支付时间：</span><span>${orderProperty.oPay}</span></c:if> </P>
 
                 <P><c:if test="${orderProperty.oDeliver != null}"><span>发货时间：</span><span>${orderProperty.oDeliver}</span></c:if> </P>
-
+`
                 <P><c:if test="${orderProperty.oConfirm != null}"><span>收货时间：</span><span>${orderProperty.oConfirm}</span></c:if> </P>
 
-                <P><c:if test="${orderProperty.oConfirm != null}"><a class="btn btn-warning"  >评论该商品</a></c:if> </P>
+                <c:if test="${orderProperty.oConfirm != null}"></c:if>
 
                 <%
                     TbOrderProperty tbOrderProperty = (TbOrderProperty) request.getAttribute("orderProperty");
