@@ -12,7 +12,15 @@
 
   <select id="selectProductOrderByClientOrderProproty" resultMap="BaseResultMap">
     select * from tb_product_order
-    where c_id = #{c_id,jdbcType=INTEGER} and o_id = #{o_id,jdbcType=INTEGER} and pr_id = #{pr_id,jdbcType=INTEGER}
+    where c_id = #{c_id,jdbcType=INTEGER}
+    <if test="o_id != null">
+      and o_id = #{o_id,jdbcType=INTEGER}
+    </if>
+    <if test="o_id == null">
+      and o_id is null
+    </if>
+
+    and pr_id = #{pr_id,jdbcType=INTEGER}
   </select>
 
   <sql id="Example_Where_Clause" >

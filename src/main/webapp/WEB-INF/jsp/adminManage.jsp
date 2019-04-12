@@ -281,11 +281,8 @@
                 $("#edit_cust_id").val(data.id);
                 $("#aEmail").val(data.aEmail);
                 $("#aPwd").val(data.aPwd);
-
             }
-
         });
-        //alert("json查询用户成功");
     }
 
     function updateCustomer() {

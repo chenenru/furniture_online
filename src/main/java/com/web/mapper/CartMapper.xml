@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.web.mapper.CartMapper" >
     <resultMap id="BaseResultMap" type="com.web.pojo.Cart" >
-        <id column="id" property="id" jdbcType="INTEGER" />
+        <!--<id column="id" property="id" jdbcType="INTEGER" />-->
         <result column="o_id" property="oid" jdbcType="INTEGER" />
         <result column="pro_number" property="proNumber" jdbcType="INTEGER" />
         <result column="c_id" property="cid" jdbcType="INTEGER"/>
@@ -10,18 +10,22 @@
         <!--多表查询中关联另一个实体的配置-->
         <association property="tbProperty" javaType="com.web.pojo.TbProperty">
             <!-- property 表示com.mybatis.bean.Class中的属性； column 表示表中的列名 -->
-            <id property="id" column="id" />
+            <id property="id" column="id"  jdbcType="INTEGER" />
             <result property="prImage" column="pr_image"/>
             <result property="prOutprice" column="pr_outprice"/>
         </association>
     </resultMap>
+
+
     <select id="getCart" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-        select a.id, a.pro_number, b.pr_image, b.pr_outprice, c.p_name
+        select b.id, a.pro_number, b.pr_image, b.pr_outprice, c.p_name , a.c_id
             from tb_product_order a left join tb_property b
                 on a.pr_id=b.id left join tb_product c
                 on b.p_id=c.id
                 where a.c_id=#{cid,jdbcType=INTEGER} and a.o_id is NULL
     </select>
+
+
     <delete id="removeCart"  parameterType="java.lang.Integer">
         delete from tb_product_order
 	      where id=#{cid,jdbcType=INTEGER} and o_id is NULL

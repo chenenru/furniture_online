@@ -21,6 +21,7 @@ public class CartServiceImpl implements CartService {
         List<Cart> carts = this.cartMapper.getCart(cid);
         return carts;
     }
+
     //删除购物车商品
     @Override
     public void removeCart(Integer id) {

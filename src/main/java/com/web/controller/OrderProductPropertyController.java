@@ -10,6 +10,7 @@ import com.web.utils.AlipayConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -77,6 +78,7 @@ public class OrderProductPropertyController {
 
 
     @RequestMapping(value="test_add_order",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd　HH:mm:ss")
     @ResponseBody
     public List<OrderPay> test_add_order(HttpSession session,Model model, @RequestBody List<OrderPay> orderPayList) {
 
@@ -88,9 +90,10 @@ public class OrderProductPropertyController {
 
             System.out.println(orderPay.toString()+"--------hhhhhhhh");
 
-            TbProductOrder tbProductOrder = productOrderService.selectProductOrderById(orderPay.getId());
 
-            TbClient tbClient = clientService.Service_findTbclientById(tbProductOrder.getcId());
+            TbClient tbClient = (TbClient) session.getAttribute("user");
+            TbProductOrder tbProductOrder =
+                    productOrderService.selectProductOrderByClientOrderProproty(tbClient.getId(),null,orderPay.getId());
 
             TbProperty tbProperty = propertyService.selectPropertyById(tbProductOrder.getPrId());
 
@@ -176,7 +179,7 @@ public class OrderProductPropertyController {
 //    @RequestParam("price")Integer price,@RequestParam("num")Integer num ,
 
 
-    @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8",method ={ RequestMethod.POST,RequestMethod.GET} )
+    @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8")
     @ResponseBody
     public String goAlipay(HttpSession session ) throws Exception {
 //        System.out.println("========golipay的订单号："+orderId);
@@ -220,7 +223,7 @@ public class OrderProductPropertyController {
                 + "\"total_amount\":\""+ total_amount +"\","
                 + "\"subject\":\""+ subject +"\","
                 + "\"body\":\""+ body +"\","
-               /* + "\"pName\":\""+ pName +"\","*/
+                /* + "\"pName\":\""+ pName +"\","*/
                 + "\"timeout_express\":\""+ timeout_express +"\","
                 + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
 
@@ -236,13 +239,11 @@ public class OrderProductPropertyController {
         //请求
         String result = alipayClient.pageExecute(alipayRequest).getBody();
 
-        System.out.println("---#@3444444444$$$$$$$$$$$$$$$$$$$" + alipayRequest.toString());
-        System.out.println("---#@3444444444$$$$$$$$$$$$$$$$$$$" + result.toString());
-
         return result;
     }
 
     @RequestMapping(value = "/alipayReturnNotice")
+    @DateTimeFormat(pattern = "yyyy-MM-dd　HH:mm:ss")
     public ModelAndView alipayReturnNotice(HttpServletRequest request, HttpServletRequest response) throws Exception {
 
         System.out.println("get===============");
@@ -386,14 +387,14 @@ public class OrderProductPropertyController {
                 // 修改叮当状态，改为 支付成功，已付款; 同时新增支付流水
                 //orderService.updateOrderStatus(out_trade_no, trade_no, total_amount);
 
-               // Orders order = orderService.getOrderById(out_trade_no);
+                // Orders order = orderService.getOrderById(out_trade_no);
                 //Product product = productService.getProductById(order.getProductId());
 
                 log.info("********************** 支付成功(支付宝异步通知) **********************");
                 log.info("* 订单号: {}", out_trade_no);
                 log.info("* 支付宝交易号: {}", trade_no);
                 log.info("* 实付金额: {}", total_amount);
-               //log.info("* 购买产品: {}", product.getName());
+                //log.info("* 购买产品: {}", product.getName());
                 log.info("***************************************************************");
             }
             log.info("支付成功...");

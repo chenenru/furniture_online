@@ -1,25 +1,20 @@
 package com.web.pojo;
 
 public class Cart extends TbProduct{
-    private int id;
+
     private int oid;
     private int proNumber;
     private int cid;
     private TbProperty tbProperty;
 
-    public int getCid() {
-        return cid;
-    }
-
-    public void setCid(int cid) {
-        this.cid = cid;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "oid=" + oid +
+                ", proNumber=" + proNumber +
+                ", cid=" + cid +
+                ", tbProperty=" + tbProperty +
+                '}';
     }
 
     public int getOid() {
@@ -38,6 +33,14 @@ public class Cart extends TbProduct{
         this.proNumber = proNumber;
     }
 
+    public int getCid() {
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        this.cid = cid;
+    }
+
     public TbProperty getTbProperty() {
         return tbProperty;
     }
@@ -46,4 +49,13 @@ public class Cart extends TbProduct{
         this.tbProperty = tbProperty;
     }
 
+    public Cart() {
+    }
+
+    public Cart(int oid, int proNumber, int cid, TbProperty tbProperty) {
+        this.oid = oid;
+        this.proNumber = proNumber;
+        this.cid = cid;
+        this.tbProperty = tbProperty;
+    }
 }

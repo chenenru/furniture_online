@@ -37,7 +37,7 @@
 			<div class="gwcxd center">
 				<div class="top2 center">
 					<div class="sub_top fl">
-						<input type="checkbox" value="quanxuan" class="selectAll" id="selectAll"/>全选
+						<input type="checkbox" value="quanxuan" class="selectAll" id="selectAll" onclick="checkedAll(this,'selectOne')"/>全选
 					</div>
 					<div class="sub_top fl">商品名称</div>
 					<div class="sub_top fl">单价</div>
@@ -53,19 +53,27 @@
 				</c:if>
 				<%--<c:if test="${Carts}!=null">--%>
                         <c:forEach var="Cart" items="${Carts}" begin="0" step="1">
-                            <div class="content2 center cart12" id="${Cart.id}">
+                            <div class="content2 center cart12" id="${Cart.tbProperty.id}">
                                 <div class="sub_content fl checkDiv">
-                                    <input type="checkbox" name="selectOne" value="quan" class="select" id="select${Cart.id}"/>
+                                    <input type="checkbox" name="selectOne" value="${Cart.tbProperty.id}" class="select" id="select${Cart.tbProperty.id}" onclick="chooseOne()" />
                                 </div>
+                                <input type="hidden" id="Element${Cart.tbProperty.id}" value="${Cart.tbProperty.id}" />
                                 <div class="sub_content fl"></div>
-                                <div class="sub_content fl"><img src="<c:url value='/image'/>/<c:out value="${Cart.tbProperty.prImage}"></c:out>" style="width: 50px; height: 50px;" ><c:out value="${Cart.pName}"></c:out></div>
-                                <div class="sub_content fl "><c:out value="${Cart.tbProperty.prOutprice}"></c:out></div>
-                                <div class="sub_content fl number" id="number${Cart.id}">
-									<c:out value="${Cart.proNumber}"></c:out>
+                                <div class="sub_content fl"><img src="<c:url value='/image'/>/${Cart.tbProperty.prImage}" style="width: 50px; height: 50px;" >${Cart.pName}</div>
+                                <div class="sub_content fl "><span id="oprice${Cart.tbProperty.id}">${Cart.tbProperty.prOutprice}</span></div>
+                                <%--<div class="sub_content fl number" id="number${Cart.tbProperty.id}">--%>
+									<%--<c:out value="${Cart.proNumber}"></c:out>--%>
+                                <%--</div>--%>
+                                <div class="sub_content fl" id="">
+                                    <input style="width: 50px; height: 35px;" type="number"
+                                           id="number${Cart.tbProperty.id}" value="${Cart.proNumber}"
+                                           onclick="chooseNumber(${Cart.tbProperty.id})" onblur="chooseNumber(${Cart.tbProperty.id})" />
                                 </div>
                                     <%--<c:param name="productCount"/>--%>
-                                <div class="sub_content fl price" id="price${Cart.id}"><c:out value="${Cart.tbProperty.prOutprice*Cart.proNumber}"></c:out></div>
-                                <div class="sub_content fl"><a class="remove" style="font-size: 14px;">x</a></div>
+                                <div class="sub_content fl price" id="">
+                                    <span id="oneTotal${Cart.tbProperty.id}">${Cart.tbProperty.prOutprice*Cart.proNumber}</span>
+								</div>
+                                <div class="sub_content fl"><a class="remove" style="font-size: 14px;" onclick="removeProduct(${Cart.tbProperty.id})">x</a></div>
                                 <div class="clear"></div>
                             </div>
                         </c:forEach>
@@ -74,9 +82,9 @@
 			<div class="jiesuandan mt20 center">
 				<div class="tishi fl ml20">
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/content/index.jsp">继续购物</a></li>
+						<li><a href="${pageContext.request.contextPath}/index.jsp">继续购物</a></li>
 						<li>|</li>
-						<li>共<span><c:out value="${productNum}"></c:out></span>件商品</li>
+						<li>共<span id="toTalnumber">0</span>件商品</li>
 						<div class="clear"></div>
 					</ul>
 				</div>
@@ -95,75 +103,134 @@
 		</footer>
 
 	</body>
+
+
+
 <script>
-	var ids = new Array();
-	var nums = new Array();
-	var len = 0;
-	$(document).on("click","input",function(){
-		if($(this).attr("id")=="selectAll"){
-			if($(".selectAll").prop("checked")==true){
-				$(".monry").text(${money});
-			}else{
-				$(".monry").text(0);
-			}
-		}else{
-		var id = $(this).parent().parent().attr("id");
-		ids[len] = parseInt(id);
-		nums[len++] = parseInt($("#" + id).children("div.number").text());
-		// alert(ids[1]+"-----"+nums[1]);
-		var checkbox =$("#"+id).find("input.select").attr("id");
-		if($("#"+checkbox).prop("checked")==true) {
-			var i = parseInt($(".monry").text()) + parseInt($("#" + $("#" + id).children("div.price").attr("id")).text());
-			$(".monry").text(i);
-		}else{
-			var j = parseInt($(".monry").text());
-			$(".monry").text(j-parseInt($("#" + $("#" + id).children("div.price").attr("id")).text()))
-		}
-		}
-	});
-	//传递删除的id
-	$(document).on("click","a",function(){
-        var id = $(this).parent().parent().attr("id");
-		// alert($("#"+id).children("div.number").attr("id"));
-        var money = null;
-        // var number = parseInt($("#"+$("#"+id).children("div.number").attr("id")).text());
-        var price = parseInt($("#"+$("#"+id).children("div.price").attr("id")).text());
-		return null;
+
+    function chooseOne() {
+        var test = $("input[name='selectOne']:checked");
+        var sumPrice = 0;
+        var sumNumber = 0;
+        test.each(function () {
+            var id = $(this).val();
+            var onePrice = $("#oneTotal"+id).text();
+            var oneNumber = $("#number"+id).val();
+            // alert(oneNumber + onePrice);
+            sumNumber +=  parseInt(oneNumber);
+            sumPrice  +=  parseInt(onePrice);
+        });
+        $("#toTalnumber").text(sumNumber);
+        $("#totalMoney").text(sumPrice);
+    }
+
+    function checkedAll(obj, sName){
+        var objs = document.getElementsByName(sName);
+        if(obj.checked){
+            doAllchecked();
+            for(var i = 0; i < objs.length; i++){
+                objs[i].checked = true;
+            }
+        }else{
+            for(var i = 0; i < objs.length; i++){
+                objs[i].checked = false;
+
+            }
+            cancelAll();
+        }
+    }
+
+    function doAllchecked() {
+        var sumPrice = 0;
+        var sumNumber = 0;
+        $("input[name='selectOne']").each(function(){
+            // alert($(this).val());
+            $(this).attr("checked",false);
+            $(this).attr("checked",true);
+            var id = $(this).val();
+            var onePrice = $("#oneTotal"+id).text();
+            var oneNumber = $("#number"+id).val();
+            // alert(oneNumber + onePrice);
+            sumNumber +=  parseInt(oneNumber);
+            sumPrice  +=  parseInt(onePrice);
+        });
+        $("#toTalnumber").text(sumNumber);
+        $("#totalMoney").text(sumPrice);
+        // window.location.reload();
+    }
+
+    function cancelAll() {
+        $("#toTalnumber").text("0");
+        $("#totalMoney").text("0");
+    }
+
+    function chooseNumber(id) {
+
+        // alert("nubmer");
+        var oneNumber = parseInt($("#number"+id).val());
+        var price = parseInt($("#oprice"+id).text());
+        if (oneNumber < 1){
+            oneNumber =1;
+            $("#number"+id).text("1");
+            $("#number"+id).attr("value",1);
+            $("#number"+id).html("1");
+        }
+        if ( isNaN(oneNumber)){
+            oneNumber =1;
+            $("#number"+id).text("1");
+            $("#number"+id).attr("value",1);
+            $("#number"+id).html("1");
+        }
+
+        // alert(price);
+        $("#oneTotal"+id).text(parseInt(price * oneNumber));
+
+        var test = $("input[name='selectOne']:checked");
+        var sumPrice = 0;
+        var sumNumber = 0;
+        test.each(function () {
+            var id = $(this).val();
+            var onePrice = $("#oneTotal"+id).text();
+            var oneNumber = $("#number"+id).val();
+
+            // alert(oneNumber + onePrice);
+            sumNumber +=  parseInt(oneNumber);
+            sumPrice  +=  parseInt(onePrice);
+        });
+        $("#toTalnumber").text(sumNumber);
+        $("#totalMoney").text(sumPrice);
+
+    }
+
+    //传递删除的id
+	function removeProduct(id){
           $.ajax({
               type:"post",
-              // getRemoveId.do
               url:"${pageContext.request.contextPath}/remove",
               data:{
-              	  "removeId":id,
-				  "money":${money},
-				  "number":number,
-				  "price":price
-			  },
-              success:function(){
-                  <%--alert(${Carts.get(0).id});--%>
-				  window.location.reload();
+                  "removeId":id,
               },
-              error:function(){
-                  // alert("failed");
+              success:function(){
+				  window.location.reload();
               }
           });
-	});
-
-	//设置全选
-	$(".selectAll").click(function() {
-		if($(".selectAll").prop("checked")==true){
-			// $(".select").attr("checked",false);
-			$(".select").attr("checked",true);
-		}else{
-			$(".select").attr("checked",false);
-		}
-	});
+	}
 
 	//结算
-	var allTerminal = new Array();
 	$('.jsan').click(function () {
-		for(var j=0; j<len; j++){
-			allTerminal.push({id:ids[j],num:nums[j]});
+        var allTerminal = new Array();
+        var test = $("input[name='selectOne']:checked");
+        var time=0;
+        test.each(function () {
+            var id = parseInt($(this).val());
+            var oneNumber = parseInt($("#number"+id).val());
+            allTerminal.push({id:id,num:oneNumber});
+            time = 1;
+        });
+
+        if(time != 1 ){
+        	alert("亲~您还没有勾选商品哦！");
+        	return ;
 		}
 		var Json = JSON.stringify(allTerminal);
 		$.ajax({
@@ -180,6 +247,9 @@
 				window.location.href="${pageContext.request.contextPath}/order/status_list?order_status=1"
 			}
 		});
+
 	});
+
+
 </script>
 </html>
