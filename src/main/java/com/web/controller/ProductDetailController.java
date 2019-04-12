@@ -48,7 +48,11 @@ public class ProductDetailController {
 
     @ResponseBody
     @RequestMapping("/addProductDetail")
-    public void add(int addPid, int addCid, int addProNumber){
+    public void add(int addPid, int addCid, int addProNumber,HttpSession session){
+
+        if(session.getAttribute("user") == null)
+            return "Login";
+
         try{
             TbProductOrder tbProductOrder = new TbProductOrder();
             tbProductOrder.setPrId(addPid);

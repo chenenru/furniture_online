@@ -86,10 +86,11 @@ public class OrderProductPropertyController {
 //        int i=0;
 //        ModelAndView mv = new ModelAndView("goPay");
 
+        List<OrderInfo> orderInfos = new ArrayList<OrderInfo>();
         for(OrderPay orderPay : orderPayList){
+//            System.out.println(orderPay.toString());
 
             System.out.println(orderPay.toString()+"--------hhhhhhhh");
-
 
             TbClient tbClient = (TbClient) session.getAttribute("user");
             TbProductOrder tbProductOrder =
@@ -149,6 +150,10 @@ public class OrderProductPropertyController {
             session.setAttribute("price",tbProperty.getPrOutprice() * orderPay.getNum());
             session.setAttribute("num",orderPay.getNum());
 
+            OrderInfo orderInfo = new OrderInfo(tbOrder.getId(),tbProduct.getpName(),
+                    tbProperty.getPrOutprice() * orderPay.getNum(),orderPay.getNum());
+
+            orderInfos.add(orderInfo);
 
            /* mv.addObject("orderid",tbOrder.getId());
             mv.addObject("price",tbProperty.getPrOutprice() * orderPay.getNum());
@@ -156,22 +161,13 @@ public class OrderProductPropertyController {
             mv.addObject("num",orderPay.getNum());*/
 
         }
+
+        session.setAttribute("InfoList",orderInfos);
+
+
         return orderPayList;
 
     }
-    /*@RequestMapping("/gopay")
-    public String  ToGoPay(HttpServletRequest request,Model model){
-       String orderId =request.getParameter("orderid");
-        String productName = request.getParameter("productName");
-        String price = request.getParameter("price");
-        String num = request.getParameter("num");
-        System.out.println(orderId+" "+productName+" "+price+" "+num);
-        model.addAttribute("orderid",orderId);
-        model.addAttribute("productName",productName);
-        model.addAttribute("price",price);
-        model.addAttribute("num",num);
-        return "goPay";
-    }*/
 
 
 //    @RequestParam("orderid")Integer orderId,
@@ -179,14 +175,31 @@ public class OrderProductPropertyController {
 //    @RequestParam("price")Integer price,@RequestParam("num")Integer num ,
 
 
-    @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8")
+    @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8",
+            method ={ RequestMethod.POST,RequestMethod.GET}  )
+
     @ResponseBody
     public String goAlipay(HttpSession session ) throws Exception {
 //        System.out.println("========golipay的订单号："+orderId);
-        Integer orderId= (Integer) session.getAttribute("orderid");
-        String productName= (String) session.getAttribute("productName");
-        Integer price= (Integer) session.getAttribute("price");
-        Integer num = (Integer) session.getAttribute("num");
+
+        List<OrderInfo> orderInfos = (List<OrderInfo>) session.getAttribute("InfoList");
+
+//        Integer orderId= (Integer) session.getAttribute("orderid");
+//        String productName= (String) session.getAttribute("productName");
+//        Integer price= (Integer) session.getAttribute("price");
+//        Integer num = (Integer) session.getAttribute("num");
+
+        Integer orderId=0,price=0,num=0;
+        String productName=null;
+
+        if(orderInfos.size() > 0){
+            OrderInfo orderInfo = orderInfos.get(0);
+            orderId = orderInfo.getOrderId();
+            price = orderInfo.getPrice();
+            num = orderInfo.getNum();
+            productName = orderInfo.getProductName();
+
+        }
 
         System.out.println("========golipay的订单号："+orderId);
         System.out.println("========golipay的商品名称："+productName);
@@ -239,12 +252,14 @@ public class OrderProductPropertyController {
         //请求
         String result = alipayClient.pageExecute(alipayRequest).getBody();
 
+        System.out.println("---#@3444444444$$$$$$$$$$$$$$$$$$$" + alipayRequest.toString());
+        System.out.println("---#@3444444444$$$$$$$$$$$$$$$$$$$" + result.toString());
+
         return result;
     }
 
     @RequestMapping(value = "/alipayReturnNotice")
-    @DateTimeFormat(pattern = "yyyy-MM-dd　HH:mm:ss")
-    public ModelAndView alipayReturnNotice(HttpServletRequest request, HttpServletRequest response) throws Exception {
+    public ModelAndView alipayReturnNotice(HttpServletRequest request, HttpServletRequest response,HttpSession session) throws Exception {
 
         System.out.println("get===============");
         log.info("支付成功, 进入同步通知接口...");
@@ -287,22 +302,22 @@ public class OrderProductPropertyController {
 
 
             TbOrder tbOrderbyPrimaryKey = orderService.getTbOrderbyPrimaryKey(Integer.valueOf(out_trade_no));
-            System.out.println("##############################" + tbOrderbyPrimaryKey.toString());
+            System.out.println("##############################tbOrderbyPrimaryKey" + tbOrderbyPrimaryKey.toString());
             tbOrderbyPrimaryKey.setoStatus(2);
             tbOrderbyPrimaryKey.setoPay(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
             orderService.updateOrder(tbOrderbyPrimaryKey);
 
-            tbOrderbyPrimaryKey = orderService.getTbOrderbyPrimaryKey(Integer.valueOf(out_trade_no));
-            System.out.println("##############################" + tbOrderbyPrimaryKey.toString());
 
-
-            //要更新的是购物车id对应订单的o_id
-            //1.已获得订单的id
-            //2.
-
-
-            //Orders order = orderService.getOrderById(out_trade_no);
-            //Product product = productService.getProductById(order.getProductId());
+            //额外处理的订单。。蠢方法=。=
+            List<OrderInfo> orderInfos = (List<OrderInfo>) session.getAttribute("InfoList");
+            if(orderInfos.size() > 2 ){
+                for(int i = 1 ; i < orderInfos.size() ; i++){
+                    TbOrder tbOrder = orderService.getTbOrderbyPrimaryKey(orderInfos.get(i).getOrderId());
+                    tbOrder.setoStatus(2);
+                    tbOrder.setoPay(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+                    orderService.updateOrder(tbOrder);
+                }
+            }
 
             log.info("********************** 支付成功(支付宝同步通知) **********************");
             log.info("* 订单号: {}", out_trade_no);
