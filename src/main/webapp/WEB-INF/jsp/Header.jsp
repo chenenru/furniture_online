@@ -56,7 +56,7 @@
 			<a href="#" ><div class="logo1 fl"></div></a>
 			<div class="nav fl" style="display: inline-block;">
 				<ul>
-					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=餐厅" target="_blank">餐厅</a></li>
+					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=餐厅">餐厅</a></li>
 					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=儿童">儿童</a></li>
 					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=客厅">客厅</a></li>
 					<li><a href="${pageContext.request.contextPath }/selectProductByType?type=书房">书房</a></li>

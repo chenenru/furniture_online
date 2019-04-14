@@ -32,31 +32,31 @@ import java.util.*;
  * @Version 1.0
  **/
 
-@Controller
-public class OrderProductPropertyController {
+        @Controller
+        public class OrderProductPropertyController {
 
-    final static Logger log = LoggerFactory.getLogger(OrderProductPropertyController.class);
+            final static Logger log = LoggerFactory.getLogger(OrderProductPropertyController.class);
 
-    @Autowired
-    ProductOrderService productOrderService;
+            @Autowired
+            ProductOrderService productOrderService;
 
-    @Autowired
-    ClientService clientService;
+            @Autowired
+            ClientService clientService;
 
-    @Autowired
-    OrderService orderService;
+            @Autowired
+            OrderService orderService;
 
-    @Autowired
-    PropertyService propertyService;
+            @Autowired
+            PropertyService propertyService;
 
-    @Autowired
-    CartService cartService;
+            @Autowired
+            CartService cartService;
 
-    @Autowired
-    ProductService productService;
+            @Autowired
+            ProductService productService;
 
-    @RequestMapping("test_cart")
-    public String test(Model model){
+            @RequestMapping("test_cart")
+            public String test(Model model){
 
 //        for(TbProductProperty tbProductProperty : orderProductProperties.getProductProperties()){
 //            System.out.println(tbProductProperty.toString());
@@ -86,17 +86,38 @@ public class OrderProductPropertyController {
 //        int i=0;
 //        ModelAndView mv = new ModelAndView("goPay");
 
+        TbClient tbClient = (TbClient) session.getAttribute("user");
+        List<OrderPay> errorOrder = new ArrayList<OrderPay>();
+        errorOrder.add(new OrderPay(-1,-1));
+        int index_car = 1;
+
+        //检验订单的商品数量是否超出了商品的货存
+        for(OrderPay orderPay : orderPayList){
+            TbProductOrder tbProductOrder =
+                    productOrderService.selectProductOrderByClientOrderProproty(tbClient.getId(),null,orderPay.getId());
+
+            TbProperty tbProperty = propertyService.selectPropertyById(tbProductOrder.getPrId());
+            if(tbProperty.getPrStore() < orderPay.getNum() )
+                errorOrder.add(new OrderPay(index_car,tbProperty.getPrStore()));
+            index_car++;
+        }
+        if(errorOrder.size() > 1)
+            return errorOrder;
+
         List<OrderInfo> orderInfos = new ArrayList<OrderInfo>();
         for(OrderPay orderPay : orderPayList){
 //            System.out.println(orderPay.toString());
 
             System.out.println(orderPay.toString()+"--------hhhhhhhh");
 
-            TbClient tbClient = (TbClient) session.getAttribute("user");
+
             TbProductOrder tbProductOrder =
                     productOrderService.selectProductOrderByClientOrderProproty(tbClient.getId(),null,orderPay.getId());
 
             TbProperty tbProperty = propertyService.selectPropertyById(tbProductOrder.getPrId());
+            tbProperty.setPrStore(tbProperty.getPrStore() - orderPay.getNum());
+            propertyService.updateProperty(tbProperty);
+
 
             TbOrder tbOrder = new TbOrder();
             tbOrder.setcId(tbClient.getId());
@@ -119,6 +140,7 @@ public class OrderProductPropertyController {
 
             productOrderService.updateProductOrderById(tbProductOrder);
             orderService.updateOrder(tbOrder);
+
 
 
             System.out.println("*******************" + tbProductOrder.toString());
@@ -177,7 +199,6 @@ public class OrderProductPropertyController {
 
     @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8",
             method ={ RequestMethod.POST,RequestMethod.GET}  )
-
     @ResponseBody
     public String goAlipay(HttpSession session ) throws Exception {
 //        System.out.println("========golipay的订单号："+orderId);
@@ -302,7 +323,7 @@ public class OrderProductPropertyController {
 
 
             TbOrder tbOrderbyPrimaryKey = orderService.getTbOrderbyPrimaryKey(Integer.valueOf(out_trade_no));
-            System.out.println("##############################tbOrderbyPrimaryKey" + tbOrderbyPrimaryKey.toString());
+            System.out.println("##############################" + tbOrderbyPrimaryKey.toString());
             tbOrderbyPrimaryKey.setoStatus(2);
             tbOrderbyPrimaryKey.setoPay(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
             orderService.updateOrder(tbOrderbyPrimaryKey);
@@ -318,6 +339,22 @@ public class OrderProductPropertyController {
                     orderService.updateOrder(tbOrder);
                 }
             }
+
+
+
+
+
+//            tbOrderbyPrimaryKey = orderService.getTbOrderbyPrimaryKey(Integer.valueOf(out_trade_no));
+//            System.out.println("##############################" + tbOrderbyPrimaryKey.toString());
+
+
+            //要更新的是购物车id对应订单的o_id
+            //1.已获得订单的id
+            //2.
+
+
+            //Orders order = orderService.getOrderById(out_trade_no);
+            //Product product = productService.getProductById(order.getProductId());
 
             log.info("********************** 支付成功(支付宝同步通知) **********************");
             log.info("* 订单号: {}", out_trade_no);

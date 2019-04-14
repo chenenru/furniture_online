@@ -55,22 +55,17 @@
 			<div class="jiage ml20 mt10">单价：<span id="onePrice"><c:out value="${ProductDetail.tbProperty.prOutprice}"></c:out>.00</span></div>
 			<div class="ft20 ml20 mt20">颜色：<span><c:out value="${ProductDetail.tbProperty.prColor}"></c:out></span></div>
 			
-			<div class="ft20 ml20 mt20" >选择尺寸：<c:out value="${ProductDetail.tbProperty.prSize}"></c:out></div>
-			<div class="xzbb ml20 mt10">
-				<div class="banben">
-					<div class="yanse" id="yan1" style="height: 60px; width: 200px;">
-						<a href="#" onclick="chooseSize1()"><span id="size1" ><c:out value="${ProductDetail.tbProperty.prSize}"></c:out></span></a>
-					</div>
-					<%--<div class="yanse" id="yan2">--%>
-						<%--<a href="#" onclick="chooseSize2()"><span id="size2">41</span></a>--%>
-					<%--</div>--%>
-				</div>
+			<div class="ft20 ml20 mt20" >尺寸：<c:out value="${ProductDetail.tbProperty.prSize}"></c:out></div>
+			<div class="xzbb ml20 mt10" style="color: orange;font-size:16px;">
+				销量：${ProductDetail.tbProperty.prInnum - ProductDetail.tbProperty.prStore} &nbsp;&nbsp;&nbsp;&nbsp;
+				货存：${ProductDetail.tbProperty.prStore}
 			</div>
 			
 			
 			<div class="ft20 ml20 mt20">数量：
 				<div class="sub_content" style="display:inline-block;">
-					<input class="shuliang" id="sum" type="number" value="1" step="1" min="1" style="width: 50px;" >
+					<input class="shuliang" id="sum" type="number" value="1" step="1" min="1" style="width: 50px;"
+						   onblur="chooseNumber()" onclick="chooseNumber()" >
 				</div>
 			</div>
 			
@@ -86,7 +81,7 @@
 			<br><br>
 			<div class="xiadan ml20 mt20">
 					<%--<input class="jrgwc"  type="button" name="jrgwc" value="立即选购" id="buy"  />--%>
-					<input class="jrgwc" type="button" name="jrgwc" value="加入购物车" id="add" />
+					<input class="jrgwc "  type="button" name="jrgwc" value="加入购物车" id="add" />
 			</div>
 		</div>
 		</div>
@@ -109,54 +104,47 @@
 	</body>
 	<script type="text/javascript">
 
-	
-	function chooseSize1() {
-		size = document.getElementById("size1").innerText;
-// 		alert("-----");
-// 		alert(size);
-		$("#yan2").css("border","1px solid #bbb");
-		$("#yan1").css("border","1px solid #ff6700");
-		$("#size2").css("color","black");
-		$("#size1").css("color","#ff6700");
-		
-	}
-	
-	function chooseSize2() {
-		size = document.getElementById("size2").innerText;
-// 		alert("-----");
-// 		alert(size);
-		$("#yan1").css("border","1px solid #bbb");
-		$("#yan2").css("border","1px solid #ff6700");
-		$("#size1").css("color","black");
-		$("#size2").css("color","#ff6700");
-	}
-	
-	$("#sum").blur(function(){
-		count = $("#sum").val();
-		var oneprice = document.getElementById("onePrice").innerText;
-		
-// 		alert(size);
-		
-		$("#AllPrice").text((count * oneprice) );
-	});
-	
-	$("#sum").click(function(){
-			
-		count = $("#sum").val();
-		var oneprice = document.getElementById("onePrice").innerText;
-		$("#AllPrice").text((count * oneprice) );
-	});
+
+
+		function chooseNumber() {
+
+			// alert("---");
+
+			var oneNumber = parseInt($("#sum").val());
+			var price = ${ProductDetail.tbProperty.prOutprice};
+			if (oneNumber < 1){
+				oneNumber =1;
+				$("#sum").text("1");
+				$("#sum").attr("value",1);
+				$("#sum").html("1");
+			}
+			if ( isNaN(oneNumber)){
+				oneNumber =1;
+				$("#sum").text("1");
+				$("#sum").attr("value",1);
+				$("#sum").html("1");
+			}
+
+			$("#AllPrice").text(parseInt(price * oneNumber));
+		}
 
 
 
 	$('#add').click(function(){
-			var sum =$("#sum").val();
+
+		var storenow = ${ProductDetail.tbProperty.prStore};
+		// alert(storenow);
+		var sum =$("#sum").val();
+		if (storenow < sum) {
+			alert("亲~该商品的货存不足！");
+			return;
+		}
+		if( storenow >= sum ){
 			$.ajax({
 				type:"post",
 				url:"${pageContext.request.contextPath}/addProductDetail",
 				data:{
 					"addPid":"${ProductDetail.id}",
-					"addCid":${sessionScope.get("user").getId()},
 					"addProNumber":sum,
 				},
 				success:function(){
@@ -166,20 +154,11 @@
 					alert("亲，很遗憾，加入购物车失败！");
 				}
 			});
+		}
+
 	});
 	
 
-	function sleep(numberMillis) { 
-		var now = new Date(); 
-		var exitTime = now.getTime() + numberMillis; 
-		while (true) { 
-		now = new Date(); 
-		if (now.getTime() > exitTime) 
-		return; 
-		} 
-		}
-	
-	
 	</script>
 	
 </html>

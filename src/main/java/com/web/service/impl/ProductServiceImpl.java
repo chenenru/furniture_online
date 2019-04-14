@@ -17,6 +17,7 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private TbProductMapper tbProductMapper;
 
+
     @Override
     public List<TbProductProperty> selectProductByType(String type) {
         List<TbProductProperty> tbProductProperties = tbProductMapper.selectProductByType(type);

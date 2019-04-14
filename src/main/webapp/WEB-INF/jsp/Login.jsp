@@ -20,7 +20,7 @@
 				<a href="${pageContext.request.contextPath}/index" target="_blank"><img src="<c:url value='/js'/>/finallogo.jpg" alt=""></a>
 			</div>-->
 		</div>
-		<form  method="post" action="/client/login" class="form center" id="myform">
+		<form  method="post" action="${pageContext.request.contextPath}/client/login" class="form center" id="myform">
 		<div class="login">
 			<div class="login_center">
 				<div class="login_top">

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class ProductDetailController {
         System.out.println("pr_id======="+tbComment.getCo_info());
         //TbComment tbComment = new TbComment();
         tbComment.setC_id(tbClient.getId());
-        tbComment.setCo_date(new Date().toString());
+        tbComment.setCo_date(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
         tbComment.setPr_id(pr_id);
         System.out.println("=========="+tbComment);
         commentService.insertComment(tbComment);
@@ -55,8 +56,9 @@ public class ProductDetailController {
 
         try{
             TbProductOrder tbProductOrder = new TbProductOrder();
+            TbClient tbClient = (TbClient) session.getAttribute("user");
             tbProductOrder.setPrId(addPid);
-            tbProductOrder.setcId(addCid);
+            tbProductOrder.setcId(tbClient.getId() );
             tbProductOrder.setProNumber(addProNumber);
             this.productDetailService.addProductDetail(tbProductOrder);
             System.out.println("客户ID："+tbProductOrder.getcId());

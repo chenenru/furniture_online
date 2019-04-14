@@ -61,7 +61,7 @@
 
     <select id="getCommentListByPropertyId" resultMap="commentPropertyResult">
         select pr_color, pr_size, pr_material,c_email,c_name,co_info,co_date,co_grade
-        from tb_property left join tb_comment on tb_property.id = tb_comment.pr_id
+        from tb_comment left join tb_property on tb_property.id = tb_comment.pr_id
             left join tb_client on tb_client.id = tb_comment.c_id
         where tb_property.id = #{id,jdbcType=INTEGER}
     </select>

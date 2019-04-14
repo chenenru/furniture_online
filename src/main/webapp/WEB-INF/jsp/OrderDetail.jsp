@@ -1,4 +1,7 @@
+<%@ page import="com.web.pojo.OrderInfo" %>
 <%@ page import="com.web.pojo.TbOrderProperty" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -153,10 +156,15 @@
                 <P><c:if test="${orderProperty.oConfirm != null}"><span>收货时间：</span><span>${orderProperty.oConfirm}</span></c:if> </P>
                 <%
                     TbOrderProperty tbOrderProperty = (TbOrderProperty) request.getAttribute("orderProperty");
-                    session.setAttribute("orderid", tbOrderProperty.getId() );
-                    session.setAttribute("productName",tbOrderProperty.getTbProduct().getpName());
-                    session.setAttribute("price",tbOrderProperty.getTbProperty().getPrOutprice() * tbOrderProperty.getoNum());
-                    session.setAttribute("num",tbOrderProperty.getoNum());
+//                    session.setAttribute("orderid", tbOrderProperty.getId() );
+//                    session.setAttribute("productName",tbOrderProperty.getTbProduct().getpName());
+//                    session.setAttribute("price",tbOrderProperty.getTbProperty().getPrOutprice() * tbOrderProperty.getoNum());
+//                    session.setAttribute("num",tbOrderProperty.getoNum());
+                    List<OrderInfo> orderInfos = new ArrayList<OrderInfo>();
+                    OrderInfo orderInfo = new OrderInfo(tbOrderProperty.getId(),tbOrderProperty.getTbProduct().getpName(),
+                            tbOrderProperty.getTbProperty().getPrOutprice() * tbOrderProperty.getoNum(),tbOrderProperty.getoNum() );
+                    orderInfos.add(orderInfo);
+                    session.setAttribute("InfoList",orderInfos);
                 %>
             </div>
             <!-- 客户编辑信息框 -->
@@ -209,7 +217,7 @@
     function addComment() {
         var grade = $("#edit_commentgrade").val();
         var info = $("#edit_commentinfo").val();
-        alert(grade+" "+info);
+        // alert(grade+" "+info);
         var jsonUser = JSON.stringify({"co_grade":grade,"co_info":info});
         $.ajax({
             url : "${pageContext.request.contextPath }/setcomment?pr_id=${orderProperty.tbProperty.id}",

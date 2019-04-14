@@ -31,4 +31,9 @@ public interface ProductService {
     //更新对应产品记录的信息 tbproduct对象为新信息记录
     void updateProductById(TbProduct tbProduct);
 
+
+//    //统计每一个商品类别的利润
+//    List<ProductData> getProductData();
+
+
 }

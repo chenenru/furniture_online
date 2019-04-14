@@ -235,8 +235,10 @@ public class ClientController {
         //2.3邮件的主题
         message.setSubject("您好，这是网上家具商城激活用户账号的邮件");
         //2.4邮件的正文（即邮件的内容）
-        message.setContent("<h1>来自网上家具商城的激活邮件，点击链接激活账号：</h1><h3><a href='http://localhost:8080/client/active?code="+code+"'>" +
-                "http://localhost:8080/client/active?code="+code+"</a></h3>，祝您购物愉快！", "text/html;charset=utf-8");
+        message.setContent("<h1>来自网上家具商城的激活邮件，点击链接激活账号：</h1><h3><a href='http://120.79.163.179:8080/furniture_online/client/active?code="+code+"'>" +
+                "http://120.79.163.179:8080/furniture_online/client/active?code="+code+"</a></h3>，祝您购物愉快！", "text/html;charset=utf-8");
+
+//        120.79.163.179:8080
 
         //3.发送邮件
         Transport trans = session.getTransport();

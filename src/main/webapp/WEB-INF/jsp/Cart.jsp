@@ -240,11 +240,18 @@
 			data:Json,
 			dataType:"json",
 			contentType:"application/json;charset=UTF-8",
-			success:function(){
-				window.location.href="${pageContext.request.contextPath}/goAlipay";
+			success:function(result) {
+			    console.log(result);
+                // alert(allTerminal.length);
+                if(result[0].id == -1 )
+                    for (var i = 1 ; i < result.length ; i++ )
+                        alert("很抱歉~购物车的第" + result[i].id + "行的商品货存已不足，请修改数量！");
+
+                else
+				    window.location.href="${pageContext.request.contextPath}/goAlipay";
 			},
 			error:function(){
-				window.location.href="${pageContext.request.contextPath}/order/status_list?order_status=1"
+				alert("返回error");
 			}
 		});
 

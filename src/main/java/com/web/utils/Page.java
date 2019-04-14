@@ -8,6 +8,7 @@ public class Page<T> {
 	private int page;
 	private int size;
     private List<T> rows;
+
 	public int getTotal() {
 		return total;
 	}

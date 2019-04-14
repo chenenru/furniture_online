@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ClassName OrderManage
@@ -31,6 +33,144 @@ public class ManageController {
     AdminService adminService;
     @Autowired
     ClientService clientService;
+    @Autowired
+    ProductService productService;
+
+    @RequestMapping("manageSale")
+    public String showSale(Model model,HttpSession session){
+        if(session.getAttribute("admin") == null)
+            return "AdminLogin";
+        List<TbProductProperty> productPropertyList = productService.selectProductByType("%");
+
+        String type = "餐厅";
+        int sum = 0;
+        TbProductProperty pre_product=null;
+        List<ProductData> dataList = new ArrayList<ProductData>();
+        for( TbProductProperty productProperty : productPropertyList ){
+            if(productProperty.getpType().equals(type) ){
+                sum += productProperty.getPrInnum() - productProperty.getPrStore();
+                pre_product = productProperty;
+            }
+            else{
+                type = productProperty.getpType();
+                ProductData productData = new ProductData(pre_product.getpType(), sum);
+                sum = productProperty.getPrInnum() - productProperty.getPrStore();
+                dataList.add(productData);
+            }
+
+        }
+        dataList.add(new ProductData(pre_product.getpType(),sum));
+
+
+        model.addAttribute("productData",dataList);
+        for(ProductData productData : dataList)
+            System.out.println();
+
+        return "SaleAnalyse";
+    }
+
+    @RequestMapping("salePie")
+    public String showSalePie(Model model,HttpSession session){
+        if(session.getAttribute("admin") == null)
+            return "AdminLogin";
+
+        List<TbProductProperty> productPropertyList = productService.selectProductByType("%");
+
+        String type = "餐厅";
+        int sum = 0;
+        TbProductProperty pre_product=null;
+        List<ProductData> dataList = new ArrayList<ProductData>();
+        for( TbProductProperty productProperty : productPropertyList ){
+            if(productProperty.getpType().equals(type) ){
+                sum += productProperty.getPrInnum() - productProperty.getPrStore();
+                pre_product = productProperty;
+            }
+            else{
+                type = productProperty.getpType();
+                ProductData productData = new ProductData(pre_product.getpType(), sum);
+                sum = productProperty.getPrInnum() - productProperty.getPrStore();
+                dataList.add(productData);
+            }
+
+        }
+        dataList.add(new ProductData(pre_product.getpType(),sum));
+
+
+        model.addAttribute("productData",dataList);
+        for(ProductData productData : dataList)
+            System.out.println();
+
+        return "SalePie";
+    }
+
+    @RequestMapping("manageProfit")
+    public String showProfit(Model model,HttpSession session){
+        if(session.getAttribute("admin") == null)
+            return "AdminLogin";
+
+        List<TbProductProperty> productPropertyList = productService.selectProductByType("%");
+
+        int productId = 1;
+        String type = "餐厅";
+        int sum = 0;
+        TbProductProperty pre_product=null;
+        List<ProductData> dataList = new ArrayList<ProductData>();
+        for( TbProductProperty productProperty : productPropertyList ){
+            if( productProperty.getpType().equals(type) ){
+                sum += productProperty.getPrInnum() - productProperty.getPrStore();
+                pre_product = productProperty;
+            }
+            else{
+                type = productProperty.getpType();
+                ProductData productData = new ProductData(pre_product.getpType(),
+                        sum*(pre_product.getPrOutprice() - pre_product.getPrInprice()));
+                sum = productProperty.getPrInnum() - productProperty.getPrStore();
+                dataList.add(productData);
+            }
+        }
+        dataList.add(new ProductData(pre_product.getpType(),
+                        sum*(pre_product.getPrOutprice() - pre_product.getPrInprice())));
+
+        model.addAttribute("productData",dataList);
+        for(ProductData productData : dataList)
+            System.out.println();
+
+        return "ProfitAnalyse";
+    }
+
+    @RequestMapping("profitPie")
+    public String showProfitPie(Model model,HttpSession session){
+        if(session.getAttribute("admin") == null)
+            return "AdminLogin";
+        List<TbProductProperty> productPropertyList = productService.selectProductByType("%");
+
+        int productId = 1;
+        String type = "餐厅";
+        int sum = 0;
+        TbProductProperty pre_product=null;
+        List<ProductData> dataList = new ArrayList<ProductData>();
+        for( TbProductProperty productProperty : productPropertyList ){
+            if( productProperty.getpType().equals(type) ){
+                sum += productProperty.getPrInnum() - productProperty.getPrStore();
+                pre_product = productProperty;
+            }
+            else{
+                type = productProperty.getpType();
+                ProductData productData = new ProductData(pre_product.getpType(),
+                        sum*(pre_product.getPrOutprice() - pre_product.getPrInprice()));
+                sum = productProperty.getPrInnum() - productProperty.getPrStore();
+                dataList.add(productData);
+            }
+        }
+        dataList.add(new ProductData(pre_product.getpType(),
+                sum*(pre_product.getPrOutprice() - pre_product.getPrInprice())));
+
+        model.addAttribute("productData",dataList);
+        for(ProductData productData : dataList)
+            System.out.println();
+
+        return "ProfitPie";
+    }
 
 
 

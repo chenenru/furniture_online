@@ -1,11 +1,9 @@
 package com.web.controller;
 
-import com.web.pojo.TbClient;
-import com.web.pojo.TbOrder;
-import com.web.pojo.TbOrderProperty;
-import com.web.pojo.TbProductOrder;
+import com.web.pojo.*;
 import com.web.service.OrderService;
 import com.web.service.ProductOrderService;
+import com.web.service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -38,6 +36,9 @@ public class OrderController {
 
     @Autowired
     private ProductOrderService productOrderService;
+
+    @Autowired
+    private PropertyService propertyService;
 
 
 
@@ -73,6 +74,9 @@ public class OrderController {
         }
 
         TbProductOrder tbProductOrder = productOrderService.selectProductOrderByClientOrderProproty(c_id,o_id,pr_id);
+        TbProperty tbProperty = propertyService.selectPropertyById(tbProductOrder.getPrId());
+        tbProperty.setPrStore(tbProperty.getPrStore() - tbProductOrder.getProNumber());
+        propertyService.updateProperty(tbProperty);
 
         productOrderService.removeProductOrderById(tbProductOrder.getId());
 
@@ -93,9 +97,14 @@ public class OrderController {
         TbProductOrder tbProductOrder =
                 productOrderService.selectProductOrderByClientOrderProproty(tbClient.getId(),o_id,pr_id);
 
+
         productOrderService.removeProductOrderById(tbProductOrder.getId());
 
         orderService.removeOrderById(o_id);
+
+        TbProperty tbProperty = propertyService.selectPropertyById(tbProductOrder.getPrId());
+        tbProperty.setPrStore(tbProperty.getPrStore() - tbProductOrder.getProNumber());
+        propertyService.updateProperty(tbProperty);
 
         return "OrderList";
     }
@@ -180,10 +189,6 @@ public class OrderController {
     public String showStatus(Model model , @RequestParam("order_status")int order_status ,HttpSession session){
 
 
-
-//        获取当前登陆的账号id
-//        int userId = (int)session.getAttribute("userId") ;
-
         System.out.println(order_status);
         TbClient client = (TbClient) session.getAttribute("user");
         if(client == null){
@@ -193,19 +198,6 @@ public class OrderController {
         List<TbOrderProperty> tbOrderProperties = orderService.getOrderListbyStatus(client.getId(),order_status);
 
         model.addAttribute("orderList",tbOrderProperties);
-
-//        标记此时是何种订单页面列表
-//        int status = 0;
-//        if(order_status == 1)
-//            status = "create";
-//        if(order_status == 2)
-//            status = "pay";
-//        if(order_status == 3)
-//            status = "deliver";
-//        if(order_status == 4)
-//            status = "confirm";
-//        if(order_status == 5)
-//            status = "comment";
 
         model.addAttribute("order_page",order_status);
 

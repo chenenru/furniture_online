@@ -72,7 +72,7 @@
                     class="icon-bar"></span> <span class="icon-bar"></span> <span
                     class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">面对疾风后台管理系统</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/manageOrder">面对疾风后台管理系统</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -84,7 +84,7 @@
             </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li class="divider"></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>
+                    <li><a href="${pageContext.request.contextPath}/admin/logout"><i class="fa fa-sign-out fa-fw"></i>
                         退出登录</a></li>
                 </ul> <!-- /.dropdown-user --></li>
             <!-- /.dropdown -->
@@ -94,18 +94,11 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="查询内容...">
-                            <span class="input-group-btn">
-								<button class="btn btn-default" type="button">
-									<i class="fa fa-search" style="padding: 3px 0 3px 0;"></i>
-								</button>
-							</span>
-                        </div> <!-- /input-group -->
-                    </li>
+
                     <li><a href="${pageContext.request.contextPath}/manageOrder" class="active"><i
                             class="fa fa-edit fa-fw"></i>订单管理</a></li>
+                    <li><a href="${pageContext.request.contextPath}/ProductManage" class="active"><i
+                            class="fa fa-edit fa-fw"></i>商品管理</a></li>
                     <li><a href="${pageContext.request.contextPath}/manageAdmin" class="active"><i
                             class="fa fa-edit fa-fw"></i>管理员管理</a></li>
                     <li><a href="${pageContext.request.contextPath}/manageClient" class="active"><i
@@ -114,6 +107,10 @@
                             class="fa fa-edit fa-fw"></i>评论管理</a></li>
                     <li><a href="${pageContext.request.contextPath}/manageFeedback" class="active"><i
                             class="fa fa-edit fa-fw"></i>反馈管理</a></li>
+                    <li><a href="${pageContext.request.contextPath}/manageProfit" class="active"><i
+                            class="fa fa-edit fa-fw"></i>利润统计</a></li>
+                    <li><a href="${pageContext.request.contextPath}/manageSale" class="active"><i
+                            class="fa fa-edit fa-fw"></i>销量统计</a></li>
 
 
                 </ul>
@@ -166,11 +163,11 @@
                     <%--</div>--%>
                     <button type="submit" class="btn btn-primary">查询</button>
 
-                    <a style="margin-left: 20px;" class="btn btn-primary" href="/manageOrder">所有订单</a>
-                    <a style="margin-left: 20px;" class="btn btn-primary" href="/manageOrder?type=1">未付款订单</a>
-                    <a style="margin-left: 20px;" class="btn btn-primary" href="/manageOrder?type=2">已付款订单</a>
-                    <a style="margin-left: 20px;" class="btn btn-primary" href="/manageOrder?type=3">已发货订单</a>
-                    <a style="margin-left: 20px;" class="btn btn-primary" href="/manageOrder?type=4">已签收订单</a>
+                    <a style="margin-left: 20px;" class="btn btn-primary" href="${pageContext.request.contextPath}/manageOrder">所有订单</a>
+                    <a style="margin-left: 20px;" class="btn btn-primary" href="${pageContext.request.contextPath}/manageOrder?type=1">未付款订单</a>
+                    <a style="margin-left: 20px;" class="btn btn-primary" href="${pageContext.request.contextPath}/manageOrder?type=2">已付款订单</a>
+                    <a style="margin-left: 20px;" class="btn btn-primary" href="${pageContext.request.contextPath}/manageOrder?type=3">已发货订单</a>
+                    <a style="margin-left: 20px;" class="btn btn-primary" href="${pageContext.request.contextPath}/manageOrder?type=4">已签收订单</a>
 
                 </form>
             </div>

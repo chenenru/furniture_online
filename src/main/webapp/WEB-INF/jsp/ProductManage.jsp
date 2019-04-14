@@ -53,7 +53,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.html">面对疾风后台管理系统</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/manageOrder">面对疾风后台管理系统</a>
 		</div>
 		<!-- /.navbar-header -->
 
@@ -67,7 +67,7 @@
 					<li><a href="#"><i class="fa"></i> </a></li>
 					<li><a href="#"><i class="fa"></i> </a></li>
 					<li class="divider"></li>
-					<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>
+					<li><a href="${pageContext.request.contextPath}/admin/logout"><i class="fa fa-sign-out fa-fw"></i>
 							退出登录</a></li>
 				</ul> <!-- /.dropdown-user --></li>
 			<!-- /.dropdown -->
@@ -77,20 +77,23 @@
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
-					<li class="sidebar-search">
-						<div class="input-group custom-search-form">
-							<%--<input type="text" class="form-control" placeholder="查询内容...">--%>
-							<%--<span class="input-group-btn">--%>
-								<%--<button class="btn btn-default" type="button">--%>
-									<%--<i class="fa fa-search" style="padding: 3px 0 3px 0;"></i>--%>
-								<%--</button>--%>
-							<%--</span>--%>
-						</div> <!-- /input-group -->
-					</li>
-					<li><a href="orderManege.jsp" class="active"><i
+
+					<li><a href="${pageContext.request.contextPath}/manageOrder" class="active"><i
 							class="fa fa-edit fa-fw"></i>订单管理</a></li>
-					<li><a href="userManege.jsp"><i
-							class="fa fa-dashboard fa-fw"></i>用户管理</a></li>
+					<li><a href="${pageContext.request.contextPath}/ProductManage" class="active"><i
+							class="fa fa-edit fa-fw"></i>商品管理</a></li>
+					<li><a href="${pageContext.request.contextPath}/manageAdmin" class="active"><i
+							class="fa fa-edit fa-fw"></i>管理员管理</a></li>
+					<li><a href="${pageContext.request.contextPath}/manageClient" class="active"><i
+							class="fa fa-edit fa-fw"></i>用户管理</a></li>
+					<li><a href="${pageContext.request.contextPath}/manageComment" class="active"><i
+							class="fa fa-edit fa-fw"></i>评论管理</a></li>
+					<li><a href="${pageContext.request.contextPath}/manageFeedback" class="active"><i
+							class="fa fa-edit fa-fw"></i>反馈管理</a></li>
+					<li><a href="${pageContext.request.contextPath}/manageProfit" class="active"><i
+							class="fa fa-edit fa-fw"></i>利润统计</a></li>
+					<li><a href="${pageContext.request.contextPath}/manageSale" class="active"><i
+							class="fa fa-edit fa-fw"></i>销量统计</a></li>
 				</ul>
 			</div>
 			<!-- /.sidebar-collapse -->
@@ -393,24 +396,6 @@
 				});
 			}
 		}
-
-		<%--$(document).ready(function(){--%>
-			<%--$('#searchProducts').click(function(){--%>
-				<%--var name = $('#customerName').text();--%>
-				<%--alert(name);--%>
-				<%--$.ajax({--%>
-					<%--type:"post",--%>
-					<%--url:"${pageContext.request.contextPath}/ProductManage",--%>
-					<%--data:{"start":1,--%>
-						<%--"rows":10,--%>
-						<%--"name":name--%>
-					<%--},--%>
-					<%--success:function() {--%>
-						<%--alert("");--%>
-						<%--window.location.reload();--%>
-					<%--}--%>
-				<%--});--%>
-			<%--});--%>
 	</script>
 
 </body>

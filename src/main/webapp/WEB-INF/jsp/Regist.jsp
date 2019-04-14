@@ -32,7 +32,7 @@
                 data:jsonUser,
                 success:function (data) {
                     alert("注册账号成功，请到邮箱里面激活账户，祝您购物愉快");
-                    window.location.href = 'http://localhost:8080/index';
+                    window.location.href = 'http://120.79.163.179:8080/furniture_online/index';
                 }
             });
         };

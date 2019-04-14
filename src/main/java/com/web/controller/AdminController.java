@@ -25,7 +25,12 @@ public class AdminController {
 
 
 
+    @RequestMapping("logout")
+    public String adminLogout(HttpSession session){
+        session.invalidate();
 
+        return "AdminLogin";
+    }
 
 
     @RequestMapping("/gotoAdmin")
