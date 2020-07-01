@@ -32,7 +32,7 @@
 		<jedis.version>2.9.0</jedis.version>
 		<solrj.version>4.10.3</solrj.version>
 		<freemarker.version>2.3.23</freemarker.version>
-		<quartz.version>2.3.0</quartz.version>
+		<quartz.version>2.3.2</quartz.version>
 		<fastdfs-client-java.version>1.27-SNAPSHOT</fastdfs-client-java.version>
 		<javax.mail.version>1.5.4</javax.mail.version>
 		<activation.version>1.1.1</activation.version>
